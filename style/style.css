@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+:root {
+    --colored: var(--bs-red);
+    --black: var(--bs-gray-dark);
+    /* Font sizes. */
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 3rem;
+}
+
+html {
+    font-size: 9pt;
+    font-family: verdana, "Proza Libre", "Trebuchet MS", sans-serif;
+    color: var(--black);
+}
+
+body {}
+
+div,
+li,
+p,
+a,
+span {
+    font-size: 8pt;
+    font-size: var(--font-size-md);
+}
+
+.container-lg {
+    max-width: 900px !important;
+    margin: auto;
+    /* padding: 10px; */
+    /* background: rgb(243, 243, 243); */
+}
+
+h1 {
+    color: var(--colored);
+    text-transform: uppercase;
+    font-size: var(--font-size-xl) !important;
+    font-weight: 700 !important;
+    text-align: left;
+    width: 100px;
+    margin-left: 110px;
+    position: relative;
+}
+
+h1::before {
+    width: 100px;
+    display: block;
+    bottom: 50%;
+    left: -110px;
+    content: "";
+    border: 1px solid #333;
+    position: absolute;
+}
+
+ul.bullets {
+    margin: 0;
+    padding: 0 15px;
+}
+
+.mb-3 {
+    margin: 5px 0 0 0;
+}
+
+
+/*******/
+
+article {
+    display: flex;
+}
+
+aside {
+    width: 100px;
+    padding-right: 10px;
+    font-size: var(--font-size-sm) !important;
+}
+
+div.content {
+    width: 700px;
+}
+
+
+/*******/
+
+.upper {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.date {
+    text-align: right;
+    text-transform: uppercase;
+    font-style: italic;
+}
