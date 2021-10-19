@@ -147,6 +147,258 @@
                     <span v-for="sub in item.skills">{{sub}}, </span>
                 </div>
             </article>
+            <!--
+            -------------------------------------------------------
+                            publications
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    publications
+                </h1>
+            </article>
+            <article class=" mb-3" v-for="item in publications">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b> {{item.title}}</b>, {{item.author}}, in {{item.journal}}, {{item.city}}, {{item.country}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            talks
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    talks
+                </h1>
+            </article>
+            <article class=" mb-3" v-for="item in talks">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b> {{item.title}}</b>, {{item.location}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            certificates
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    certificates
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in certificates">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>, {{item.institute}}, {{item.score}},
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            projects
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    professional projects
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in projects.professional">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>, {{item.company}}, {{item.country}}, {{item.description}}
+                </div>
+            </article>
+            <article>
+                <h1>
+                    academic projects
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in projects.academic">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>, {{item.field}}, {{item.description}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            languages
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    languages
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in languages">
+                <aside class="date">
+
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>: {{item.level}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            volunteer
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    volunteer
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in volunteer">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.role}}</b>: {{item.location}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            conferences
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    conferences
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in conferences">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.role}}</b> at {{item.name}}, {{item.city}}, {{item.country}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            training
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    trainee
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in training.trainee">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>, {{item.duration}}, {{item.city}}, {{item.country}}
+                </div>
+            </article>
+            <article>
+                <h1>
+                    trainer
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in training.trainer">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b>{{item.name}}</b>, {{item.duration}}, {{item.city}}, {{item.country}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            tpc
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    TPCs
+                </h1>
+            </article>
+            <article class="mb-3" v-for="item in tpc">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <a href="{{item.url}}" target="_blank"> <b>{{item.name}}</b></a>, {{item.city}}, {{item.country}}. Reviewing: {{item.paper}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            memberships
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    memberships
+                </h1>
+            </article>
+            <article class="mb-3">
+                <aside class="date">
+
+                </aside>
+                <div class="content">
+                    <ul class="bullets">
+                        <li v-for="item in memberships">{{item}}</li>
+                    </ul>
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            interests
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    interests
+                </h1>
+            </article>
+            <article class="mb-3">
+                <aside class="date">
+
+                </aside>
+                <div class="content">
+                    <ul class="bullets">
+                        <span v-for="item in interests">{{item}}, </span>
+                    </ul>
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            references
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    references
+                </h1>
+            </article>
+            <article class="mb-3">
+                <aside class="date">
+                </aside>
+                <div class="content">
+                    <ul class="bullets">
+                        <li v-for="item in references"> <b>{{item.name}}</b>, {{item.position}}, {{item.company}}
+                            <br><b>email:</b>{{item.email}}
+                            <br><b>website:</b>{{item.website}}
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            
             
         </div>
     </div>
