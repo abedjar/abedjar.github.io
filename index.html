@@ -8,9 +8,11 @@
 
     <link rel="stylesheet" href="style/style.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-    <title>Document</title>
+    <title>Kareem Resume</title>
 </head>
 
+    
+    
 <body>
     <div class="container-lg">
         <div id="app">
@@ -53,42 +55,6 @@
                 </aside>
                 <div class="content">
                     <b> {{item.degree}}</b>, {{item.institute}}, {{item.department}}, {{item.country}}, GPA:<b>{{item.gpa}}%</b> <i> {{item.level}} </i>, <span v-if="item.rank">rank:{{item.rank}}</span>
-                </div>
-            </article>
-            <!--
-            -------------------------------------------------------
-                            publications
-            -------------------------------------------------------
-            -->
-            <article>
-                <h1>
-                    publications
-                </h1>
-            </article>
-            <article class=" mb-3" v-for="item in publications">
-                <aside class="date">
-                    {{item.date}}
-                </aside>
-                <div class="content">
-                    <b> {{item.title}}</b>, {{item.author}}, in {{item.journal}}, {{item.city}}, {{item.country}}
-                </div>
-            </article>
-            <!--
-            -------------------------------------------------------
-                            talks
-            -------------------------------------------------------
-            -->
-            <article>
-                <h1>
-                    talks
-                </h1>
-            </article>
-            <article class=" mb-3" v-for="item in talks">
-                <aside class="date">
-                    {{item.date}}
-                </aside>
-                <div class="content">
-                    <b> {{item.title}}</b>, {{item.location}}
                 </div>
             </article>
             <!--
@@ -179,6 +145,42 @@
                 </aside>
                 <div class="content">
                     <span v-for="sub in item.skills">{{sub}}, </span>
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            publications
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    publications
+                </h1>
+            </article>
+            <article class=" mb-3" v-for="item in publications">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b> {{item.title}}</b>, {{item.author}}, in {{item.journal}}, {{item.city}}, {{item.country}}
+                </div>
+            </article>
+            <!--
+            -------------------------------------------------------
+                            talks
+            -------------------------------------------------------
+            -->
+            <article>
+                <h1>
+                    talks
+                </h1>
+            </article>
+            <article class=" mb-3" v-for="item in talks">
+                <aside class="date">
+                    {{item.date}}
+                </aside>
+                <div class="content">
+                    <b> {{item.title}}</b>, {{item.location}}
                 </div>
             </article>
             <!--
