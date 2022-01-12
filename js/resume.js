@@ -992,7 +992,20 @@ var resume = {
             },
         ],
     },
-    tpc: [{
+    tpc: [
+        {
+            name: "IEEE Transactions on Industrial Informatics",
+            date: "2022"
+        },
+        {
+            name: "IEEE Canadian Journal for Electrical and Computer Engineering CJECE ",
+            date: "2022"
+        },
+        {
+            name: "IEEE Internet of Things Journal",
+            date: "2021"
+        },
+        {
             name: "CNSM2020",
             city: "Izmir",
             country: "Turkey",
@@ -1013,7 +1026,7 @@ var resume = {
             date: "2020",
             url: "https://www.journals.elsevier.com/vehicular-communications",
             paper: "Jeong, H. H., Shen, Y. C., Jeong, J. P., & Oh, T. T. (2021). A Comprehensive Survey on Vehicular Networking for Safe and Efficient Driving in Smart Transportation: A Focus on Systems, Protocols, and Applications. Vehicular Communications, 100349.",
-        },
+        }
     ],
     memberships: [
         "IEEE Canada",
