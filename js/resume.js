@@ -65,7 +65,15 @@ var resume = {
         organization: "IEEE",
         city: "Luisiana",
         country: "USA",
-    }, ],
+    }, 
+    {
+        title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "IEEE Canadian Journal of Electrical and Computer Engineering",
+        date: "2022",
+        organization: "IEEE"
+    }
+],
     talks: [{
             date: "June 2021",
             title: "TOWARDS SMART DEMAND RESPONSE: A COMPREHENSIVE SMART HOME ENERGY MANAGEMENT SYSTEM",
