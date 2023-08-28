@@ -57,6 +57,25 @@ var resume = {
     },
     ],
     publications: [{
+        title: "Appliances Operation Modes Identification Using States Clustering",
+        author: "Jaradat, Abdelkareem and Alarbi, Muhamed and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "2023 International Conference on Smart Applications, Communications and Networking (SmartNets)",
+        date: "2023",
+        organization: "IEEE"
+    },{
+        title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "2023 IEEE PES Conference on Innovative Smart Grid Technologies - Middle East (ISGT Middle East)",
+        date: "2023",
+        organization: "IEEE"
+    },
+    {
+        title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "IEEE Canadian Journal of Electrical and Computer Engineering",
+        date: "2022",
+        organization: "IEEE"
+    }, {
         title: "Demand Response for Residential Uses: A Data Analytics Approach",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2020 IEEE 6th World Forum on Internet of Things (WF-IoT)",
@@ -65,13 +84,6 @@ var resume = {
         organization: "IEEE",
         city: "Luisiana",
         country: "USA",
-    },
-    {
-        title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
-        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
-        journal: "IEEE Canadian Journal of Electrical and Computer Engineering",
-        date: "2022",
-        organization: "IEEE"
     }
     ],
     talks: [{
