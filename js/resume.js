@@ -61,13 +61,17 @@ var resume = {
         author: "Jaradat, Abdelkareem and Alarbi, Muhamed and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2023 International Conference on Smart Applications, Communications and Networking (SmartNets)",
         date: "2023",
-        organization: "IEEE"
+        organization: "IEEE",
+        city: "Istanbul",
+        country: "Turkey",
     }, {
         title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2023 IEEE PES Conference on Innovative Smart Grid Technologies - Middle East (ISGT Middle East)",
         date: "2023",
-        organization: "IEEE"
+        organization: "IEEE",
+        city: "Abu Dhabi",
+        country: "UAE",
     },
     {
         title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
