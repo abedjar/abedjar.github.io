@@ -141,6 +141,26 @@
             </section>
             <!--
             -------------------------------------------------------
+                            volunteer
+            -------------------------------------------------------
+            -->
+            <section>
+                <article>
+                    <h1>
+                        volunteer
+                    </h1>
+                </article>
+                <article class="mb-3" v-for="item in volunteer">
+                    <aside class="date">
+                        {{item.date}}
+                    </aside>
+                    <div class="content">
+                        <b>{{item.role}}</b>: {{item.location}}
+                    </div>
+                </article>
+            </section>
+            <!--
+            -------------------------------------------------------
                             skills
             -------------------------------------------------------
             -->
@@ -289,26 +309,7 @@
                     </div>
                 </article>
             </section>
-            <!--
-            -------------------------------------------------------
-                            volunteer
-            -------------------------------------------------------
-            -->
-            <section>
-                <article>
-                    <h1>
-                        volunteer
-                    </h1>
-                </article>
-                <article class="mb-3" v-for="item in volunteer">
-                    <aside class="date">
-                        {{item.date}}
-                    </aside>
-                    <div class="content">
-                        <b>{{item.role}}</b>: {{item.location}}
-                    </div>
-                </article>
-            </section>
+            
             <!--
             -------------------------------------------------------
                             conferences
