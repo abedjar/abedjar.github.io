@@ -441,16 +441,13 @@
                         references
                     </h1>
                 </article>
-                <article class="mb-3">
-                    <aside class="date">
+                <article class="mb-3" v-for="item in references">
+                    <aside class="date"> -
                     </aside>
                     <div class="content">
-                        <ul class="bullets">
-                            <li v-for="item in references"> <b>{{item.name}}</b>, {{item.position}}, {{item.company}}
+                             <b>{{item.name}}</b>, {{item.position}}, {{item.company}}
                                 <br><b>email:</b>{{item.email}}
                                 <br><b>website:</b>{{item.website}}
-                            </li>
-                        </ul>
                     </div>
                 </article>
             </section>
