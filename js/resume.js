@@ -912,7 +912,7 @@ var resume = {
     ],
     volunteer: [{
         date: "Jan 2021 - Present",
-        location: "Rights and Responsibilities Awareness Initiative (RRAI)",
+        location: "Rights and Responsibilities Awareness Initiative (RRAI), London, Canada.",
         role: "Information Technology Consultant",
     }, {
         date: "Aug 2023",
@@ -1122,7 +1122,7 @@ var resume = {
     memberships: [
         "IEEE Canada",
         "Western Alumni",
-        "Public Service Alliance of Canada (PSAC_",
+        "Public Service Alliance of Canada (PSAC)",
         "Jordan Engineers Association (JEA)",
         "Saudi Council for Engineers (SCE)",
     ],

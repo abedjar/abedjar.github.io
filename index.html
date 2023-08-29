@@ -48,6 +48,34 @@
                     </div>
                 </article>
             </section> -->
+
+            <!--
+            -------------------------------------------------------
+                            experience
+            -------------------------------------------------------
+            -->
+            <section>
+                <article>
+                    <h1>
+                        experience
+                    </h1>
+                </article>
+                <article class="mb-3" v-for="item in experience">
+                    <aside class="date">
+                        {{item.date}}
+                    </aside>
+                    <div class="content">
+                        <b>{{item.position}}</b>, {{item.company}}, {{item.city}}, {{item.country}}. {{item.mainDuty}}
+                        <!-- <ul class="bullets">
+                            <li v-for="sub in item.dutiesF">
+                                {{sub}}
+                            </li>
+                        </ul> -->
+
+                    </div>
+                </article>
+            </section>
+
             <!--
             -------------------------------------------------------
                             education
@@ -93,27 +121,21 @@
             </section>
             <!--
             -------------------------------------------------------
-                            experience
+                            certificates
             -------------------------------------------------------
             -->
             <section>
                 <article>
                     <h1>
-                        experience
+                        certificates
                     </h1>
                 </article>
-                <article class="mb-3" v-for="item in experience">
+                <article class="mb-3" v-for="item in certificates">
                     <aside class="date">
                         {{item.date}}
                     </aside>
                     <div class="content">
-                        <b>{{item.position}}</b>, {{item.company}}, {{item.city}}, {{item.country}}. {{item.mainDuty}}
-                        <!-- <ul class="bullets">
-                            <li v-for="sub in item.dutiesF">
-                                {{sub}}
-                            </li>
-                        </ul> -->
-
+                        <b>{{item.name}}</b>, {{item.institute}}.
                     </div>
                 </article>
             </section>
@@ -211,26 +233,7 @@
                     </div>
                 </article>
             </section>
-            <!--
-            -------------------------------------------------------
-                            certificates
-            -------------------------------------------------------
-            -->
-            <section>
-                <article>
-                    <h1>
-                        certificates
-                    </h1>
-                </article>
-                <article class="mb-3" v-for="item in certificates">
-                    <aside class="date">
-                        {{item.date}}
-                    </aside>
-                    <div class="content">
-                        <b>{{item.name}}</b>, {{item.institute}}, {{item.score}},
-                    </div>
-                </article>
-            </section>
+            
             <!--
             -------------------------------------------------------
                             projects
@@ -377,8 +380,7 @@
                         {{item.date}}
                     </aside>
                     <div class="content">
-                        <a href="{{item.url}}" target="_blank"> <b>{{item.name}}</b></a>, {{item.city}},
-                        {{item.country}}.
+                        <a href="{{item.url}}" target="_blank"> <b>{{item.name}}</b></a>.
                     </div>
                 </article>
             </section>
