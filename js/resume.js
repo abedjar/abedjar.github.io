@@ -62,7 +62,7 @@ var resume = {
         journal: "2023 International Conference on Smart Applications, Communications and Networking (SmartNets)",
         date: "2023",
         organization: "IEEE"
-    },{
+    }, {
         title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2023 IEEE PES Conference on Innovative Smart Grid Technologies - Middle East (ISGT Middle East)",
@@ -90,11 +90,11 @@ var resume = {
         date: "July 2023",
         title: "Appliances Operation Modes Identification Using States Clustering",
         location: "Yeditepe University, Istanbul, Turkey.",
-    },{
+    }, {
         date: "March 2023",
         title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
         location: "Khalifa University, Abu Dhabi, UAE",
-    },{
+    }, {
         date: "June 2021",
         title: "TOWARDS SMART DEMAND RESPONSE: A COMPREHENSIVE SMART HOME ENERGY MANAGEMENT SYSTEM",
         location: "WING mothly meeting",
@@ -538,7 +538,7 @@ var resume = {
         name: "Western Certificate in University Teaching and Learning",
         institute: "Centre for Teaching and Learning at Western University.",
         score: "",
-    },{
+    }, {
         date: "DEC 2019",
         name: "IELTS General",
         institute: "British Council",
@@ -914,28 +914,28 @@ var resume = {
         date: "Jan 2021 - Present",
         location: "Rights and Responsibilities Awareness Initiative (RRAI)",
         role: "Information Technology Consultant",
-    },{
+    }, {
         date: "Aug 2023",
         location: "Computer Science Department, Western University",
         role: "Science Internship Report Judge",
-    },{
+    }, {
         date: "Jan 2021",
         location: "Computer Science Department, Western University",
         role: "Webmaster for UWORCS21",
-    },{
+    }, {
         date: "Feb 2021 - Apr 2021 ",
         location: "Faculty of Science, Western University",
         role: "Western National Scholarships Judge",
-    },{
+    }, {
         date: "Jan 2022 - Jan 2023",
         location: "Faculty of science, Western University.",
         role: "Co-leader of the Teaching & Learning group in the Strategic Planning Committee",
-    },{
+    }, {
         date: "2018-2020",
         location: "Western University Food Bank",
         role: "Coordinator and Graphic Designer",
     }
-],
+    ],
     conferences: [{
         date: "April 2021",
         name: "UWORCS 2021",
@@ -980,83 +980,97 @@ var resume = {
     },
     ],
     training: {
-        trainee: [{
-            date: "2014",
-            name: "Configuring and Administering Hyper-V in Windows Server 2012",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "3 Full day training course 55021.",
-        },
-        {
-            date: "2014",
-            name: "Administering Microsoft SQL Server 2012 Databases",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "5 Full day training course 10775",
-        },
-        {
-            date: "2014",
-            name: "Certified Software Tester – ISTQB Foundation Level.",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "5 Full day training course.",
-        },
-        {
-            date: "2014",
-            name: "Microsoft System Center VMM",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "3 Full day training course 55022.",
-        },
-        {
-            date: "2012",
-            name: "Windows Phone 7 Development",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "2 Full day training.",
-        },
-        {
-            date: "2011",
-            name: "Wimba Create for Moodle",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "2 Full day training course.",
-        },
-        {
-            date: "2011",
-            name: "Echo360 lecture capture solutions",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "3 Full day training course.",
-        },
-        {
-            date: "2011",
-            name: "IBM CloudBurst over VMware",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "14 Full day training course.",
-        },
-        {
-            date: "2011",
-            name: "Video/Audio Editing for eLearning purposes",
-            city: "Amman",
-            country: "Jordan",
-            dutration: "5 Full day training course.",
-        },
+        trainee: [
+            {
+                date: "2022",
+                name: "The Advanced Teaching Program (ATP) ",
+                city: "Centre for Teaching and Learning",
+                country: "Western University",
+                duration: "3 Full day training in course design strategies, active learning, authentic assessment of student learning, and maintaining a culture of respect and community in the classroom.",
+            },
+            {
+                date: "2022",
+                name: "The Teaching Mentor Program (TMP) ",
+                city: "Centre for Teaching and Learning",
+                country: "Western University",
+                duration: "",
+            }, {
+                date: "2014",
+                name: "Configuring and Administering Hyper-V in Windows Server 2012",
+                city: "Amman",
+                country: "Jordan",
+                duration: "3 Full day training course 55021.",
+            },
+            {
+                date: "2014",
+                name: "Administering Microsoft SQL Server 2012 Databases",
+                city: "Amman",
+                country: "Jordan",
+                duration: "5 Full day training course 10775",
+            },
+            {
+                date: "2014",
+                name: "Certified Software Tester – ISTQB Foundation Level.",
+                city: "Amman",
+                country: "Jordan",
+                duration: "5 Full day training course.",
+            },
+            {
+                date: "2014",
+                name: "Microsoft System Center VMM",
+                city: "Amman",
+                country: "Jordan",
+                duration: "3 Full day training course 55022.",
+            },
+            {
+                date: "2012",
+                name: "Windows Phone 7 Development",
+                city: "Amman",
+                country: "Jordan",
+                duration: "2 Full day training.",
+            },
+            {
+                date: "2011",
+                name: "Wimba Create for Moodle",
+                city: "Amman",
+                country: "Jordan",
+                duration: "2 Full day training course.",
+            },
+            {
+                date: "2011",
+                name: "Echo360 lecture capture solutions",
+                city: "Amman",
+                country: "Jordan",
+                duration: "3 Full day training course.",
+            },
+            {
+                date: "2011",
+                name: "IBM CloudBurst over VMware",
+                city: "Amman",
+                country: "Jordan",
+                duration: "14 Full day training course.",
+            },
+            {
+                date: "2011",
+                name: "Video/Audio Editing for eLearning purposes",
+                city: "Amman",
+                country: "Jordan",
+                duration: "5 Full day training course.",
+            },
         ],
         trainer: [{
             date: "2014",
             name: "web development using Asp.net/C#, HTML5, CSS3, jQuery and database using SQL server 2012 to build fully functional wiki-like content management system.",
             city: "Irbid",
             country: "Jordan",
-            dutration: "6 Months day to day training for 12 undergraduate students",
+            duration: "6 Months day to day training for 12 undergraduate students",
         },
         {
             date: "2012",
             name: "using Adobe Photoshop cs5 featuring dealing with layers, web mockups design, masking and photo manipulation",
             city: "Irbid",
             country: "Jordan",
-            dutration: "5 full day training for 15 engineers/programmers.",
+            duration: "5 full day training for 15 engineers/programmers.",
         },
         ],
     },
