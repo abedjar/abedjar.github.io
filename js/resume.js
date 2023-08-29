@@ -87,6 +87,14 @@ var resume = {
     }
     ],
     talks: [{
+        date: "July 2023",
+        title: "Appliances Operation Modes Identification Using States Clustering",
+        location: "Yeditepe University, Istanbul, Turkey.",
+    },{
+        date: "March 2023",
+        title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
+        location: "Khalifa University, Abu Dhabi, UAE",
+    },{
         date: "June 2021",
         title: "TOWARDS SMART DEMAND RESPONSE: A COMPREHENSIVE SMART HOME ENERGY MANAGEMENT SYSTEM",
         location: "WING mothly meeting",
@@ -526,6 +534,11 @@ var resume = {
         ],
     },
     certificates: [{
+        date: "July 2023",
+        name: "Western Certificate in University Teaching and Learning",
+        institute: "Centre for Teaching and Learning at Western University.",
+        score: "",
+    },{
         date: "DEC 2019",
         name: "IELTS General",
         institute: "British Council",
@@ -898,10 +911,31 @@ var resume = {
     },
     ],
     volunteer: [{
+        date: "Jan 2021 - Present",
+        location: "Rights and Responsibilities Awareness Initiative (RRAI)",
+        role: "Information Technology Consultant",
+    },{
+        date: "Aug 2023",
+        location: "Computer Science Department, Western University",
+        role: "Science Internship Report Judge",
+    },{
+        date: "Jan 2021",
+        location: "Computer Science Department, Western University",
+        role: "Webmaster for UWORCS21",
+    },{
+        date: "Feb 2021 - Apr 2021 ",
+        location: "Faculty of Science, Western University",
+        role: "Western National Scholarships Judge",
+    },{
+        date: "Jan 2022 - Jan 2023",
+        location: "Faculty of science, Western University.",
+        role: "Co-leader of the Teaching & Learning group in the Strategic Planning Committee",
+    },{
         date: "2018-2020",
         location: "Western University Food Bank",
         role: "Coordinator and Graphic Designer",
-    },],
+    }
+],
     conferences: [{
         date: "April 2021",
         name: "UWORCS 2021",
@@ -1028,6 +1062,14 @@ var resume = {
     },
     tpc: [
         {
+            name: "IEEE Access",
+            date: "2023"
+        },
+        {
+            name: "IEEE Internet of Things Journal",
+            date: "2023"
+        },
+        {
             name: "IEEE Transactions on Industrial Informatics",
             date: "2022"
         },
@@ -1044,22 +1086,23 @@ var resume = {
             city: "Izmir",
             country: "Turkey",
             date: "2020",
-            url: "http://www.cnsm-conf.org/2020/",
-            paper: "Kucęba, R., & Chmielarz, G. (2020, November). Experimental Model of the System for Intelligent Power Plant Management. In 2020 16th International Conference on Network and Service Management (CNSM) (pp. 1-5). IEEE.",
+            url: "http://www.cnsm-conf.org/2020/"
         },
         {
             name: "WiMOB2020",
             city: "Zoom",
             country: "Virtual",
             date: "2020",
-            url: "https://wimob.org/wimob2020/",
-            paper: "Idrees, A. K., Abou Jaoude, C., & Al-Qurabat, A. K. M. (2020, October). Data reduction and cleaning approach for energy-saving in wireless sensors networks of IoT. In 2020 16th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)(50308) (pp. 1-6). IEEE.",
+            url: "https://wimob.org/wimob2020/"
         },
         {
             name: "Vehicular Communications Journal",
             date: "2020",
-            url: "https://www.journals.elsevier.com/vehicular-communications",
-            paper: "Jeong, H. H., Shen, Y. C., Jeong, J. P., & Oh, T. T. (2021). A Comprehensive Survey on Vehicular Networking for Safe and Efficient Driving in Smart Transportation: A Focus on Systems, Protocols, and Applications. Vehicular Communications, 100349.",
+            url: "https://www.journals.elsevier.com/vehicular-communications"
+        },
+        {
+            name: "IEEE URUCON",
+            date: "2021"
         }
     ],
     memberships: [
