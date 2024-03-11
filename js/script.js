@@ -9,8 +9,6 @@ Vue.createApp(Counter).mount('#app')*/
 new Vue({
   el: '#app',
   data() {
-    return {
-      resume
-    };
+    return resume;
   }
 });
