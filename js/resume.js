@@ -57,6 +57,14 @@ var resume = {
     },
     ],
     publications: [{
+        title: "Synthetic Power Consumption Data Generation For Appliance Operation Modes",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "2024 International Conference on Computing, Networking and Communications (ICNC)",
+        date: "2024",
+        organization: "IEEE",
+        city: "Big Isalnd, Hawaii",
+        country: "USA",
+    },{
         title: "Appliances Operation Modes Identification Using States Clustering",
         author: "Jaradat, Abdelkareem and Alarbi, Muhamed and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2023 International Conference on Smart Applications, Communications and Networking (SmartNets)",
