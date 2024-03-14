@@ -72,14 +72,20 @@ var resume = {
         organization: "IEEE",
         city: "Istanbul",
         country: "Turkey",
+    },{
+        title: "SCOPE: Smart Cooperative Parking Environment",
+        author: " Alarbi, Muhamed and Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "IEEE Access 11: 120346-120361",
+        date: "2023",
+        organization: "IEEE",
+        city: "Abu Dhabi",
+        country: "UAE",
     }, {
         title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2023 IEEE PES Conference on Innovative Smart Grid Technologies - Middle East (ISGT Middle East)",
         date: "2023",
-        organization: "IEEE",
-        city: "Abu Dhabi",
-        country: "UAE",
+        organization: "IEEE"
     },
     {
         title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
