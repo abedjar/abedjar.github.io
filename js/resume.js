@@ -1151,19 +1151,24 @@ var resume = {
         "Home Cooking",
     ],
     references: [{
-        name: "Prof.Hanan Lutfiya",
+        name: "Prof. Hanan Lutfiya",
         company: "University of Western Ontario",
         position: "Dept of computer science chair",
         email: "hlutfiyy@uwo.ca",
-        phone: "+1-519-850-2561",
         website: "www.csd.uwo.ca/faculty/hanan/",
     },
     {
-        name: "Prof.Anwar Haque",
+        name: "Prof. Anwar Haque",
         company: "University of Western Ontario",
-        position: "Assistant Professor",
+        position: "Associate Professor",
         email: "ahaque32@uwo.ca",
         website: "csd.uwo.ca/~ahaque32",
+    },{
+        name: "Prof. Roberto Solis-Oba",
+        company: "University of Western Ontario",
+        position: "Professor",
+        email: "solis@csd.uwo.ca",
+        website: "https://www.csd.uwo.ca/~rsolisob",
     },{
         name: "Bryan Sarlo",
         company: "University of Western Ontario",
