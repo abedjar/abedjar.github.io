@@ -32,7 +32,7 @@ var resume = {
         institute: "The University of Western Ontario (UWO)",
         department: "Computer Science",
         country: "Canada",
-        degree: "MSc. in Computer Science (thesis based)",
+        degree: "MSc. in Computer Science (thesis-based)",
         gpa: "95",
         level: "excellent",
     },
