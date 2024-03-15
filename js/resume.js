@@ -57,6 +57,12 @@ var resume = {
     },
     ],
     publications: [{
+        title: "HYDROSAFE: A Hybrid Deterministic-Probabilistic Model for
+Synthetic Appliance Profiles Generation",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "to be submitted to MDPI Sensors",
+        date: "2024"
+    },{
         title: "Synthetic Power Consumption Data Generation For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2024 International Conference on Computing, Networking and Communications (ICNC)",
