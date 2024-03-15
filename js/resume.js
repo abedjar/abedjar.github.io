@@ -57,8 +57,7 @@ var resume = {
     },
     ],
     publications: [{
-        title: "HYDROSAFE: A Hybrid Deterministic-Probabilistic Model for
-Synthetic Appliance Profiles Generation",
+        title: "HYDROSAFE: A Hybrid Deterministic-Probabilistic Model for Synthetic Appliance Profiles Generation",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "to be submitted to MDPI Sensors",
         date: "2024"
