@@ -62,6 +62,20 @@ var resume = {
         journal: "to be submitted to MDPI Sensors",
         date: "2024"
     },{
+        title: "SCOPE: Smart Cooperative Parking Environment",
+        author: " Alarbi, Muhamed and Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "IEEE Access 11: 120346-120361",
+        date: "2023",
+        organization: "IEEE",
+        city: "Abu Dhabi",
+        country: "UAE",
+    },{
+        title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
+        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "IEEE Canadian Journal of Electrical and Computer Engineering",
+        date: "2022",
+        organization: "IEEE"
+    },{
         title: "Synthetic Power Consumption Data Generation For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2024 International Conference on Computing, Networking and Communications (ICNC)",
@@ -77,14 +91,6 @@ var resume = {
         organization: "IEEE",
         city: "Istanbul",
         country: "Turkey",
-    },{
-        title: "SCOPE: Smart Cooperative Parking Environment",
-        author: " Alarbi, Muhamed and Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
-        journal: "IEEE Access 11: 120346-120361",
-        date: "2023",
-        organization: "IEEE",
-        city: "Abu Dhabi",
-        country: "UAE",
     }, {
         title: "Density And Dynamic Time Warping Based Spatial Clustering For Appliance Operation Modes",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
@@ -92,13 +98,7 @@ var resume = {
         date: "2023",
         organization: "IEEE"
     },
-    {
-        title: "Smart Home Energy Visualizer: A Fusion of Data Analytics and Information Visualization",
-        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
-        journal: "IEEE Canadian Journal of Electrical and Computer Engineering",
-        date: "2022",
-        organization: "IEEE"
-    }, {
+     {
         title: "Demand Response for Residential Uses: A Data Analytics Approach",
         author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
         journal: "2020 IEEE 6th World Forum on Internet of Things (WF-IoT)",
