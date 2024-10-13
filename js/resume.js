@@ -318,11 +318,11 @@ var resume = {
     },
     {
         date: "JAN 2013-JUN 2013",
-        position: "Software Development Engineer",
+        position: "Course instructor",
         company: "Integrated Horizons for Training (IHT)",
         city: "Irbid",
         country: "Jordan",
-        mainDuty: "Responsible for training and supervising undergraduate IT student in completing their graduate projects in Asp.net, C#, VB.net, SQL server and MS Access.",
+        mainDuty: "Responsible for training and supervising undergraduate IT student in completing their graduation projects in Asp.net, C#, VB.net, SQL server and MS Access.",
         dutiesF: [],
         duteisS: [],
     },
