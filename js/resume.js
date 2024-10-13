@@ -1173,24 +1173,25 @@ var resume = {
         website: "www.csd.uwo.ca/faculty/hanan/",
     },
     {
-        name: "Prof. Anwar Haque",
+        name: "Dr. Anwar Haque",
         company: "University of Western Ontario",
         position: "Associate Professor",
         email: "ahaque32@uwo.ca",
         website: "csd.uwo.ca/~ahaque32",
     },{
-        name: "Prof. Roberto Solis-Oba",
+        name: "Dr. Zubair Md Fadlullah",
         company: "University of Western Ontario",
-        position: "Professor",
-        email: "solis@csd.uwo.ca",
-        website: "https://www.csd.uwo.ca/~rsolisob",
-    },{
-        name: "Bryan Sarlo",
-        company: "University of Western Ontario",
-        position: "Lecturer",
-        email: "bsarlo@uwo.ca",
-        website: "csd.uwo.ca/people/faculty/bios/sarlo.html",
-    },
+        position: "Associate Professor",
+        email: "zubair.fadlullah@uwo.ca",
+        website: "www.zfadlullah.org",
+    }
+    // ,{
+    //     name: "Bryan Sarlo",
+    //     company: "University of Western Ontario",
+    //     position: "Lecturer",
+    //     email: "bsarlo@uwo.ca",
+    //     website: "csd.uwo.ca/people/faculty/bios/sarlo.html",
+    // },
     // {
     //     name: "Prof.Omar Al-Jarrah",
     //     company: "Jordan University of Science and Technology",
