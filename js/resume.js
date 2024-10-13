@@ -58,8 +58,8 @@ var resume = {
     ],
     publications: [{
         title: "HYDROSAFE: A Hybrid Deterministic-Probabilistic Model for Synthetic Appliance Profiles Generation",
-        author: "Jaradat, Abdelkareem and Lutfiyya, Hanan and Haque, Anwar",
-        journal: "to be submitted to MDPI Sensors",
+        author: "Jaradat, Abdelkareem and Alarbi, Muhamed and Lutfiyya, Hanan and Haque, Anwar",
+        journal: "MDPI Sensors 24.17 (2024): 5619.",
         date: "2024"
     },{
         title: "SCOPE: Smart Cooperative Parking Environment",
@@ -220,16 +220,26 @@ var resume = {
     },
     ],
     experience: [{
-        date: "SEP 2022-present",
-        position: "Course instructor",
+        date: "SEP 2022-AUG 2024",
+        position: "Course Instructor",
         company: "Western University (UWO)",
         city: "London, ON",
         country: "Canada",
         mainDuty: "Teaching, coordinating and managing programming courses at the department of computer science in both in-person and online delivery modes. Coordinating a team of instructors and teaching assistants of up to 20 members and classes of 1000+ students.",
         dutiesF: [],
         duteisS: [],
-    }, {
-        date: "SEP 2017-present",
+    },{
+        date: "AUG 2024-Present",
+        position: "Peer Consultant in Teaching and Learning",
+        company: "Macmillan Learning",
+        city: "Remote",
+        country: "USA",
+        mainDuty: "Provide support to worldwide instructors through  delivering in-person or virtual presentations, conducting faculty trainings, offering consultations via email, phone, or Zoom,  creating content such as blog posts, whitepapers, or videos, and contributing to product development by participating in beta tests and offering feedback.",
+        dutiesF: [],
+        duteisS: [],
+    },
+                 {
+        date: "SEP 2017-Present",
         position: "Graduate Teaching and Research Assistant",
         company: "Western University (UWO)",
         city: "London, ON",
