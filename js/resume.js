@@ -244,7 +244,7 @@ var resume = {
         company: "Western University (UWO)",
         city: "London, ON",
         country: "Canada",
-        mainDuty: "Working on a research topic related to reducing energy consumption by changing consumers behaviours in different approaches like data analytics, machine learning and Visualization. I assisted in teaching the following courses:",
+        mainDuty: "Working on a research topic related to reducing energy consumption by changing consumers behaviours in different approaches like Bloom's Taxonomy, data analytics, machine learning and Visualization.",
         dutiesF: [
             "Fundamentals of computer science using Python (in person and online)"
             , "Object-Oriented Design and Analysis "
