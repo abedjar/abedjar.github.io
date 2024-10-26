@@ -5,7 +5,7 @@ var resume = {
             firstNameS: "Kareem",
             lastName: "Jaradat",
         },
-        address: {
+        address: { 
             apartment: "709",
             street: "Kipps Lane",
             city: "London ON",
@@ -1185,13 +1185,19 @@ var resume = {
         email: "zubair.fadlullah@uwo.ca",
         website: "www.zfadlullah.org",
     }
-    // ,{
-    //     name: "Bryan Sarlo",
-    //     company: "University of Western Ontario",
-    //     position: "Lecturer",
-    //     email: "bsarlo@uwo.ca",
-    //     website: "csd.uwo.ca/people/faculty/bios/sarlo.html",
-    // },
+    ,{
+        name: "Dr. Daniel Servos",
+        company: "University of Western Ontario",
+        position: "Assistant Professot",
+        email: "dservos5@uwo.ca",
+        website: "danielservos.ca",
+    },{
+        name: "Bryan Sarlo",
+        company: "University of Western Ontario",
+        position: "Undergraduate Chair",
+        email: "bsarlo@uwo.ca",
+        website: "csd.uwo.ca/people/faculty/bios/sarlo.html",
+    },
     // {
     //     name: "Prof.Omar Al-Jarrah",
     //     company: "Jordan University of Science and Technology",
