@@ -1166,7 +1166,7 @@ var resume = {
         "Home Cooking",
     ],
     references: [{
-        name: "Prof. Hanan Lutfiya",
+        name: "Prof. Hanan Lutfiyya",
         company: "University of Western Ontario",
         position: "Dept of computer science chair",
         email: "hlutfiyy@uwo.ca",
