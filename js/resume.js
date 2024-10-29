@@ -1168,7 +1168,7 @@ var resume = {
     references: [{
         name: "Prof. Hanan Lutfiyya",
         company: "University of Western Ontario",
-        position: "Dept of computer science chair",
+        position: "Professor",
         email: "hlutfiyy@uwo.ca",
         website: "www.csd.uwo.ca/faculty/hanan/",
     },
