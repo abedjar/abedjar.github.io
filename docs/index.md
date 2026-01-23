@@ -1,3 +1,4 @@
+icon:material/home
 # Dr. Kareem Jaradat  
 **Assistant Professor of Computer Science**  
 Algoma University — Brampton, Canada

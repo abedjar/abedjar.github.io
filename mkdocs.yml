@@ -2,6 +2,7 @@ site_name: Dr. Kareem Jaradat
 site_url: http://jaradat.ca
 theme:
   name: material
+  custom_dir: overrides
   font:
     text: open sans
     code: Red Hat Mono
@@ -11,9 +12,10 @@ theme:
     - navigation.instant.progress
     - navigation.instant.preview
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
+    # - navigation.tabs
+    # - navigation.tabs.sticky
     - navigation.sections
+    - navigation.indexes
     - navigation.path #breadcrumbs
     - navigation.top
     - toc.follow
@@ -92,23 +94,30 @@ extra:
     - icon: simple/orcid
       link: https://orcid.org/0000-0002-2694-884X
 nav:
-  - Home: 
-      - Home: index.md
-  - About:
+  - Home: index.md
+  - About: 
       - Biography: about/bio.md
-      - CV: /resume
+      - Resume: about/resume.md
       - Contact: about/contact.md
-  # - Research:
-  #     - Overview: research/overview.md
-  #     - Projects: research/projects.md
-  #     - Publications: research/publications.md
-  #     - Grants & Awards: research/grants.md
-  # - Teaching:
-  #     - Courses: teaching/courses.md
-  #     - Syllabi: teaching/syllabi.md
-  #     - Teaching Philosophy: teaching/philosophy.md
-  #     - Supervision: teaching/supervision.md
+  - Research:
+      - Overview: research/overview.md
+      - Projects: research/projects.md
+      - Publications: research/publications.md
+      - Grants & Awards: research/grants.md
+      - Prospective Students: research/students.md
+  - Teaching:
+      - Courses: teaching/courses.md
+      - Teaching Philosophy: teaching/philosophy.md
+      - EDID Principles: teaching/edid.md
+
+  # - About: 
+  #   - about/index.md
+  #   - Biography: about/bio.md
+  #   - Resume: about/resume.md
+  #   - Contact: about/contact.md
+
   # - Service: service/service.md
   # - Media: media/media.md
 
 
+# <script defer src="https://cloud.umami.is/script.js" data-website-id="f1012d34-509c-42f7-8f38-41f26889a96f"></script>

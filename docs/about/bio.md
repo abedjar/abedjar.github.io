@@ -1,3 +1,4 @@
+icon:octicons/person-fill-16
 ## **Kareem Jaradat, PhD**
 
 Assistant Professor of Computer Science
