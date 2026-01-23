@@ -1,20 +1,9 @@
-# Welcome to my MkDocs
+# Dr. Kareem Jaradat  
+**Assistant Professor of Computer Science**  
+Algoma University — Brampton, Canada
 
-the
-  full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+I am an Assistant Professor of Computer Science at Algoma University (Brampton, Ontario).  
+My research focuses on intelligent energy systems, data analytics, machine learning, and information visualization, with an emphasis on smart homes, demand response, and consumer behavior modeling.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-I don;t drink :beer: but play :soccer: 
+I hold a PhD and MSc in Computer Science from Western University (University of Western Ontario) and a BSc with Honors in Computer Engineering from Jordan University of Science and Technology.

@@ -5,7 +5,7 @@ theme:
   font:
     text: open sans
     code: Red Hat Mono
-  logo: assets/logo.png
+  logo: assets/knife.png
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -25,7 +25,7 @@ theme:
     - content.code.annotate
   # icon:
     # logo: fontawesome/solid/w
-  favicon: assets/favicon.ico
+  favicon: assets/knife.png
   palette:
     # Dark Mode
     - scheme: slate
@@ -44,6 +44,7 @@ theme:
       accent: deep orange
       
 plugins: 
+  - typeset
   - search
 
 markdown_extensions:
@@ -71,17 +72,43 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  #table of contents
+  - toc:
+      title: 'On this page <br><br>'
+      permalink: true
+      toc_depth: 2 # 0 -> hidden,2 -> upto ##, 3 -> upto ###
 
 #Footer
 copyright: Copyright &copy; 2026 Kareem Jaradat
 extra:
+  generator: false
   social:
-    - icon: fontawesome/brands/mastodon 
-      link: https://fosstodon.org/@squidfunk 
-    - icon: fontawesome/brands/facebook 
-      link: https://fosstodon.org/@squidfunk
-# nav:
-#   - Home: index.md
-
+    - icon: fontawesome/brands/square-linkedin 
+      link: https://www.linkedin.com/in/abedjar/
+    - icon: fontawesome/brands/google-scholar
+      link: https://scholar.google.com/citations?user=y1XN-iQAAAAJ&hl=en
+    - icon: simple/researchgate
+      link: https://www.researchgate.net/profile/Kareem-Jaradat
+    - icon: simple/orcid
+      link: https://orcid.org/0000-0002-2694-884X
+nav:
+  - Home: 
+      - Home: index.md
+  - About:
+      - Biography: about/bio.md
+      - CV: /resume
+      - Contact: about/contact.md
+  # - Research:
+  #     - Overview: research/overview.md
+  #     - Projects: research/projects.md
+  #     - Publications: research/publications.md
+  #     - Grants & Awards: research/grants.md
+  # - Teaching:
+  #     - Courses: teaching/courses.md
+  #     - Syllabi: teaching/syllabi.md
+  #     - Teaching Philosophy: teaching/philosophy.md
+  #     - Supervision: teaching/supervision.md
+  # - Service: service/service.md
+  # - Media: media/media.md
 
 
