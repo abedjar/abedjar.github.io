@@ -90,3 +90,9 @@ Then open:
 ```
 http://localhost:9000
 ```
+
+
+
+## Exit the container
+
+Once finished, you hit `cmd`+`c` to terminate the mkdocs server. They `exit` the container terminal. The container will be removed upon exit.

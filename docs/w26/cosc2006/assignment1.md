@@ -2,6 +2,7 @@
 search:
   exclude: true
 ---
+### COSC2006 - Data Structures I
 
 # Assignment 1
 
