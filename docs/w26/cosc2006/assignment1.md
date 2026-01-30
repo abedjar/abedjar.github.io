@@ -17,9 +17,15 @@ By completing this task, you should be able to:
 - Handle edge cases such as `null` inputs
 - Write readable and maintainable Java code
  
-??? info "This assignment requires you to complete two tasks"
+
+!!! danger "Deadline"
+    This is assignment is due on Sunday Feb 8, 2026 at 23:55 EST (Brampton time).
+
+??? success "This assignment is worth 5% of the total course grade."
 
 ---
+
+??? info "This assignment requires you to complete two tasks"
 
 ## **Task - 1**
 
@@ -128,16 +134,15 @@ public interface ScoreboardADT {
 
 Notice that the `original members` were already implemented in the lecture and you can use (copy/paste) that code as is. 
 
-Your task is to implement the `Extra members` following the description in the slides.
+Your task is to implement the `Extra members` following **the description in the slides**.
 
 !!! note "Your Task"
     1. The class named `Scoreboard.java` should implement `ScoreboardADT.java`
     2. Maintain the same implementation of the `original members` within `Scoreboard.java`.
-    3. Implement the `Extra members` following the description in the slides.
-
+    3. Implement the `Extra members` **following the description in the slides.**
 ## Submission
 !!! question "Submission instructions"
-    1. You will submit ** ONLY 2 files**:
+    1. You will submit **ONLY 2 files** (filenames are case-sensitive):
           1. `BasicUtils.java`
           2. `Scoreboard.java`
     2. Submission will be in BrighSpace
