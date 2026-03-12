@@ -191,31 +191,25 @@ npm install
 **Step 2: Install Tailwind, PostCSS, and Autoprefixer**
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
 ```
-
-This generates two configuration files:
-
-- `tailwind.config.js` — your design system configuration
-- `postcss.config.js` — PostCSS plugin configuration
 
 **Step 3: Configure the content paths**
 
-Open `tailwind.config.js` and specify which files Tailwind should scan for class names:
+Open `vite.config.js` and add the two lines `import tailwindcss from '@tailwindcss/vite'` and `tailwindcss()` to the `plugins` array:
 
 ```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx,vue,svelte}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue(), 
+    tailwindcss()],
+})
+
 ```
 
 !!! warning "Critical: Content Configuration"
@@ -226,9 +220,7 @@ export default {
 Replace the contents of `src/style.css` (or create it if it doesn't exist):
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 ```
 
 These three directives inject Tailwind's base reset styles, any component classes you define, and the full utility class system respectively.
@@ -255,8 +247,6 @@ Your project is now running with Tailwind. Open `index.html` and begin adding ut
 my-tailwind-project/
 ├── index.html
 ├── package.json
-├── postcss.config.js         ← PostCSS configuration
-├── tailwind.config.js        ← Tailwind configuration (design tokens, plugins)
 ├── vite.config.js
 └── src/
     ├── main.js               ← Entry point (imports style.css)

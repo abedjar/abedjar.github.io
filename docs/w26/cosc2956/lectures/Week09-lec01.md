@@ -4,755 +4,1107 @@ search:
 ---
 
 # COSC2956 – Internet Tools
-##  Building a Movie Watchlist
-
----
-
-!!! info "Lecture at a Glance"
-
-    **The project:** a Movie Watchlist. By the end it will look and feel like a real app — data-driven, interactive, and split into components.
+##  Components in Depth
 
 
 ---
 
-### The static page
-
-The following is a static HTML page that will be used as a starting point for the Vue application. It is not a Vue component and does not use any Vue logic. 
-
-
-```html title="static.html"
-<!doctype html>
-<html lang="en">
-
-<head>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-
-<body>
-  <div class="min-h-screen bg-gray-100 p-8"> <!--  -->
-
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">🎬 My Watchlist</h1>
-
-    <!-- Filter bar -->
-    <div class="flex gap-3 mb-6">
-      <button class="px-4 py-1.5 rounded-full bg-indigo-600 text-white text-sm">All</button>
-      <button class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border">Watched</button>
-      <button class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border">Unwatched</button>
-    </div>
-
-    <!-- Movie grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> <!--  -->
-
-      <!-- Movie card — watched -->
-      <div class="bg-white rounded-xl p-5 shadow-sm">
-        <div class="flex justify-between items-start mb-3">
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">Sci-Fi</span>
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Watched</span>
-        </div>
-        <h2 class="text-lg font-semibold text-gray-800">Dune</h2>
-        <p class="text-sm text-gray-500 mt-1">2021 · Denis Villeneuve</p>
-        <div class="flex justify-between items-center mt-4">
-          <span class="text-yellow-500 font-semibold">★ 8.0</span>
-          <button class="text-sm text-indigo-600 hover:underline">Mark unwatched</button>
-        </div>
-      </div>
-
-      <!-- Movie card — unwatched -->
-      <div class="bg-white rounded-xl p-5 shadow-sm">
-        <div class="flex justify-between items-start mb-3">
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">Action</span>
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Unwatched</span>
-        </div>
-        <h2 class="text-lg font-semibold text-gray-800">Mad Max: Fury Road</h2>
-        <p class="text-sm text-gray-500 mt-1">2015 · George Miller</p>
-        <div class="flex justify-between items-center mt-4">
-          <span class="text-yellow-500 font-semibold">★ 8.1</span>
-          <button class="text-sm text-indigo-600 hover:underline">Mark watched</button>
-        </div>
-      </div>
-
-      <!-- Movie card — unwatched -->
-      <div class="bg-white rounded-xl p-5 shadow-sm">
-        <div class="flex justify-between items-start mb-3">
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">Drama</span>
-          <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Unwatched</span>
-        </div>
-        <h2 class="text-lg font-semibold text-gray-800">The Shawshank Redemption</h2>
-        <p class="text-sm text-gray-500 mt-1">1994 · Frank Darabont</p>
-        <div class="flex justify-between items-center mt-4">
-          <span class="text-yellow-500 font-semibold">★ 9.3</span>
-          <button class="text-sm text-indigo-600 hover:underline">Mark watched</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</body>
-
-</html>
-```
-
-1. `min-h-screen` makes the background fill the whole page. `bg-gray-100` is a light grey. `p-8` adds padding.
-2. `grid-cols-3` gives us three columns on large screens. `gap-4` spaces the cards out.
-
-!!! note "What to point out"
-    - The three cards are **identical in structure** — same HTML repeated three times
-    - The only differences are the title, genre, rating, year, and watched status
-    - The buttons do nothing — they're just HTML
-    - If you wanted a fourth movie, you'd copy-paste a whole block of HTML
-
-    **This is the problem Vue solves.**
-
----
-
-## Phase 1 — App setup
+## 1. Recap & What's Ahead
 
 ??? note "🗣️ Talking Points"
-    - Don't mention Vue yet. Just build a page.
-    - Ask: *"Who recognises this workflow — you design the HTML first, then figure out how to make it dynamic?"* That's exactly what we're doing today, but we'll make it dynamic the Vue way.
-    - Keep the Tailwind classes minimal. Explain you're using Tailwind just for spacing and colour — not to show off, just to avoid writing a big `<style>` block during the demo.
-    - After you finish this phase, pause and say: *"Right now this is dead. The data is locked inside the HTML. If a new movie comes out, you edit the HTML. If you want to mark something watched, you edit the HTML. Let's fix that."*
+    - Quick 3-question verbal check: *"What does `ref()` do? What is `v-for` for? What is a component?"*
+    - Last lecture: we built a Task List in one file — `App.vue`. It worked, but everything was crammed into one place.
+    - Today's problem: what happens when your app has 10 pages and 50 UI elements? You can't keep them all in `App.vue`.
+    - The answer is **components** — breaking the UI into small, focused, reusable pieces.
+    - Draw on the board: a box labelled `App.vue` with child boxes `Header`, `TaskList`, `TaskItem`, `Badge`. This tree is what we're building towards.
 
-### Setup
+### Where we left off
 
-Create a new Vite + Vue project:
+In Lecture 1 we introduced components with a simple `Badge` example. We touched on:
 
-```bash title="Terminal"
-npm create vite@latest movie-watchlist -- --template vue
-cd movie-watchlist
-npm install
-npm run dev
-```
+- Creating a `.vue` file in `src/components/`
+- `defineProps` to receive data
+- Importing and using a component in `App.vue`
 
-Add Tailwind. In the terminal:
+### What we're adding today
 
-```bash title="Terminal"
-npm install -D tailwindcss @tailwindcss/vite
-```
-
-In `vite.config.js`:
-
-1. Import the Tailwind Vite plugin.
-2. Add it to the plugins array — this is all you need, no `tailwind.config.js` required.
-
-```js title="vite.config.js"
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite' // (1)
-
-export default defineConfig({
-  plugins: [
-    vue(),
-    tailwindcss(), // (2)
-  ],
-})
-```
-
-
-Replace `src/style.css` with just one line:
-
-```css title="src/style.css"
-@import "tailwindcss";
-```
-
-Make sure `main.js` imports it:
-
-```js title="src/main.js"
-import { createApp } from 'vue'
-import './style.css' // (1)
-import App from './App.vue'
-
-createApp(App).mount('#app')
-```
-
-1. This line must be here — it's what loads Tailwind into your app.
-
-
+| Concept | What it enables |
+|---|---|
+| **Typed props + validation** | Components that fail loudly when used incorrectly |
+| **`defineEmits`** | Children that send signals back up to the parent |
+| **Slots** | Components whose inner content can be customised by the parent |
+| **`v-model` on components** | Two-way binding between parent state and a child input |
 
 ---
 
-➡️ *The structure is right. Now let's make the data live outside the HTML.*
+➡️ *Let's start with props — the primary way a parent talks to a child.*
 
 ---
 
-## Phase 2 — Data-Driven with Vue
+## 2. Props — Passing Data Down
 
 ??? note "🗣️ Talking Points"
-    - The move from Phase 1 to Phase 2 is the central insight of this lecture. You're not changing what the page looks like at all — you're changing *where the data lives*.
-    - Walk through the `movies` array slowly. Ask students to spot the connection between the array properties and where they appear in the template.
-    - When you add `v-for`, the three hardcoded cards disappear and get replaced by one `<div>` that renders three times. That moment is worth pausing on.
-    - After `v-for` works, add a fourth movie to the array and save. The page updates instantly with no HTML change. That's the payoff.
+    - Analogy: props are like function arguments. Every time you call the function (use the component), you pass in different values.
+    - Key rule to land early and hard: **props are read-only in the child**. The child can read them, display them, use them in computed properties — but it must never mutate them. If it needs to change something, it emits an event (next section).
+    - Walk through the type definitions slowly — students coming from plain JS aren't used to declaring types. Explain that Vue validates at runtime and logs warnings in the dev console.
 
-### Move the data into a `ref`
+### What are props?
 
-Replace `<script setup>` with:
+Props are the inputs a component declares. The parent passes values in; the child reads them. Data flows **one way** — parent → child.
+
+```
+Parent (App.vue)
+  │
+  │  :title="'Hello'"   ← prop passed down
+  ▼
+Child (Card.vue)
+  reads props.title — cannot change it
+```
+
+### Declaring props with `defineProps`
+
+=== "Basic (no types)"
+    ```vue title="Card.vue"
+    <!-- Card.vue -->
+    <script setup>
+    defineProps(['title', 'description'])
+    </script>
+
+    <template>
+      <div class="card">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+      </div>
+    </template>
+    ```
+
+=== "With types and validation (recommended)"
+    ```vue title="Card.vue"
+    <!-- Card.vue -->
+    <script setup>
+    defineProps({
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        default: 'No description provided.'
+      },
+      badge: {
+        type: String,
+        default: null
+      },
+      count: {
+        type: Number,
+        default: 0
+      },
+      active: {
+        type: Boolean,
+        default: false
+      }
+    })
+    </script>
+
+    <template>
+      <div class="card" :class="{ active }">
+        <span v-if="badge" class="badge">{{ badge }}</span>
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+        <small>Items: {{ count }}</small>
+      </div>
+    </template>
+    <style scoped>
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 16px;
+    }
+
+    .active {
+        background-color: #42b983;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background-color: #42b983;
+        color: white;
+        margin-right: 8px;
+    }
+    </style>
+    ```
+
+!!! warning "Props are read-only"
+    ```javascript
+    // ❌ Never do this inside a child component
+    props.title = 'New title'
+
+    // If you need a local modifiable copy, make one:
+    const localTitle = ref(props.title)
+    ```
+
+### Using a component with props
 
 ```vue title="App.vue"
 <script setup>
+import Card from './components/Card.vue'
 import { ref } from 'vue'
 
-const movies = ref([ // (1)
-  {
-    id: 1,
-    title: 'Dune',
-    director: 'Denis Villeneuve',
-    year: 2021,
-    genre: 'Sci-Fi',
-    rating: 8.0,
-    watched: true, // (2)
-  },
-  {
-    id: 2,
-    title: 'Mad Max: Fury Road',
-    director: 'George Miller',
-    year: 2015,
-    genre: 'Action',
-    rating: 8.1,
-    watched: false,
-  },
-  {
-    id: 3,
-    title: 'The Shawshank Redemption',
-    director: 'Frank Darabont',
-    year: 1994,
-    genre: 'Drama',
-    rating: 9.3,
-    watched: false,
-  },
+const projectName = ref('Vue App')
+</script>
+
+<template>
+  <!-- Static string prop -->
+  <Card title="Getting Started" description="Learn the basics." />
+
+  <!-- Dynamic prop bound to reactive data — note the : prefix -->
+  <Card :title="projectName" badge="Active" :count="5" :active="true" />
+</template>
+```
+
+!!! note "Static vs dynamic props"
+    Without `:`, the value is a **plain string** — `count="5"` passes the string `"5"`, not the number `5`.
+    With `:`, the value is a **JavaScript expression** — `:count="5"` passes the number `5`.
+
+    This catches students out constantly. If a prop expects a `Number` and you write `count="5"`, Vue will log a type warning.
+
+### Prop types Vue supports
+
+| Type | Example |
+|---|---|
+| `String` | `title: { type: String }` |
+| `Number` | `count: { type: Number }` |
+| `Boolean` | `active: { type: Boolean }` |
+| `Array` | `items: { type: Array }` |
+| `Object` | `user: { type: Object }` |
+| Multiple | `id: { type: [String, Number] }` |
+
+!!! example "🎯 Demo — Card component with props"
+    === "Step 1 — create Card.vue"
+        Create `src/components/Card.vue`:
+        ```vue
+        <template>
+          <div class="card" :class="{ active }">
+            <span v-if="badge" class="badge">{{ badge }}</span>
+            <h2>{{ title }}</h2>
+            <p>{{ description }}</p>
+          </div>
+        </template>
+
+        <script setup>
+        defineProps({
+          title:       { type: String, required: true },
+          description: { type: String, default: 'No description.' },
+          badge:       { type: String, default: null },
+          active:      { type: Boolean, default: false }
+        })
+        </script>
+
+        <style scoped>
+        .card {
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          padding: 1.2rem;
+          margin-bottom: 1rem;
+          background: white;
+          font-family: system-ui, sans-serif;
+        }
+        .card.active { border-color: #6366f1; box-shadow: 0 0 0 3px #e0e7ff; }
+        .badge {
+          display: inline-block;
+          padding: 0.2rem 0.6rem;
+          border-radius: 999px;
+          background: #6366f1;
+          color: white;
+          font-size: 0.75rem;
+          margin-bottom: 0.5rem;
+        }
+        h2 { margin: 0 0 0.4rem; font-size: 1.1rem; color: #111827; }
+        p  { margin: 0; color: #6b7280; font-size: 0.9rem; }
+        </style>
+        ```
+
+    === "Step 2 — use it in App.vue"
+        ```vue
+        <script setup>
+        import Card from './components/Card.vue'
+        </script>
+
+        <template>
+          <div style="max-width:500px; margin:2rem auto; padding:0 1rem;">
+            <Card title="Lecture 1" description="Vue basics, reactivity, directives." badge="Done" />
+            <Card title="Lecture 2" description="Components in depth." badge="Today" :active="true" />
+            <Card title="Lecture 3" description="Reactivity and lifecycle hooks." />
+          </div>
+        </template>
+        ```
+
+    Show the browser. Point out:
+    - The `active` card has a highlighted border
+    - The last card shows the default description because none was passed
+    - Open DevTools console, temporarily remove `title` from a card — Vue warns about the required prop
+
+---
+
+➡️ *Props let the parent talk to the child. Now let's go the other direction — events.*
+
+---
+
+## 3. Events — Sending Signals Up
+
+??? note "🗣️ Talking Points"
+    - The instinct students have is to pass a function as a prop and call it from the child. That works in React. In Vue, the convention is events — cleaner and more explicit.
+    - Analogy: a button on a TV remote emits a signal. The TV (parent) decides what to do with it. The remote (child) doesn't know — and shouldn't know — what the TV will do.
+    - Show the broken version first (mutating a prop directly) before showing the event solution. Students need to feel the problem before the solution makes sense.
+    - `defineEmits` is the mirror image of `defineProps` — it declares what signals the component can send out.
+
+### The problem: children can't change parent data directly
+
+```
+Parent owns: tasks = [...]
+
+Child wants to delete a task...
+  ❌ props.tasks.splice(i, 1)   — mutating a prop
+  ✅ emit('delete', task.id)    — ask the parent to do it
+```
+
+The parent owns the data. The child asks politely by emitting an event.
+
+### `defineEmits` — declaring what a component can emit
+
+```vue title="DeleteButton.vue"
+<script setup>
+// Declare the events this component can send
+const emit = defineEmits(['delete', 'archive'])
+
+function handleDelete() {
+  emit('delete')           // emit with no payload
+}
+
+function handleArchive(id) {
+  emit('archive', id)      // emit with a payload
+}
+</script>
+
+<template>
+  <button @click="handleDelete">Delete</button>
+  <button @click="handleArchive(42)">Archive</button>
+</template>
+```
+
+### Listening to events in the parent
+
+```vue title="App.vue"
+<script setup>
+import DeleteButton from './components/DeleteButton.vue'
+
+function onDelete() {
+  console.log('delete event received')
+}
+
+function onArchive(id) {
+  console.log('archive event received, id:', id)
+}
+</script>
+
+<template>
+  <!-- v-on / @ listens for custom events just like DOM events -->
+  <DeleteButton @delete="onDelete" @archive="onArchive" />
+</template>
+```
+
+### Full example — a Card that can be dismissed
+
+!!! example "🎯 Demo — dismissable Card"
+    === "Step 1 — add emit to Card.vue"
+        Add `defineEmits` and a close button to `Card.vue`:
+        ```vue
+        <template>
+          <div class="card" :class="{ active }">
+            <button class="close" @click="emit('close')">✕</button>
+            <span v-if="badge" class="badge">{{ badge }}</span>
+            <h2>{{ title }}</h2>
+            <p>{{ description }}</p>
+          </div>
+        </template>
+
+        <script setup>
+        defineProps({
+          title:       { type: String, required: true },
+          description: { type: String, default: 'No description.' },
+          badge:       { type: String, default: null },
+          active:      { type: Boolean, default: false }
+        })
+
+        const emit = defineEmits(['close'])
+        </script>
+
+        <style scoped>
+        /* ...keep existing styles, add: */
+        .card { position: relative; }
+        .close {
+          position: absolute;
+          top: 0.75rem; right: 0.75rem;
+          background: none; border: none;
+          color: #9ca3af; cursor: pointer;
+          font-size: 1rem; line-height: 1;
+        }
+        .close:hover { color: #111827; }
+        </style>
+        ```
+
+    === "Step 2 — handle it in App.vue"
+        ```vue
+        <script setup>
+        import { ref } from 'vue'
+        import Card from './components/Card.vue'
+
+        const cards = ref([
+          { id: 1, title: 'Lecture 1', description: 'Vue basics.', badge: 'Done' },
+          { id: 2, title: 'Lecture 2', description: 'Components.', badge: 'Today', active: true },
+          { id: 3, title: 'Lecture 3', description: 'Lifecycle hooks.' },
+        ])
+
+        function removeCard(id) {
+          cards.value = cards.value.filter(c => c.id !== id)
+        }
+        </script>
+
+        <template>
+          <div style="max-width:500px; margin:2rem auto; padding:0 1rem;">
+            <Card
+              v-for="card in cards"
+              :key="card.id"
+              :title="card.title"
+              :description="card.description"
+              :badge="card.badge"
+              :active="card.active"
+              @close="removeCard(card.id)"
+            />
+          </div>
+        </template>
+        ```
+
+    Click the ✕ on a card. Point out:
+    - The child emitted `'close'`
+    - The parent called `removeCard` with the right `id`
+    - The child has no idea what `removeCard` does — it just sends a signal
+
+---
+
+➡️ *Props and events handle data. But what about the HTML content inside a component?*
+
+---
+
+## 4. Slots — Flexible Component Content
+
+??? note "🗣️ Talking Points"
+    - Props pass data. Slots pass *markup*. That's the one-sentence summary.
+    - Without slots, every component is a closed box. With slots, the parent can inject any HTML it wants into a designated spot inside the child.
+    - Real-world analogy: a `Modal` component. The modal's structure (overlay, box, close button, animation) is always the same. But what's *inside* the modal is different every time — a form, a confirmation message, an image gallery. Slots solve this.
+    - Named slots: think of them as multiple insertion points — a `header` slot, a `default` slot, a `footer` slot.
+
+### Default slot
+
+Without slots, a component ignores any content written between its tags:
+
+```vue
+<!-- ❌ This content is silently ignored — Card has no slot -->
+<Card title="Hello">
+  <p>This paragraph goes nowhere.</p>
+</Card>
+```
+
+To allow content, add `<slot>` inside the component template:
+
+```vue title="Panel.vue"
+<template>
+  <div class="panel">
+    <div class="panel-header">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="panel-body">
+      <slot />   <!-- parent content is injected here -->
+    </div>
+  </div>
+</template>
+
+<script setup>
+defineProps({ title: { type: String, required: true } })
+</script>
+```
+
+```vue title="App.vue"
+<template>
+  <Panel title="User Profile">
+    <!-- This markup goes into the slot -->
+    <p>Name: Alice</p>
+    <p>Email: alice@example.com</p>
+    <button>Edit profile</button>
+  </Panel>
+</template>
+```
+
+### Slot fallback content
+
+Provide default content that shows when the parent gives nothing:
+
+```vue
+<slot>
+  <p class="empty">Nothing to show here.</p>
+</slot>
+```
+
+### Named slots
+
+When a component needs more than one injection point:
+
+```vue title="PageLayout.vue"
+<template>
+  <div class="layout">
+    <header>
+      <slot name="header" />
+    </header>
+
+    <main>
+      <slot />          <!-- unnamed = "default" slot -->
+    </main>
+
+    <footer>
+      <slot name="footer" />
+    </footer>
+  </div>
+</template>
+```
+
+```vue title="App.vue"
+<template>
+  <PageLayout>
+    <template #header>
+      <h1>My App</h1>
+      <nav>...</nav>
+    </template>
+
+    <!-- content here goes to the default slot -->
+    <p>Main page content.</p>
+
+    <template #footer>
+      <p>© 2025 COSC2956</p>
+    </template>
+  </PageLayout>
+</template>
+```
+
+`#header` is shorthand for `v-slot:header`.
+
+!!! example "🎯 Demo — Modal with slots"
+    === "Step 1 — create Modal.vue"
+        Create `src/components/Modal.vue`:
+        ```vue
+        <template>
+          <div v-if="open" class="overlay" @click.self="emit('close')">
+            <div class="modal">
+              <div class="modal-header">
+                <slot name="header">
+                  <h2>Dialog</h2>
+                </slot>
+                <button class="close" @click="emit('close')">✕</button>
+              </div>
+              <div class="modal-body">
+                <slot />
+              </div>
+              <div class="modal-footer">
+                <slot name="footer">
+                  <button @click="emit('close')">Close</button>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <script setup>
+        defineProps({ open: { type: Boolean, required: true } })
+        const emit = defineEmits(['close'])
+        </script>
+
+        <style scoped>
+        .overlay {
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,0.4);
+          display: flex; align-items: center; justify-content: center;
+          z-index: 100;
+        }
+        .modal {
+          background: white; border-radius: 12px;
+          width: 90%; max-width: 480px;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+          font-family: system-ui, sans-serif; overflow: hidden;
+        }
+        .modal-header {
+          display: flex; justify-content: space-between; align-items: center;
+          padding: 1.2rem 1.5rem; border-bottom: 1px solid #e5e7eb;
+        }
+        .modal-header h2 { margin: 0; font-size: 1.1rem; }
+        .modal-body   { padding: 1.5rem; }
+        .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; text-align: right; }
+        .close { background: none; border: none; font-size: 1.1rem; cursor: pointer; color: #9ca3af; }
+        .close:hover { color: #111; }
+        button {
+          padding: 0.5rem 1.2rem; border: none; border-radius: 6px;
+          background: #6366f1; color: white; cursor: pointer;
+        }
+        </style>
+        ```
+
+    === "Step 2 — use it in App.vue"
+        ```vue
+        <script setup>
+        import { ref } from 'vue'
+        import Modal from './components/Modal.vue'
+
+        const showModal = ref(false)
+        </script>
+
+        <template>
+          <div style="padding: 2rem;">
+            <button @click="showModal = true"
+              style="padding:0.6rem 1.2rem; background:#6366f1; color:white; border:none; border-radius:8px; cursor:pointer;">
+              Open Modal
+            </button>
+
+            <Modal :open="showModal" @close="showModal = false">
+              <template #header>
+                <h2>Confirm Delete</h2>
+              </template>
+
+              <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+
+              <template #footer>
+                <button @click="showModal = false"
+                  style="background:#e5e7eb; color:#111; margin-right:0.5rem;">
+                  Cancel
+                </button>
+                <button @click="showModal = false">Confirm</button>
+              </template>
+            </Modal>
+          </div>
+        </template>
+        ```
+
+    Show the modal opening and closing. Then change the content between the `Modal` tags — point out the modal's *structure* never changes, only the *content* does. That's the power of slots.
+
+    Click outside the modal (the overlay) — it also closes, because of `@click.self` on `.overlay`.
+
+---
+
+➡️ *Now let's look at a common pattern that combines props and events in one directive.*
+
+---
+
+## 5. `v-model` on Components
+
+??? note "🗣️ Talking Points"
+    - Students already know `v-model` on native inputs from Lec 1. Now we're lifting that concept to custom components.
+    - The key insight: `v-model` on a component is syntactic sugar for `:modelValue` + `@update:modelValue`. Once students see what it expands to, they can implement it themselves.
+    - This is the first pattern that feels genuinely 'clever' — students often have a lightbulb moment here.
+    - Good real-world use case: a custom `SearchInput` component that a parent uses in many places. The parent binds its `query` ref to it with `v-model` and forgets about it.
+
+### What `v-model` expands to on a component
+
+On a native input:
+```vue
+<input v-model="name" />
+<!-- expands to: -->
+<input :value="name" @input="name = $event.target.value" />
+```
+
+On a **custom component**, `v-model` expands to:
+```vue
+<SearchInput v-model="query" />
+<!-- expands to: -->
+<SearchInput :modelValue="query" @update:modelValue="query = $event" />
+```
+
+So to support `v-model`, your component must:
+
+1. Accept a prop named `modelValue`
+2. Emit an event named `update:modelValue`
+
+### Implementing a `v-model`-compatible component
+
+!!! example "🎯 Demo — SearchInput with v-model"
+    === "Step 1 — create SearchInput.vue"
+        Create `src/components/SearchInput.vue`:
+        ```vue
+        <template>
+          <div class="search-wrapper">
+            <span class="icon">🔍</span>
+            <input
+              class="search-input"
+              :value="modelValue"
+              @input="emit('update:modelValue', $event.target.value)"
+              :placeholder="placeholder"
+            />
+            <button v-if="modelValue" class="clear" @click="emit('update:modelValue', '')">✕</button>
+          </div>
+        </template>
+
+        <script setup>
+        defineProps({
+          modelValue:  { type: String, required: true },
+          placeholder: { type: String, default: 'Search...' }
+        })
+
+        const emit = defineEmits(['update:modelValue'])
+        </script>
+
+        <style scoped>
+        .search-wrapper {
+          display: flex; align-items: center; gap: 0.5rem;
+          border: 1px solid #d1d5db; border-radius: 8px;
+          padding: 0.5rem 0.75rem; background: white;
+          font-family: system-ui, sans-serif;
+        }
+        .search-wrapper:focus-within { border-color: #6366f1; box-shadow: 0 0 0 3px #e0e7ff; }
+        .search-input { flex: 1; border: none; outline: none; font-size: 0.95rem; }
+        .icon  { color: #9ca3af; }
+        .clear { background: none; border: none; color: #9ca3af; cursor: pointer; font-size: 0.9rem; }
+        .clear:hover { color: #111; }
+        </style>
+        ```
+
+    === "Step 2 — use v-model in App.vue"
+        ```vue
+        <script setup>
+        import { ref, computed } from 'vue'
+        import SearchInput from './components/SearchInput.vue'
+
+        const query = ref('')
+
+        const courses = ref([
+          'Introduction to Vue.js',
+          'Components in Depth',
+          'Reactivity and Lifecycle',
+          'Vue Router',
+          'State Management with Pinia',
+          'Composables',
+        ])
+
+        const filtered = computed(() =>
+          courses.value.filter(c =>
+            c.toLowerCase().includes(query.value.toLowerCase())
+          )
+        )
+        </script>
+
+        <template>
+          <div style="max-width:500px; margin:2rem auto; padding:0 1rem; font-family:system-ui, sans-serif;">
+            <h2>Course Search</h2>
+
+            <!-- v-model wires the parent's query ref to the child component -->
+            <SearchInput v-model="query" placeholder="Search courses..." />
+
+            <p style="margin:1rem 0 0.5rem; color:#6b7280; font-size:0.9rem;">
+              {{ filtered.length }} result(s)
+            </p>
+
+            <ul style="list-style:none; padding:0;">
+              <li v-for="course in filtered" :key="course"
+                  style="padding:0.6rem 0; border-bottom:1px solid #f3f4f6;">
+                {{ course }}
+              </li>
+            </ul>
+          </div>
+        </template>
+        ```
+
+    Type in the search box. Point out:
+    - `query` in `App.vue` updates as you type — even though the `<input>` is inside `SearchInput.vue`
+    - The clear button emits `update:modelValue` with an empty string — the parent's `query` resets
+    - The parent just writes `v-model="query"` and doesn't care how `SearchInput` is built internally
+
+---
+
+➡️ *Now let's build something that uses all four concepts together.*
+
+---
+
+## 6. Live Demo — Product Card + Quick-View Modal
+
+??? note "🗣️ Talking Points"
+    - This demo uses everything from today: typed props, emits, slots, and v-model.
+    - Build it stage by stage. Don't rush to stage 4 — the value is in watching each piece connect.
+    - After stage 3, pause and ask: *"What does the ProductCard component know about the modal? Nothing. What does the modal know about the product? Nothing. Who connects them?"* — App.vue. That's the component architecture point.
+
+!!! example "🎯 Demo — Setup"
+    Start fresh. Delete the content from `App.vue`. We will build three components: `ProductCard.vue`, `QuickViewModal.vue`, and wire them in `App.vue`.
+
+---
+
+### Stage 1 — ProductCard with props and emit
+
+Create `src/components/ProductCard.vue`:
+
+```vue title="ProductCard.vue"
+<template>
+  <div class="product-card">
+    <div class="product-image">{{ product.emoji }}</div>
+    <div class="product-info">
+      <h3>{{ product.name }}</h3>
+      <p class="price">${{ product.price.toFixed(2) }}</p>
+      <p class="desc">{{ product.description }}</p>
+    </div>
+    <button class="view-btn" @click="emit('quickview', product)">Quick View</button>
+  </div>
+</template>
+
+<script setup>
+defineProps({
+  product: { type: Object, required: true }
+})
+
+const emit = defineEmits(['quickview'])
+</script>
+
+<style scoped>
+.product-card {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  border: 1px solid #e5e7eb; border-radius: 12px;
+  padding: 1.2rem; background: white;
+  font-family: system-ui, sans-serif;
+  transition: box-shadow 0.2s;
+}
+.product-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.product-image { font-size: 3rem; text-align: center; padding: 0.5rem 0; }
+.product-info h3 { margin: 0 0 0.25rem; color: #111827; }
+.price { margin: 0 0 0.4rem; color: #6366f1; font-weight: 600; }
+.desc  { margin: 0; color: #6b7280; font-size: 0.875rem; }
+.view-btn {
+  width: 100%; padding: 0.6rem; border: none; border-radius: 8px;
+  background: #6366f1; color: white; cursor: pointer; font-size: 0.9rem;
+}
+.view-btn:hover { background: #4f46e5; }
+</style>
+```
+
+```vue title="App.vue — stage 1"
+<script setup>
+import { ref } from 'vue'
+import ProductCard from './components/ProductCard.vue'
+
+const products = ref([
+  { id: 1, emoji: '⌨️', name: 'Mechanical Keyboard', price: 89.99, description: 'Tactile switches, RGB backlit.' },
+  { id: 2, emoji: '🖱️', name: 'Wireless Mouse',      price: 49.99, description: 'Ergonomic design, long battery life.' },
+  { id: 3, emoji: '🖥️', name: '4K Monitor',           price: 399.99, description: '27-inch IPS panel, 144Hz.' },
 ])
 </script>
-```
 
-1. `ref([])` makes the entire array reactive. When any movie's data changes, the template updates automatically.
-2. `watched: true/false` is the single source of truth for whether a movie has been seen. We never set this in the HTML — only here.
-
-### Replace the three cards with `v-for`
-
-Now replace the three hard-coded card `<div>` blocks with a single `v-for`:
-
-```vue title="App.vue" hl_lines="3 5 10 12 15 17"
-<!-- Movie grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-  <div v-for="movie in movies" :key="movie.id" <!-- (1) -->
-       class="bg-white rounded-xl p-5 shadow-sm">
-
-    <div class="flex justify-between items-start mb-3">
-      <!-- Genre badge -->
-      <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-        {{ movie.genre }} <!-- (2) -->
-      </span>
-      <!-- Watched badge -->
-      <span v-if="movie.watched" <!-- (3) -->
-            class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-        ✓ Watched
-      </span>
-      <span v-else
-            class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
-        Unwatched
-      </span>
-    </div>
-
-    <h2 class="text-lg font-semibold text-gray-800">{{ movie.title }}</h2>
-    <p class="text-sm text-gray-500 mt-1">{{ movie.year }} · {{ movie.director }}</p>
-
-    <div class="flex justify-between items-center mt-4">
-      <span class="text-yellow-500 font-semibold">★ {{ movie.rating }}</span>
-      <button class="text-sm text-indigo-600 hover:underline">
-        {{ movie.watched ? 'Mark unwatched' : 'Mark watched' }} <!-- (4) -->
-      </button>
-    </div>
-
-  </div>
-
-</div>
-```
-
-1. `v-for="movie in movies"` loops over the array. `:key="movie.id"` gives Vue a stable identity for each card — always use a unique ID, never the array index.
-2. `{{ movie.genre }}` pulls from the current loop item. Each card gets its own data automatically.
-3. `v-if="movie.watched"` shows the green badge for watched movies, `v-else` shows the grey one for unwatched. Vue picks the right one per card.
-4. A ternary expression — renders the right button label based on the current watched state.
-
-!!! example "🎯 Try it live"
-    Add a fourth movie to the `movies` array and save:
-    ```javascript
-    {
-      id: 4,
-      title: 'Parasite',
-      director: 'Bong Joon-ho',
-      year: 2019,
-      genre: 'Thriller',
-      rating: 8.5,
-      watched: false,
-    }
-    ```
-    A fourth card appears with zero HTML changes. **The template is a description of what one card looks like — the data drives how many there are.**
-
----
-
-➡️ *The page is alive. Now let's make the buttons actually do something.*
-
----
-
-## Phase 3 — Interactions
-
-??? note "🗣️ Talking Points"
-    - Students sometimes expect interactions to be complicated. Show them they're just function calls that change a property.
-    - For the toggle: point at the `movie.watched = !movie.watched` line and ask *"How many lines of DOM code did we write?"* Zero. Vue saw the change and updated the badge and button label automatically.
-    - For the add form: introduce `v-model` as revision from Lec 1. The new thing here is that the form is in the same component as the list — we're not doing components yet. That deliberate simplicity sets up the motivation for Phase 4.
-    - After the form works, point out that `App.vue` is getting long. Ask: *"What if you had 50 movies and a different page for each genre? Would you keep everything in one file?"* That leads into Phase 4.
-
-### Toggle watched status
-
-Add a `toggleWatched` function to `<script setup>`:
-
-1. Takes the movie's `id` as an argument — not the index, not the whole object, just the ID.
-2. `movies.value.find()` searches the reactive array for the matching movie.
-3. Flips `watched` between `true` and `false`. Vue detects this property change and re-renders the badge and button label automatically.
-
-```javascript title="App.vue"
-function toggleWatched(id) { // (1)
-  const movie = movies.value.find(m => m.id === id) // (2)
-  if (movie) movie.watched = !movie.watched // (3)
-}
-```
-
-
-
-Wire the button in the template:
-
-```vue title="App.vue"
-<button @click="toggleWatched(movie.id)" 
-        class="text-sm text-indigo-600 hover:underline">
-  {{ movie.watched ? 'Mark unwatched' : 'Mark watched' }} 
-</button>
-```
-
-1. Pass `movie.id` (not `movie`) — the function only needs the ID to find and update the right entry.
-
-Click a button. The badge and label flip instantly. Click again — they flip back. **One line of logic, zero DOM code.**
-
----
-
-### Add a movie — the form
-
-Import reactive:
-```javascript title="App.vue"
-import { ref, reactive } from 'vue'
-```
-
-Add form state to `<script setup>`:
-
-```javascript title="App.vue"
-const showForm = ref(false) // (1)
-
-const newMovie = reactive({ // (2)
-  title: '',
-  director: '',
-  year: new Date().getFullYear(),
-  genre: '',
-  rating: 7.0,
-})
-```
-
-1. Controls whether the form is visible. Starts hidden.
-2. `reactive()` is a good fit here — these are related fields that always change together as a group.
-
-Add the `addMovie` function:
-
-```javascript title="App.vue"
-function addMovie() {
-  if (!newMovie.title || !newMovie.genre) return // (1)
-
-  movies.value.push({
-    id: Date.now(), // (2)
-    title: newMovie.title,
-    director: newMovie.director,
-    year: newMovie.year,
-    genre: newMovie.genre,
-    rating: newMovie.rating,
-    watched: false,
-  })
-
-  // Reset the form
-  newMovie.title = ''
-  newMovie.director = ''
-  newMovie.year = new Date().getFullYear()
-  newMovie.genre = ''
-  newMovie.rating = 7.0
-  showForm.value = false // (3)
-}
-```
-
-1. Basic validation — don't add a movie with no title or genre.
-2. `Date.now()` gives a unique number as an ID. Fine for this demo — a real app would use a database-generated ID.
-3. Close the form after adding.
-
-Add the form to the template, just above the grid:
-
-```vue title="App.vue"
-<!-- Add Movie button -->
-<button @click="showForm = !showForm"
-        class="mb-6 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">
-  {{ showForm ? '✕ Cancel' : '+ Add Movie' }} <!-- (1) -->
-</button>
-
-<!-- Add Movie form -->
-<div v-if="showForm" class="bg-white rounded-xl p-5 shadow-sm mb-6"> <!-- (2) -->
-  <h2 class="font-semibold text-gray-700 mb-4">Add a Movie</h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-    <input v-model="newMovie.title"    placeholder="Title"    class="border rounded-lg px-3 py-2 text-sm" />
-    <input v-model="newMovie.director" placeholder="Director" class="border rounded-lg px-3 py-2 text-sm" />
-    <input v-model.number="newMovie.year"   type="number" placeholder="Year"   class="border rounded-lg px-3 py-2 text-sm" />
-    <input v-model="newMovie.genre"    placeholder="Genre"    class="border rounded-lg px-3 py-2 text-sm" />
-    <input v-model.number="newMovie.rating" type="number" placeholder="Rating (0–10)" step="0.1" class="border rounded-lg px-3 py-2 text-sm" /> <!-- (3) -->
-  </div>
-
-  <button @click="addMovie"
-          class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">
-    Add to Watchlist
-  </button>
-</div>
-```
-
-1. The button label changes based on `showForm` — same toggle pattern as the watched status.
-2. `v-if="showForm"` shows the form only when the button has been clicked.
-3. `v-model.number` converts the input string to a real number automatically — without this, `rating` would be the string `"7.5"` instead of the number `7.5`.
-
-!!! note "The full `<script setup>` at this point"
-    ```vue
-    <script setup>
-    import { ref, reactive } from 'vue'
-
-    const movies = ref([
-      { id: 1, title: 'Dune',                      director: 'Denis Villeneuve', year: 2021, genre: 'Sci-Fi',   rating: 8.0, watched: true  },
-      { id: 2, title: 'Mad Max: Fury Road',         director: 'George Miller',   year: 2015, genre: 'Action',   rating: 8.1, watched: false },
-      { id: 3, title: 'The Shawshank Redemption',   director: 'Frank Darabont',  year: 1994, genre: 'Drama',    rating: 9.3, watched: false },
-      { id: 4, title: 'Parasite',                   director: 'Bong Joon-ho',    year: 2019, genre: 'Thriller', rating: 8.5, watched: false },
-    ])
-
-    const showForm = ref(false)
-    const newMovie = reactive({
-      title: '', director: '', year: new Date().getFullYear(), genre: '', rating: 7.0,
-    })
-
-    function toggleWatched(id) {
-      const movie = movies.value.find(m => m.id === id)
-      if (movie) movie.watched = !movie.watched
-    }
-
-    function addMovie() {
-      if (!newMovie.title || !newMovie.genre) return
-      movies.value.push({
-        id: Date.now(),
-        title: newMovie.title, director: newMovie.director,
-        year: newMovie.year,   genre: newMovie.genre, rating: newMovie.rating,
-        watched: false,
-      })
-      newMovie.title = ''; newMovie.director = ''
-      newMovie.year = new Date().getFullYear(); newMovie.genre = ''; newMovie.rating = 7.0
-      showForm.value = false
-    }
-    </script>
-    ```
-
-!!! warning "App.vue is getting long"
-    We have logic, form state, and card HTML all mixed together. And we only have 4 movies and one interaction. Imagine 10 features.
-
-    This is the natural moment to ask: **what if the card was its own file?**
-
----
-
-➡️ *The app works. Now let's organise it properly.*
-
----
-
-## Phase 4 — Extract `MovieCard.vue`
-
-??? note "🗣️ Talking Points"
-    - The key message: **the app doesn't change at all from the user's perspective.** The same page, the same behaviour. We're just reorganising *where the code lives*.
-    - Walk through `defineProps` carefully. For each prop, ask: *"Where does this value come from?"* — it comes from the `movie` object in `App.vue`.
-    - When you add `defineEmits(['toggle'])`, ask: *"Why not just call `toggleWatched` directly from inside the card?"* — because `MovieCard` doesn't own the data. It doesn't even know `movies` exists. It can only ask politely.
-    - After `App.vue` is updated, scroll through it. It's now about half the length. That's the payoff.
-
-### What goes in the component?
-
-Everything inside the `<div v-for>` card belongs in `MovieCard.vue`. The component will:
-
-- **Receive** movie data via props
-- **Emit** a `toggle` event when the button is clicked
-
-The component does not own the data. It borrows it, displays it, and asks `App.vue` to make changes.
-
-### Create `src/components/MovieCard.vue`
-
-```vue title="MovieCard.vue"
 <template>
-  <div class="bg-white rounded-xl p-5 shadow-sm">
-
-    <div class="flex justify-between items-start mb-3">
-      <!-- Genre badge — we'll improve this in Phase 5 -->
-      <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-        {{ genre }} <!-- (1) -->
-      </span>
-      <!-- Watched badge -->
-      <span v-if="watched"
-            class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-        ✓ Watched
-      </span>
-      <span v-else
-            class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
-        Unwatched
-      </span>
+  <div class="page">
+    <h1>Products</h1>
+    <div class="grid">
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+        @quickview="p => console.log('Quick view:', p.name)"
+      />
     </div>
+  </div>
+</template>
 
-    <h2 class="text-lg font-semibold text-gray-800">{{ title }}</h2>
-    <p class="text-sm text-gray-500 mt-1">{{ year }} · {{ director }}</p>
+<style>
+body { background: #f9fafb; margin: 0; }
+.page { max-width: 700px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; }
+h1    { color: #111827; margin-bottom: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+</style>
+```
 
-    <div class="flex justify-between items-center mt-4">
-      <span class="text-yellow-500 font-semibold">★ {{ rating }}</span>
-      <button @click="emit('toggle')" <!-- (2) -->
-              class="text-sm text-indigo-600 hover:underline">
-        {{ watched ? 'Mark unwatched' : 'Mark watched' }}
-      </button>
+Open the console and click Quick View. Show the product object arriving.
+
+---
+
+### Stage 2 — QuickViewModal with slots
+
+Create `src/components/QuickViewModal.vue`:
+
+```vue title="QuickViewModal.vue"
+<template>
+  <div v-if="open" class="overlay" @click.self="emit('close')">
+    <div class="modal">
+      <div class="modal-header">
+        <slot name="header" />
+        <button class="close" @click="emit('close')">✕</button>
+      </div>
+      <div class="modal-body">
+        <slot />
+      </div>
+      <div class="modal-footer">
+        <slot name="footer">
+          <button class="btn-secondary" @click="emit('close')">Close</button>
+        </slot>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
-const props = defineProps({ // (3)
-  id:       { type: Number, required: true },
-  title:    { type: String, required: true },
-  director: { type: String, required: true },
-  year:     { type: Number, required: true },
-  genre:    { type: String, required: true },
-  rating:   { type: Number, required: true },
-  watched:  { type: Boolean, required: true },
-})
-
-const emit = defineEmits(['toggle']) // (4)
+defineProps({ open: { type: Boolean, required: true } })
+const emit = defineEmits(['close'])
 </script>
+
+<style scoped>
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.modal {
+  background: white; border-radius: 14px; width: 90%; max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2); overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.25rem; border-bottom: 1px solid #f3f4f6;
+}
+.modal-body   { padding: 1.5rem; }
+.modal-footer { padding: 1rem 1.25rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; gap: 0.5rem; }
+.close        { background: none; border: none; font-size: 1.1rem; color: #9ca3af; cursor: pointer; }
+.close:hover  { color: #111; }
+.btn-secondary { padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; background: white; cursor: pointer; }
+</style>
 ```
-
-1. Props are used directly by name in the template — no `props.genre`, just `{{ genre }}`.
-2. `emit('toggle')` sends a signal up to the parent. The card doesn't call `toggleWatched` — it doesn't know that function exists.
-3. Every piece of data the card needs is declared here. Vue will warn in the console if the parent forgets to pass a required prop.
-4. Declaring emits is optional but recommended — it documents what signals this component sends.
-
-### Update `App.vue` to use `MovieCard`
-
-In `<script setup>`, add the import:
-
-```javascript hl_lines="1" title="App.vue"
-import MovieCard from './components/MovieCard.vue' // (1)
-```
-
-1. The path is relative to `App.vue`. No need to register it — in `<script setup>`, imported components are ready to use immediately.
-
-Replace the entire `<div v-for>` block with:
-
-```vue title="App.vue"
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-  <MovieCard
-    v-for="movie in movies"
-    :key="movie.id"
-    :id="movie.id"
-    :title="movie.title"
-    :director="movie.director"
-    :year="movie.year"
-    :genre="movie.genre"
-    :rating="movie.rating"
-    :watched="movie.watched"
-    @toggle="toggleWatched(movie.id)" <!-- (1) -->
-  />
-</div>
-```
-
-1. When `MovieCard` emits `'toggle'`, `App.vue` catches it here and calls `toggleWatched` with the right ID. The card sent the signal — `App.vue` decided what to do with it.
-
-!!! note "What just happened"
-    - `App.vue` went from ~80 lines of template to ~15
-    - `MovieCard.vue` is now a self-contained, reusable card
-    - The app behaves **identically** — toggle still works, form still adds movies
-    - If you need a movie card anywhere else in the app, you import `MovieCard` and use it — no copy-paste
 
 ---
 
-➡️ *One more step — let's make the genre badge its own component.*
+### Stage 3 — Wire modal into App.vue
 
----
+```vue title="App.vue — stage 3"
+<script setup>
+import { ref } from 'vue'
+import ProductCard from './components/ProductCard.vue'
+import QuickViewModal from './components/QuickViewModal.vue'
 
-## Phase 5 — Extract `GenreBadge.vue`
+const products = ref([
+  { id: 1, emoji: '⌨️', name: 'Mechanical Keyboard', price: 89.99, description: 'Tactile switches, RGB backlit.' },
+  { id: 2, emoji: '🖱️', name: 'Wireless Mouse',      price: 49.99, description: 'Ergonomic design, long battery life.' },
+  { id: 3, emoji: '🖥️', name: '4K Monitor',           price: 399.99, description: '27-inch IPS panel, 144Hz.' },
+])
 
-??? note "🗣️ Talking Points"
-    - This is a small component, but it teaches something important: **components nest**. `App.vue` uses `MovieCard`. `MovieCard` uses `GenreBadge`. Real apps have many layers of nesting like this.
-    - The genre colour logic — choosing between purple, red, blue, etc. — currently lives in the template as a hardcoded class. Moving it into `GenreBadge` means that logic has one home.
-    - After replacing the `<span>` in `MovieCard`, ask: *"If we wanted to add a new genre colour, where do we go?"* — `GenreBadge.vue`, one place.
+const selectedProduct = ref(null)
+const showModal = ref(false)
 
-### Why a `GenreBadge` component?
+function openQuickView(product) {
+  selectedProduct.value = product
+  showModal.value = true
+}
 
-Right now the genre badge in `MovieCard` is a hardcoded purple pill. Every genre gets purple. In reality, Sci-Fi, Action, and Drama should each have their own colour.
+function closeModal() {
+  showModal.value = false
+  selectedProduct.value = null
+}
+</script>
 
-We could add a long `v-if/v-else-if` chain directly in `MovieCard`. But that colour-mapping logic is a self-contained concern — a natural fit for its own small component.
-
-### Create `src/components/GenreBadge.vue`
-
-```vue title="GenreBadge.vue"
 <template>
-  <span :class="['text-xs font-medium px-2 py-0.5 rounded-full', colourClass]"> <!-- (1) -->
-    {{ genre }}
-  </span>
+  <div class="page">
+    <h1>Products</h1>
+    <div class="grid">
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+        @quickview="openQuickView"
+      />
+    </div>
+
+    <QuickViewModal :open="showModal" @close="closeModal">
+      <template #header>
+        <h2 style="margin:0; font-size:1.1rem;">
+          {{ selectedProduct?.emoji }} {{ selectedProduct?.name }}
+        </h2>
+      </template>
+
+      <div v-if="selectedProduct" style="text-align:center;">
+        <div style="font-size:5rem; margin-bottom:1rem;">{{ selectedProduct.emoji }}</div>
+        <p style="color:#6b7280; margin:0 0 1rem;">{{ selectedProduct.description }}</p>
+        <p style="font-size:1.5rem; font-weight:600; color:#6366f1; margin:0;">
+          ${{ selectedProduct.price.toFixed(2) }}
+        </p>
+      </div>
+
+      <template #footer>
+        <button style="padding:0.5rem 1rem; border:1px solid #d1d5db; border-radius:6px; background:white; cursor:pointer;"
+                @click="closeModal">Cancel</button>
+        <button style="padding:0.5rem 1rem; border:none; border-radius:6px; background:#6366f1; color:white; cursor:pointer;">
+          Add to Cart
+        </button>
+      </template>
+    </QuickViewModal>
+  </div>
 </template>
 
-<script setup>
-import { computed } from 'vue'
-
-const props = defineProps({
-  genre: { type: String, required: true }
-})
-
-const colourClass = computed(() => { // (2)
-  const map = {
-    'Sci-Fi':   'bg-purple-100 text-purple-700',
-    'Action':   'bg-red-100    text-red-700',
-    'Drama':    'bg-blue-100   text-blue-700',
-    'Thriller': 'bg-orange-100 text-orange-700',
-    'Comedy':   'bg-yellow-100 text-yellow-700',
-    'Horror':   'bg-gray-100   text-gray-700',
-  }
-  return map[props.genre] ?? 'bg-indigo-100 text-indigo-700' // (3)
-})
-</script>
+<style>
+body { background: #f9fafb; margin: 0; }
+.page { max-width: 700px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; }
+h1   { color: #111827; margin-bottom: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+</style>
 ```
 
-1. `:class` with an array lets you merge static classes with a dynamic one. The base styling stays the same; only the colour changes per genre.
-2. A `computed` property is the right tool here — the colour is *derived* from the genre prop. If the genre changes, the colour updates automatically.
-3. `??` is the nullish coalescing operator — if the genre isn't in the map, fall back to indigo. New genres always get a colour.
+**Pause and point out:**
 
-### Use `GenreBadge` inside `MovieCard`
+- `ProductCard` emits `'quickview'` with the product object — it has no idea a modal exists
+- `App.vue` receives it, stores `selectedProduct`, and opens the modal
+- `QuickViewModal` renders `selectedProduct`'s data via slots — it has no idea how it was triggered
+- **Three components. Zero shared knowledge between them. App.vue is the conductor.**
 
-In `MovieCard.vue`, add the import and replace the genre `<span>`:
+---
 
-```vue title="MovieCard.vue — updated top of script"
-<script setup>
-import GenreBadge from './GenreBadge.vue' // (1)
+### Stage 4 — Add SearchInput with v-model
 
-// ...rest of defineProps and defineEmits unchanged
-</script>
+```javascript title="App.vue"
+// Add to App.vue <script setup>
+import SearchInput from './components/SearchInput.vue'
+
+const query = ref('')
+const filteredProducts = computed(() =>
+  products.value.filter(p =>
+    p.name.toLowerCase().includes(query.value.toLowerCase())
+  )
+)
 ```
 
-1. The import path is relative to `MovieCard.vue`, not `App.vue`.
+Import computed:
+```vue title="App.vue"
+import { ref, computed } from 'vue'
+```
 
-Replace the genre `<span>` in the template:
+Add the search input above the grid in App.vue
+```vue title="App.vue"
+<!-- Add above the grid in App.vue <template> -->
+<SearchInput v-model="query" placeholder="Search products..." style="margin-bottom:1rem;" />
 
-```vue hl_lines="2"
-<div class="flex justify-between items-start mb-3">
-  <GenreBadge :genre="genre" /> <!-- (1) -->
-  <!-- watched badge unchanged -->
+```
+
+Change v-for to use filteredProducts
+```vue title="App.vue"
+<!-- Change v-for to use filteredProducts -->
+<ProductCard
+  v-for="product in filteredProducts"
   ...
-</div>
 ```
 
-1. Pass `genre` as a prop — `MovieCard` received it from `App.vue` and now passes it down to `GenreBadge`. This is the component tree in action.
-
-!!! note "The component tree at the end"
-    ```
-    App.vue
-    │  owns: movies[], showForm, newMovie
-    │  handles: toggleWatched(), addMovie()
-    │
-    └── MovieCard.vue  (one per movie, via v-for)
-        │  receives: id, title, director, year, genre, rating, watched
-        │  emits: 'toggle'
-        │
-        └── GenreBadge.vue  (one per card)
-            │  receives: genre
-            │  no emits — display only
-    ```
-    Three files. Each one has a single, clear responsibility. `App.vue` manages data. `MovieCard` displays one movie and asks to toggle. `GenreBadge` maps a genre string to a colour.
+Type in the search field — the grid filters live.
 
 ---
 
-## Phase 6 — Pitfalls & Wrap-up
+## 7. Pitfalls & Wrap-up
 
 ??? note "🗣️ Talking Points"
-    - Keep this fast — 5 minutes. Students are tired.
-    - The prop mutation one will bite them in the assignment. Say it once clearly.
-    - End on the big picture summary — it's worth spelling out what they just built.
+    - These are the mistakes that will show up in student assignments. Keep it fast — 5 minutes.
+    - The prop mutation one is the most important. If a student hits a confusing reactivity bug, 80% of the time it's this.
 
 ### ❌ Mutating a prop directly
 
 ```javascript
-// Inside MovieCard.vue — DON'T do this
-props.watched = true  // ❌ Vue will warn and behaviour is unpredictable
+// Inside a child component
+props.title = 'New value'      // ❌ Vue will warn, behaviour is unpredictable
 
-// ✅ Instead, emit an event and let the parent update the data
-emit('toggle')
+// ✅ If you need a local copy:
+const localTitle = ref(props.title)
+// ✅ If the parent needs to change:
+emit('update:title', 'New value')
 ```
 
-### ❌ Forgetting `:` on non-string props
+### ❌ Using a string where a prop expects a Number or Boolean
 
 ```vue
-<MovieCard watched="true" />   <!-- ❌ passes the STRING "true", not the boolean true -->
-<MovieCard :watched="true" />  <!-- ✅ passes the actual boolean -->
+<Card count="5" />   <!-- ❌ passes the STRING "5" — type mismatch warning -->
+<Card :count="5" />  <!-- ✅ passes the NUMBER 5 -->
 
-<MovieCard year="2021" />      <!-- ❌ passes the STRING "2021" -->
-<MovieCard :year="2021" />     <!-- ✅ passes the NUMBER 2021 -->
+<Card active="true" />  <!-- ❌ passes the STRING "true", not the boolean true -->
+<Card :active="true" /> <!-- ✅ -->
 ```
 
-### ❌ Using `v-model.number` — don't forget it for numeric inputs
+### ❌ Forgetting `defineEmits` before calling `emit`
+
+```javascript
+// ❌ emit is not available unless you call defineEmits first
+emit('close')
+
+// ✅
+const emit = defineEmits(['close'])
+emit('close')
+```
+
+### ❌ Passing content into a component with no `<slot>`
 
 ```vue
-<input v-model="newMovie.rating" type="number" />        <!-- ❌ rating is stored as a string -->
-<input v-model.number="newMovie.rating" type="number" /> <!-- ✅ stored as a number -->
+<Card title="Hello">
+  <p>This disappears silently — Card has no slot defined.</p>
+</Card>
+```
+
+Add `<slot />` to the component template to accept content.
+
+### ❌ Implementing `v-model` with the wrong prop/event names
+
+```javascript
+// ❌ Wrong names — v-model won't work
+defineProps(['value'])
+const emit = defineEmits(['input'])
+
+// ✅ Correct names for v-model to work
+defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
 ```
 
 ---
 
-## Summary
+## 8. Summary
 
-**What we built:** a fully interactive Movie Watchlist — data-driven, with a toggle, an add form, and a clean component structure.
-
-**The journey:**
-
-| Phase | What changed |
+| Concept | One-liner |
 |---|---|
-| 1 — Static HTML | Hand-coded cards, data locked in markup |
-| 2 — Data-driven | `ref([])` array + `v-for` — add a movie to data, card appears |
-| 3 — Interactions | `toggleWatched()` + add form — the page responds to the user |
-| 4 — `MovieCard` | Card HTML in its own file — props down, emits up |
-| 5 — `GenreBadge` | Colour logic in its own file — components nest |
-
-**The pattern to remember:**
+| **Props** | Parent passes data down — child reads, never mutates |
+| **Emits** | Child sends a named signal up — parent decides what to do |
+| **Slots** | Parent injects markup into a designated spot in the child |
+| **`v-model` on components** | Shorthand for `:modelValue` + `@update:modelValue` |
 
 ```
-Data lives in App.vue
-      │
-      │  :prop="value"     → pass data DOWN to child
-      │  @event="handler"  → receive signals UP from child
-      ▼
-  MovieCard.vue
-      │
-      │  :prop="value"     → pass data DOWN again
-      ▼
-  GenreBadge.vue
+           App.vue (owns data + logic)
+           │
+           │  :product="p"          → props down
+           │  @quickview="handler"  → events up
+           │  v-model="query"       → shorthand for both
+           ▼
+      ProductCard.vue
+           │
+           │  <slot />              → parent injects content
+           ▼
+      QuickViewModal.vue
 ```
 
+### Coming up next
+
+| Lecture | Topic |
+|---|---|
+| **Lec 3** | Lifecycle hooks · `watch` · Async data fetching |
+| Lec 4 | Vue Router — client-side navigation |
+| Lec 5 | Pinia — shared state management |
+| Lec 6 | Composables — reusable stateful logic |
 
 ---
 
-!!! tip Practice
-    Extend the watchlist with these features:
+!!! tip "Practice — extend the demo"
+    Before Lecture 3, try these:
 
-    1. **Delete a movie** — add a delete button to `MovieCard`, emit a `'delete'` event, handle it in `App.vue` with `movies.value.filter()`
-    2. **Filter by status** — make the All / Watched / Unwatched buttons in the filter bar actually work using a `computed` property
-    3. **Star rating input** — in the add form, replace the number input for rating with five clickable ★ buttons
+    1. **Add an "Add to Cart" counter** — when the modal's Add to Cart button is clicked, emit an event and show a cart count in `App.vue`
+    2. **Create a `Badge` component** — use it inside `ProductCard` to show a "Sale" or "New" label via a prop
+    3. **Add a `TextInput` component** — supports `v-model`, shows a character count below the input
 
-    All three use only what you learned today: props, emits, `computed`, and `v-model`.
+    These will require all four concepts from today: props, emits, slots, and `v-model`.
 
----
-
-*COSC2956 Internet Tools — End of Lecture 2*
