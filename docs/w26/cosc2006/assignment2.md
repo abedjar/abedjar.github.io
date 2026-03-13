@@ -365,8 +365,10 @@ Both the stack and the queue must be **left unchanged** after this call.
     1. Create a class named `Utils.java`
     2. The class must implement the `UtilsADT` interface
     3. Implement all 10 methods exactly as described above
-    4. Do not add extra public methods
-    5. You may create private helper methods inside `Utils.java` if needed
+    4. Do not add extra public methods.
+    5. Do not add a `main()` method.
+    6. You may create private helper methods inside `Utils.java` if needed.
+    7. Implement proper exception handling.
 
 ---
 
@@ -378,16 +380,16 @@ Both the stack and the queue must be **left unchanged** after this call.
     Your username is the part of your email before `@algomau.ca`, with **each name capitalized**.
 
     **Example:**  
-    If your email is `john.doe@algomau.ca`, your package declaration must be:
+    If your email is `jdoe@algomau.ca`, your package declaration must be:
 
     ```java
-    package John.Doe;
+    package com.dsa.jdoe;
     ```
 
-    If your email is `jane.smith@algomau.ca`, your package declaration must be:
+    If your email is `jsmith@algomau.ca`, your package declaration must be:
 
     ```java
-    package Jane.Smith;
+    package com.dsa.jsmith;
     ```
 
     Submissions without a correct package declaration will **lose marks**.
