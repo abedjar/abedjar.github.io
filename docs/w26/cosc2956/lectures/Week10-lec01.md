@@ -8,20 +8,9 @@ search:
 
 ---
 
-!!! info "Lecture at a Glance"
-    **Duration:** ~90 minutes &nbsp;|&nbsp; **Assumed knowledge:** Lec 1 + Lec 2 — Vue basics, components, props, emits
+!!! info "he project"
 
-    | # | Phase | What changes | Time |
-    |---|---|---|---|
-    | 1 | What is routing? | Concept — no code | 10 min |
-    | 2 | Install & configure Vue Router | Add router to the Watchlist project | 15 min |
-    | 3 | `HomeView` + `MoviesView` | Two pages, `<RouterLink>` navbar | 15 min |
-    | 4 | Route params — `MovieDetailView` | `/movies/:id` — click a card, see the detail page | 20 min |
-    | 5 | Programmatic navigation | `router.push()` — navigate from code | 10 min |
-    | 6 | Navigation guards | Redirect if a movie ID doesn't exist | 10 min |
-    | 7 | Pitfalls & Wrap-up | | 10 min |
-
-    **The project:** the Movie Watchlist from Lec 2. We are adding multiple pages — a Home page, a Movies list page, and a Movie Detail page. The URL changes as you navigate. No full page reloads.
+    the Movie Watchlist from prev lecture. We are adding multiple pages — a Home page, a Movies list page, and a Movie Detail page. The URL changes as you navigate. No full page reloads.
 
 ---
 
@@ -448,7 +437,7 @@ function toggleWatched() {
 !!! warning "The data duplication problem"
     Right now `MoviesView` and `MovieDetailView` each hold their own copy of the `movies` array. Toggling watched on the detail page doesn't affect the list page — they're two separate arrays.
 
-    **This is intentional.** It's the exact problem Pinia (Lec 5) exists to solve. For now, note it and move on.
+    **This is intentional.** It's the exact problem Pinia exists to solve. For now, note it and move on.
 
 ---
 
@@ -607,8 +596,6 @@ router.beforeEach((to, from) => { // (1)
 1. `beforeEach` runs before **every** navigation in the app. It's the right place for global auth logic.
 2. This says: "if the user is going anywhere other than home, and they're not logged in, send them home." In a real app, you'd check a Pinia store or a cookie here.
 
-!!! note "We'll use this for real in Lec 5"
-    Once we have a Pinia store with an `isLoggedIn` state, the global guard becomes genuinely useful. For now, just understand the pattern.
 
 ---
 
