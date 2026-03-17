@@ -565,7 +565,9 @@ GET https://pokeapi.co/api/v2/pokemon/1/
     { "name": "ivysaur",   "url": "https://pokeapi.co/api/v2/pokemon/2/" }
   ]
 }
+```
 
+```json
 // Detail response — /pokemon/1/
 {
   "name": "bulbasaur",
@@ -853,6 +855,9 @@ const { data, loading, error } = useFetch(url)         // (2)
 1. Import from the composables folder using a relative path.
 2. One line replaces the entire `ref` + `onMounted` + `try/catch/finally` block. `data`, `loading`, and `error` are reactive refs exactly as before — the template doesn't change at all.
 
+### Recover the original `App.vue`
+Use the same code for `App.vue` as before, and make sure to use `WeatherCard` component.
+
 !!! note "The composable folder structure"
     ```
     src/
@@ -995,19 +1000,5 @@ onMounted(async () => {
 | NASA APOD | `api.nasa.gov` | Astronomy image of the day |
 | CoinGecko | `api.coingecko.com/api/v3` | Crypto prices (no key, rate limited) |
 
-### Coming up next
 
-| Lecture | Topic |
-|---|---|
-| **Lec 5** | FastAPI + Python — building your own backend API |
 
----
-
-!!! tip "Practice before Lec 5"
-    1. **Add a refresh button** to `WeatherCard` — clicking it re-runs the fetch. You'll need to extract the fetch into a named function and call it from both `onMounted` and the button's `@click`.
-    2. **Search on submit** — modify `CountryList` so instead of filtering client-side, the search sends a new request to `restcountries.com/v3.1/name/{query}` when the user presses Enter.
-    3. **Pagination** — the PokeAPI list response includes `"next"` and `"previous"` URLs. Add Prev / Next buttons that fetch those URLs and replace the list.
-
----
-
-*COSC2956 Internet Tools — End of Lecture 4*
