@@ -1,0 +1,1766 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="http://jaradat.ca/w26/cosc2956/lectures/Week09-lec02/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/knife.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>COSC2956 – Internet Tools - Dr. Kareem Jaradat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=open+sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"open sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cosc2956-internet-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Dr. Kareem Jaradat" class="md-header__button md-logo" aria-label="Dr. Kareem Jaradat" data-md-component="logo">
+      
+  <img src="../../../../assets/knife.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dr. Kareem Jaradat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              COSC2956 – Internet Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Dr. Kareem Jaradat" class="md-nav__button md-logo" aria-label="Dr. Kareem Jaradat" data-md-component="logo">
+      
+  <img src="../../../../assets/knife.png" alt="logo">
+
+    </a>
+    Dr. Kareem Jaradat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/bio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.243 4.757a3.757 3.757 0 1 1 5.851 3.119 6.01 6.01 0 0 1 3.9 5.339.75.75 0 0 1-.715.784H2.721a.75.75 0 0 1-.714-.784 6.01 6.01 0 0 1 3.9-5.34 3.75 3.75 0 0 1-1.664-3.118"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Biography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/resume/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2zm3-4v-2H6v2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Resume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contact/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h288c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm112 288h64c44.2 0 80 35.8 80 80 0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16 0-44.2 35.8-80 80-80m-24-96a56 56 0 1 1 112 0 56 56 0 1 1-112 0M512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16zm0 128c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16zm-16 112c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64c0-8.8-7.2-16-16-16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research/overview/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.31 18.9c.44-.69.69-1.52.69-2.4 0-2.5-2-4.5-4.5-4.5S11 14 11 16.5s2 4.5 4.5 4.5c.87 0 1.69-.25 2.38-.68L21 23.39 22.39 22zm-3.81.1a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-5.91.2L3 14.07l1.62-1.26L9 16.22v.28c0 .96.22 1.88.59 2.7m-4.96-8.93L3 9l9-7 9 7-1.64 1.27-.71.55c-.93-.52-2.01-.82-3.15-.82-2.71 0-5.04 1.68-6 4.05z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research/projects/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.186 9.07 21.41 8.019a2.78 2.78 0 0 1-1.344-2.391V3.523c0-.431-.19-.837-.516-1.108A12 12 0 0 0 16.317.493a1.36 1.36 0 0 0-1.193.091L13.347 1.64a2.62 2.62 0 0 1-2.688 0L8.882.584a1.35 1.35 0 0 0-1.194-.09 12 12 0 0 0-3.231 1.918 1.44 1.44 0 0 0-.516 1.108v2.104c0 .986-.51 1.897-1.344 2.392L.823 9.068c-.363.215-.61.588-.675 1.013A12 12 0 0 0 0 12.001q0 .978.145 1.916c.065.425.312.801.675 1.016l1.774 1.052a2.78 2.78 0 0 1 1.344 2.392v2.104c0 .431.191.837.516 1.108.965.8 2.054 1.452 3.231 1.919.393.155.831.124 1.194-.091l1.777-1.055a2.62 2.62 0 0 1 2.688 0l1.777 1.055c.363.215.804.246 1.193.091a12 12 0 0 0 3.232-1.92 1.44 1.44 0 0 0 .516-1.107v-2.104a2.78 2.78 0 0 1 1.344-2.392l1.774-1.052c.363-.215.61-.588.675-1.016q.143-.938.145-1.916 0-.98-.145-1.917a1.41 1.41 0 0 0-.67-1.013zM12.003 19.41c-3.981 0-7.21-3.317-7.21-7.407s3.229-7.406 7.21-7.406 7.21 3.316 7.21 7.406-3.23 7.407-7.21 7.407"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research/publications/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5zM6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h7.81c-.53-.91-.81-1.95-.81-3 0-.33.03-.67.08-1H6v-2h7.81c.46-.8 1.1-1.5 1.87-2H6v-2h12v1.08c.33-.05.67-.08 1-.08.34 0 .67.03 1 .08V8l-6-6m-1 1.5L18.5 9H13Z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research/grants/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128v256c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64zm232 224h128c13.3 0 24 10.7 24 24s-10.7 24-24 24H296c-13.3 0-24-10.7-24-24s10.7-24 24-24m-24-88c0-13.3 10.7-24 24-24h128c13.3 0 24 10.7 24 24s-10.7 24-24 24H296c-13.3 0-24-10.7-24-24m-124-56c11 0 20 9 20 20v4h8c11 0 20 9 20 20s-9 20-20 20h-47.5c-6.9 0-12.5 5.6-12.5 12.5 0 6.1 4.4 11.3 10.4 12.3l41.7 7c25.3 4.2 43.9 26.1 43.9 51.8 0 26.1-19 47.7-44 51.8v4.7c0 11-9 20-20 20s-20-9-20-20v-4h-24c-11 0-20-9-20-20s9-20 20-20h55.5c6.9 0 12.5-5.6 12.5-12.5 0-6.1-4.4-11.3-10.4-12.3l-41.7-7C94.5 268 76 246.1 76 220.5c0-28.8 23.2-52.2 52-52.5v-4c0-11 9-20 20-20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Grants & Awards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research/students/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m48 195.8 209.2 86.1c9.8 4 20.2 6.1 30.8 6.1s21-2.1 30.8-6.1l242.4-99.8c9-3.7 14.8-12.4 14.8-22.1s-5.8-18.4-14.8-22.1L318.8 38.1c-9.8-4-20.2-6.1-30.8-6.1s-21 2.1-30.8 6.1L14.8 137.9C5.8 141.6 0 150.3 0 160v296c0 13.3 10.7 24 24 24s24-10.7 24-24zm48 71.7V384c0 53 86 96 192 96s192-43 192-96V267.4l-142.9 58.9c-15.6 6.4-32.2 9.7-49.1 9.7s-33.5-3.3-49.1-9.7L96 267.4z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prospective Students
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaching
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teaching
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../teaching/courses/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5zm2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63s2.59.23 3.5.63z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../teaching/philosophy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 11h3v2H1zm9 11c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-1h-4zm3-21h-2v3h2zM4.9 3.5 3.5 4.9 5.6 7 7 5.6zM20 11v2h3v-2zm-.9-7.5L17 5.6 18.4 7l2.1-2.1zM18 12c0 2.2-1.2 4.2-3 5.2V19c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-1.8c-1.8-1-3-3-3-5.2 0-3.3 2.7-6 6-6s6 2.7 6 6M8 12c0 .35.05.68.14 1h7.72c.09-.32.14-.65.14-1 0-2.21-1.79-4-4-4s-4 1.79-4 4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaching Philosophy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../teaching/edid/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 0a64 64 0 1 1 0 128 64 64 0 1 1 0-128m96 312c0 25-12.7 47-32 59.9V464c0 26.5-21.5 48-48 48h-32c-26.5 0-48-21.5-48-48v-92.1C172.7 359 160 337 160 312v-40c0-53 43-96 96-96s96 43 96 96zM96 32a56 56 0 1 1 0 112 56 56 0 1 1 0-112m16 240v32c0 32.5 12.1 62.1 32 84.7V464c0 1.2 0 2.5.1 3.7-8.5 7.6-19.7 12.3-32.1 12.3H80c-26.5 0-48-21.5-48-48v-56.6c-19.1-11-32-31.7-32-55.4v-32c0-53 43-96 96-96 12.7 0 24.8 2.5 35.9 6.9-12.6 21.4-19.9 46.4-19.9 73.1m256 192v-75.3c19.9-22.5 32-52.2 32-84.7v-32c0-26.7-7.3-51.6-19.9-73.1 11.1-4.5 23.2-6.9 35.9-6.9 53 0 96 43 96 96v32c0 23.7-12.9 44.4-32 55.4V432c0 26.5-21.5 48-48 48h-32c-12.3 0-23.6-4.6-32.1-12.3 0-1.2.1-2.5.1-3.7m48-432a56 56 0 1 1 0 112 56 56 0 1 1 0-112"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    EDID Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page &lt;br&gt;&lt;br&gt;">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page <br><br>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-movie-watchlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Building a Movie Watchlist
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-app-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 1 — App setup
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-data-driven-with-vue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 2 — Data-Driven with Vue
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 3 — Interactions
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-extract-moviecardvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 4 — Extract <code>MovieCard.vue</code>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-extract-genrebadgevue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 5 — Extract <code>GenreBadge.vue</code>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-pitfalls-wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Phase 6 — Pitfalls &amp; Wrap-up
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Summary
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cosc2956-internet-tools">COSC2956 – Internet Tools<a class="headerlink" href="#cosc2956-internet-tools" title="Permanent link">&para;</a></h1>
+<h2 id="building-a-movie-watchlist">Building a Movie Watchlist<a class="headerlink" href="#building-a-movie-watchlist" title="Permanent link">&para;</a></h2>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Lecture at a Glance</p>
+<p><strong>The project:</strong> a Movie Watchlist. By the end it will look and feel like a real app — data-driven, interactive, and split into components.</p>
+</div>
+<hr />
+<h3 id="the-static-page">The static page<a class="headerlink" href="#the-static-page" title="Permanent link">&para;</a></h3>
+<p>The following is a static HTML page that will be used as a starting point for the Vue application. It is not a Vue component and does not use any Vue logic. </p>
+<div class="language-html highlight"><span class="filename">static.html</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;min-h-screen bg-gray-100 p-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!--  --&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-3xl font-bold text-gray-800 mb-6&quot;</span><span class="p">&gt;</span>🎬 My Watchlist<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="cm">&lt;!-- Filter bar --&gt;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex gap-3 mb-6&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;px-4 py-1.5 rounded-full bg-indigo-600 text-white text-sm&quot;</span><span class="p">&gt;</span>All<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border&quot;</span><span class="p">&gt;</span>Watched<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border&quot;</span><span class="p">&gt;</span>Unwatched<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="cm">&lt;!-- Movie grid --&gt;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!--  --&gt;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>      <span class="cm">&lt;!-- Movie card — watched --&gt;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700&quot;</span><span class="p">&gt;</span>Sci-Fi<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700&quot;</span><span class="p">&gt;</span>✓ Watched<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg font-semibold text-gray-800&quot;</span><span class="p">&gt;</span>Dune<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-gray-500 mt-1&quot;</span><span class="p">&gt;</span>2021 · Denis Villeneuve<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-center mt-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-yellow-500 font-semibold&quot;</span><span class="p">&gt;</span>★ 8.0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-indigo-600 hover:underline&quot;</span><span class="p">&gt;</span>Mark unwatched<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>      <span class="cm">&lt;!-- Movie card — unwatched --&gt;</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700&quot;</span><span class="p">&gt;</span>Action<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500&quot;</span><span class="p">&gt;</span>Unwatched<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg font-semibold text-gray-800&quot;</span><span class="p">&gt;</span>Mad Max: Fury Road<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-gray-500 mt-1&quot;</span><span class="p">&gt;</span>2015 · George Miller<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-center mt-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-yellow-500 font-semibold&quot;</span><span class="p">&gt;</span>★ 8.1<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-indigo-600 hover:underline&quot;</span><span class="p">&gt;</span>Mark watched<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>      <span class="cm">&lt;!-- Movie card — unwatched --&gt;</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-700&quot;</span><span class="p">&gt;</span>Drama<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500&quot;</span><span class="p">&gt;</span>Unwatched<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg font-semibold text-gray-800&quot;</span><span class="p">&gt;</span>The Shawshank Redemption<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-gray-500 mt-1&quot;</span><span class="p">&gt;</span>1994 · Frank Darabont<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-center mt-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-yellow-500 font-semibold&quot;</span><span class="p">&gt;</span>★ 9.3<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-indigo-600 hover:underline&quot;</span><span class="p">&gt;</span>Mark watched<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li><code>min-h-screen</code> makes the background fill the whole page. <code>bg-gray-100</code> is a light grey. <code>p-8</code> adds padding.</li>
+<li><code>grid-cols-3</code> gives us three columns on large screens. <code>gap-4</code> spaces the cards out.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">What to point out</p>
+<ul>
+<li>The three cards are <strong>identical in structure</strong> — same HTML repeated three times</li>
+<li>The only differences are the title, genre, rating, year, and watched status</li>
+<li>The buttons do nothing — they're just HTML</li>
+<li>If you wanted a fourth movie, you'd copy-paste a whole block of HTML</li>
+</ul>
+<p><strong>This is the problem Vue solves.</strong></p>
+</div>
+<hr />
+<h2 id="phase-1-app-setup">Phase 1 — App setup<a class="headerlink" href="#phase-1-app-setup" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>Don't mention Vue yet. Just build a page.</li>
+<li>Ask: <em>"Who recognises this workflow — you design the HTML first, then figure out how to make it dynamic?"</em> That's exactly what we're doing today, but we'll make it dynamic the Vue way.</li>
+<li>Keep the Tailwind classes minimal. Explain you're using Tailwind just for spacing and colour — not to show off, just to avoid writing a big <code>&lt;style&gt;</code> block during the demo.</li>
+<li>After you finish this phase, pause and say: <em>"Right now this is dead. The data is locked inside the HTML. If a new movie comes out, you edit the HTML. If you want to mark something watched, you edit the HTML. Let's fix that."</em></li>
+</ul>
+</details>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<p>Create a new Vite + Vue project:</p>
+<div class="language-bash highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>create<span class="w"> </span>vite@latest<span class="w"> </span>movie-watchlist<span class="w"> </span>--<span class="w"> </span>--template<span class="w"> </span>vue
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>movie-watchlist
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>npm<span class="w"> </span>install
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
+</span></code></pre></div>
+<p>Add Tailwind. In the terminal:</p>
+<div class="language-bash highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>tailwindcss<span class="w"> </span>@tailwindcss/vite
+</span></code></pre></div>
+<p>In <code>vite.config.js</code>:</p>
+<ol>
+<li>Import the Tailwind Vite plugin.</li>
+<li>Add it to the plugins array — this is all you need, no <code>tailwind.config.js</code> required.</li>
+</ol>
+<div class="language-js highlight"><span class="filename">vite.config.js</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vite&#39;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">vue</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@vitejs/plugin-vue&#39;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">tailwindcss</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@tailwindcss/vite&#39;</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nx">vue</span><span class="p">(),</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nx">tailwindcss</span><span class="p">(),</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">})</span>
+</span></code></pre></div>
+<p>Replace <code>src/style.css</code> with just one line:</p>
+<div class="language-css highlight"><span class="filename">src/style.css</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tailwindcss&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Make sure <code>main.js</code> imports it:</p>
+<div class="language-js highlight"><span class="filename">src/main.js</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createApp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;./style.css&#39;</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App.vue&#39;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nx">createApp</span><span class="p">(</span><span class="nx">App</span><span class="p">).</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<ol>
+<li>This line must be here — it's what loads Tailwind into your app.</li>
+</ol>
+<hr />
+<p>➡️ <em>The structure is right. Now let's make the data live outside the HTML.</em></p>
+<hr />
+<h2 id="phase-2-data-driven-with-vue">Phase 2 — Data-Driven with Vue<a class="headerlink" href="#phase-2-data-driven-with-vue" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>The move from Phase 1 to Phase 2 is the central insight of this lecture. You're not changing what the page looks like at all — you're changing <em>where the data lives</em>.</li>
+<li>Walk through the <code>movies</code> array slowly. Ask students to spot the connection between the array properties and where they appear in the template.</li>
+<li>When you add <code>v-for</code>, the three hardcoded cards disappear and get replaced by one <code>&lt;div&gt;</code> that renders three times. That moment is worth pausing on.</li>
+<li>After <code>v-for</code> works, add a fourth movie to the array and save. The page updates instantly with no HTML change. That's the payoff.</li>
+</ul>
+</details>
+<h3 id="move-the-data-into-a-ref">Move the data into a <code>ref</code><a class="headerlink" href="#move-the-data-into-a-ref" title="Permanent link">&para;</a></h3>
+<p>Replace <code>&lt;script setup&gt;</code> with:</p>
+<div class="language-vue highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">movies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">([</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dune&#39;</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Denis Villeneuve&#39;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2021</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Sci-Fi&#39;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.0</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mad Max: Fury Road&#39;</span><span class="p">,</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;George Miller&#39;</span><span class="p">,</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2015</span><span class="p">,</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Action&#39;</span><span class="p">,</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.1</span><span class="p">,</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;The Shawshank Redemption&#39;</span><span class="p">,</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Frank Darabont&#39;</span><span class="p">,</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">1994</span><span class="p">,</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">    </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Drama&#39;</span><span class="p">,</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">    </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">9.3</span><span class="p">,</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">    </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="p">])</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li><code>ref([])</code> makes the entire array reactive. When any movie's data changes, the template updates automatically.</li>
+<li><code>watched: true/false</code> is the single source of truth for whether a movie has been seen. We never set this in the HTML — only here.</li>
+</ol>
+<h3 id="replace-the-three-cards-with-v-for">Replace the three cards with <code>v-for</code><a class="headerlink" href="#replace-the-three-cards-with-v-for" title="Permanent link">&para;</a></h3>
+<p>Now replace the three hard-coded card <code>&lt;div&gt;</code> blocks with a single <code>v-for</code>:</p>
+<div class="language-vue highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">&lt;!-- Movie grid --&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="hll">
+</span></span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">movies</span><span class="s">&quot;</span> <span class="p">:</span><span class="na">key</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="s">&quot;</span> 
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="hll">       <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm&quot;</span><span class="p">&gt;</span>
+</span></span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>      <span class="cm">&lt;!-- Genre badge --&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="hll">        <span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">genre</span><span class="w"> </span><span class="cp">}}</span> <span class="cm">&lt;!-- (2) --&gt;</span>
+</span></span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="hll">      <span class="cm">&lt;!-- Watched badge --&gt;</span>
+</span></span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="s">&quot;</span> 
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>            <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="hll">        ✓ Watched
+</span></span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="hll">      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-else</span>
+</span></span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        Unwatched
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg font-semibold text-gray-800&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-gray-500 mt-1&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">year</span><span class="w"> </span><span class="cp">}}</span> · <span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">director</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-center mt-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-yellow-500 font-semibold&quot;</span><span class="p">&gt;</span>★ <span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">rating</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-indigo-600 hover:underline&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Mark unwatched&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mark watched&#39;</span><span class="w"> </span><span class="cp">}}</span> <span class="cm">&lt;!-- (4) --&gt;</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li><code>v-for="movie in movies"</code> loops over the array. <code>:key="movie.id"</code> gives Vue a stable identity for each card — always use a unique ID, never the array index.</li>
+<li><code>{{ movie.genre }}</code> pulls from the current loop item. Each card gets its own data automatically.</li>
+<li><code>v-if="movie.watched"</code> shows the green badge for watched movies, <code>v-else</code> shows the grey one for unwatched. Vue picks the right one per card.</li>
+<li>A ternary expression — renders the right button label based on the current watched state.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">🎯 Try it live</p>
+<p>Add a fourth movie to the <code>movies</code> array and save:
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Parasite&#39;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Bong Joon-ho&#39;</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2019</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Thriller&#39;</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.5</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+A fourth card appears with zero HTML changes. <strong>The template is a description of what one card looks like — the data drives how many there are.</strong></p>
+</div>
+<hr />
+<p>➡️ <em>The page is alive. Now let's make the buttons actually do something.</em></p>
+<hr />
+<h2 id="phase-3-interactions">Phase 3 — Interactions<a class="headerlink" href="#phase-3-interactions" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>Students sometimes expect interactions to be complicated. Show them they're just function calls that change a property.</li>
+<li>For the toggle: point at the <code>movie.watched = !movie.watched</code> line and ask <em>"How many lines of DOM code did we write?"</em> Zero. Vue saw the change and updated the badge and button label automatically.</li>
+<li>For the add form: introduce <code>v-model</code> as revision from Lec 1. The new thing here is that the form is in the same component as the list — we're not doing components yet. That deliberate simplicity sets up the motivation for Phase 4.</li>
+<li>After the form works, point out that <code>App.vue</code> is getting long. Ask: <em>"What if you had 50 movies and a different page for each genre? Would you keep everything in one file?"</em> That leads into Phase 4.</li>
+</ul>
+</details>
+<h3 id="toggle-watched-status">Toggle watched status<a class="headerlink" href="#toggle-watched-status" title="Permanent link">&para;</a></h3>
+<p>Add a <code>toggleWatched</code> function to <code>&lt;script setup&gt;</code>:</p>
+<ol>
+<li>Takes the movie's <code>id</code> as an argument — not the index, not the whole object, just the ID.</li>
+<li><code>movies.value.find()</code> searches the reactive array for the matching movie.</li>
+<li>Flips <code>watched</code> between <code>true</code> and <code>false</code>. Vue detects this property change and re-renders the badge and button label automatically.</li>
+</ol>
+<div class="language-javascript highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">toggleWatched</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">movie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">movies</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">movie</span><span class="p">)</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Wire the button in the template:</p>
+<div class="language-vue highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">toggleWatched</span><span class="p">(</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="s">&quot;</span> 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-indigo-600 hover:underline&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  <span class="cp">{{</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Mark unwatched&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mark watched&#39;</span><span class="w"> </span><span class="cp">}}</span> 
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>Pass <code>movie.id</code> (not <code>movie</code>) — the function only needs the ID to find and update the right entry.</li>
+</ol>
+<p>Click a button. The badge and label flip instantly. Click again — they flip back. <strong>One line of logic, zero DOM code.</strong></p>
+<hr />
+<h3 id="add-a-movie-the-form">Add a movie — the form<a class="headerlink" href="#add-a-movie-the-form" title="Permanent link">&para;</a></h3>
+<p>Import reactive:
+<div class="language-javascript highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="nx">reactive</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span></code></pre></div></p>
+<p>Add form state to <code>&lt;script setup&gt;</code>:</p>
+<div class="language-javascript highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">showForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">newMovie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reactive</span><span class="p">({</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">(),</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">7.0</span><span class="p">,</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">})</span>
+</span></code></pre></div>
+<ol>
+<li>Controls whether the form is visible. Starts hidden.</li>
+<li><code>reactive()</code> is a good fit here — these are related fields that always change together as a group.</li>
+</ol>
+<p>Add the <code>addMovie</code> function:</p>
+<div class="language-javascript highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">addMovie</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nx">movies</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">director</span><span class="p">,</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="p">,</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="p">,</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span><span class="p">})</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span><span class="c1">// Reset the form</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">director</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">  </span><span class="nx">showForm</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Basic validation — don't add a movie with no title or genre.</li>
+<li><code>Date.now()</code> gives a unique number as an ID. Fine for this demo — a real app would use a database-generated ID.</li>
+<li>Close the form after adding.</li>
+</ol>
+<p>Add the form to the template, just above the grid:</p>
+<div class="language-vue highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">&lt;!-- Add Movie button --&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">showForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">showForm</span><span class="s">&quot;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-6 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  <span class="cp">{{</span><span class="w"> </span><span class="nx">showForm</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;✕ Cancel&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+ Add Movie&#39;</span><span class="w"> </span><span class="cp">}}</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="cm">&lt;!-- Add Movie form --&gt;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">showForm</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm mb-6&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (2) --&gt;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font-semibold text-gray-700 mb-4&quot;</span><span class="p">&gt;</span>Add a Movie<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;grid grid-cols-1 sm:grid-cols-2 gap-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="s">&quot;</span>    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Title&quot;</span>    <span class="na">class</span><span class="o">=</span><span class="s">&quot;border rounded-lg px-3 py-2 text-sm&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">director</span><span class="s">&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Director&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;border rounded-lg px-3 py-2 text-sm&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="p">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">year</span><span class="s">&quot;</span>   <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Year&quot;</span>   <span class="na">class</span><span class="o">=</span><span class="s">&quot;border rounded-lg px-3 py-2 text-sm&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="s">&quot;</span>    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Genre&quot;</span>    <span class="na">class</span><span class="o">=</span><span class="s">&quot;border rounded-lg px-3 py-2 text-sm&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="p">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="s">&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Rating (0–10)&quot;</span> <span class="na">step</span><span class="o">=</span><span class="s">&quot;0.1&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;border rounded-lg px-3 py-2 text-sm&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- (3) --&gt;</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">addMovie</span><span class="s">&quot;</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>          <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>    Add to Watchlist
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>The button label changes based on <code>showForm</code> — same toggle pattern as the watched status.</li>
+<li><code>v-if="showForm"</code> shows the form only when the button has been clicked.</li>
+<li><code>v-model.number</code> converts the input string to a real number automatically — without this, <code>rating</code> would be the string <code>"7.5"</code> instead of the number <code>7.5</code>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">The full <code>&lt;script setup&gt;</code> at this point</p>
+<div class="language-vue highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="nx">reactive</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">movies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">([</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dune&#39;</span><span class="p">,</span><span class="w">                      </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Denis Villeneuve&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2021</span><span class="p">,</span><span class="w"> </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Sci-Fi&#39;</span><span class="p">,</span><span class="w">   </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.0</span><span class="p">,</span><span class="w"> </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mad Max: Fury Road&#39;</span><span class="p">,</span><span class="w">         </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;George Miller&#39;</span><span class="p">,</span><span class="w">   </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2015</span><span class="p">,</span><span class="w"> </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Action&#39;</span><span class="p">,</span><span class="w">   </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.1</span><span class="p">,</span><span class="w"> </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;The Shawshank Redemption&#39;</span><span class="p">,</span><span class="w">   </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Frank Darabont&#39;</span><span class="p">,</span><span class="w">  </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">1994</span><span class="p">,</span><span class="w"> </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Drama&#39;</span><span class="p">,</span><span class="w">    </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">9.3</span><span class="p">,</span><span class="w"> </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Parasite&#39;</span><span class="p">,</span><span class="w">                   </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Bong Joon-ho&#39;</span><span class="p">,</span><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2019</span><span class="p">,</span><span class="w"> </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Thriller&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">8.5</span><span class="p">,</span><span class="w"> </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="p">])</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">showForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="kd">const</span><span class="w"> </span><span class="nx">newMovie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reactive</span><span class="p">({</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">(),</span><span class="w"> </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">7.0</span><span class="p">,</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="p">})</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="kd">function</span><span class="w"> </span><span class="nx">toggleWatched</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">movie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">movies</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">id</span><span class="p">)</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">movie</span><span class="p">)</span><span class="w"> </span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="p">}</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="kd">function</span><span class="w"> </span><span class="nx">addMovie</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">  </span><span class="nx">movies</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">director</span><span class="p">,</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span><span class="w">   </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="p">,</span><span class="w"> </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="p">,</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">    </span><span class="nx">watched</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">  </span><span class="p">})</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">director</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">  </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">();</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">genre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"> </span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">  </span><span class="nx">showForm</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="p">}</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">App.vue is getting long</p>
+<p>We have logic, form state, and card HTML all mixed together. And we only have 4 movies and one interaction. Imagine 10 features.</p>
+<p>This is the natural moment to ask: <strong>what if the card was its own file?</strong></p>
+</div>
+<hr />
+<p>➡️ <em>The app works. Now let's organise it properly.</em></p>
+<hr />
+<h2 id="phase-4-extract-moviecardvue">Phase 4 — Extract <code>MovieCard.vue</code><a class="headerlink" href="#phase-4-extract-moviecardvue" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>The key message: <strong>the app doesn't change at all from the user's perspective.</strong> The same page, the same behaviour. We're just reorganising <em>where the code lives</em>.</li>
+<li>Walk through <code>defineProps</code> carefully. For each prop, ask: <em>"Where does this value come from?"</em> — it comes from the <code>movie</code> object in <code>App.vue</code>.</li>
+<li>When you add <code>defineEmits(['toggle'])</code>, ask: <em>"Why not just call <code>toggleWatched</code> directly from inside the card?"</em> — because <code>MovieCard</code> doesn't own the data. It doesn't even know <code>movies</code> exists. It can only ask politely.</li>
+<li>After <code>App.vue</code> is updated, scroll through it. It's now about half the length. That's the payoff.</li>
+</ul>
+</details>
+<h3 id="what-goes-in-the-component">What goes in the component?<a class="headerlink" href="#what-goes-in-the-component" title="Permanent link">&para;</a></h3>
+<p>Everything inside the <code>&lt;div v-for&gt;</code> card belongs in <code>MovieCard.vue</code>. The component will:</p>
+<ul>
+<li><strong>Receive</strong> movie data via props</li>
+<li><strong>Emit</strong> a <code>toggle</code> event when the button is clicked</li>
+</ul>
+<p>The component does not own the data. It borrows it, displays it, and asks <code>App.vue</code> to make changes.</p>
+<h3 id="create-srccomponentsmoviecardvue">Create <code>src/components/MovieCard.vue</code><a class="headerlink" href="#create-srccomponentsmoviecardvue" title="Permanent link">&para;</a></h3>
+<div class="language-vue highlight"><span class="filename">MovieCard.vue</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white rounded-xl p-5 shadow-sm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>      <span class="cm">&lt;!-- Genre badge — we&#39;ll improve this in Phase 5 --&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-700&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="cp">{{</span><span class="w"> </span><span class="nx">genre</span><span class="w"> </span><span class="cp">}}</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>      <span class="cm">&lt;!-- Watched badge --&gt;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">watched</span><span class="s">&quot;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>            <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        ✓ Watched
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-else</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>            <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>        Unwatched
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-lg font-semibold text-gray-800&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-sm text-gray-500 mt-1&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">year</span><span class="w"> </span><span class="cp">}}</span> · <span class="cp">{{</span><span class="w"> </span><span class="nx">director</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-center mt-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-yellow-500 font-semibold&quot;</span><span class="p">&gt;</span>★ <span class="cp">{{</span><span class="w"> </span><span class="nx">rating</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>      <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">)</span><span class="s">&quot;</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">(</span><span class="na">2</span><span class="err">)</span> <span class="na">--</span><span class="p">&gt;</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>              class=&quot;text-sm text-indigo-600 hover:underline&quot;&gt;
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>        <span class="cp">{{</span><span class="w"> </span><span class="nx">watched</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Mark unwatched&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mark watched&#39;</span><span class="w"> </span><span class="cp">}}</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="kd">const</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineProps</span><span class="p">({</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a><span class="w">  </span><span class="nx">director</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a><span class="w">  </span><span class="nx">year</span><span class="o">:</span><span class="w">     </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a><span class="w">  </span><span class="nx">genre</span><span class="o">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a><span class="w">  </span><span class="nx">rating</span><span class="o">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="w">  </span><span class="nx">watched</span><span class="o">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="p">})</span>
+</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a>
+</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a><span class="kd">const</span><span class="w"> </span><span class="nx">emit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineEmits</span><span class="p">([</span><span class="s1">&#39;toggle&#39;</span><span class="p">])</span><span class="w"> </span><span class="c1">// (4)</span>
+</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>Props are used directly by name in the template — no <code>props.genre</code>, just <code>{{ genre }}</code>.</li>
+<li><code>emit('toggle')</code> sends a signal up to the parent. The card doesn't call <code>toggleWatched</code> — it doesn't know that function exists.</li>
+<li>Every piece of data the card needs is declared here. Vue will warn in the console if the parent forgets to pass a required prop.</li>
+<li>Declaring emits is optional but recommended — it documents what signals this component sends.</li>
+</ol>
+<h3 id="update-appvue-to-use-moviecard">Update <code>App.vue</code> to use <code>MovieCard</code><a class="headerlink" href="#update-appvue-to-use-moviecard" title="Permanent link">&para;</a></h3>
+<p>In <code>&lt;script setup&gt;</code>, add the import:</p>
+<div class="language-javascript highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">MovieCard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/MovieCard.vue&#39;</span><span class="w"> </span><span class="c1">// (1)</span>
+</span></span></code></pre></div>
+<ol>
+<li>The path is relative to <code>App.vue</code>. No need to register it — in <code>&lt;script setup&gt;</code>, imported components are ready to use immediately.</li>
+</ol>
+<p>Replace the entire <code>&lt;div v-for&gt;</code> block with:</p>
+<div class="language-vue highlight"><span class="filename">App.vue</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  <span class="p">&lt;</span><span class="nt">MovieCard</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">movies</span><span class="s">&quot;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="p">:</span><span class="na">key</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="s">&quot;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="p">:</span><span class="na">id</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="s">&quot;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="p">:</span><span class="na">title</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">title</span><span class="s">&quot;</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="p">:</span><span class="na">director</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">director</span><span class="s">&quot;</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="p">:</span><span class="na">year</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">year</span><span class="s">&quot;</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    <span class="p">:</span><span class="na">genre</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">genre</span><span class="s">&quot;</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="p">:</span><span class="na">rating</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">rating</span><span class="s">&quot;</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    <span class="p">:</span><span class="na">watched</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">movie</span><span class="p">.</span><span class="nx">watched</span><span class="s">&quot;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    <span class="p">@</span><span class="na">toggle</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">toggleWatched</span><span class="p">(</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="s">&quot;</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">(</span><span class="na">1</span><span class="err">)</span> <span class="na">--</span><span class="p">&gt;</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>  /&gt;
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>When <code>MovieCard</code> emits <code>'toggle'</code>, <code>App.vue</code> catches it here and calls <code>toggleWatched</code> with the right ID. The card sent the signal — <code>App.vue</code> decided what to do with it.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">What just happened</p>
+<ul>
+<li><code>App.vue</code> went from ~80 lines of template to ~15</li>
+<li><code>MovieCard.vue</code> is now a self-contained, reusable card</li>
+<li>The app behaves <strong>identically</strong> — toggle still works, form still adds movies</li>
+<li>If you need a movie card anywhere else in the app, you import <code>MovieCard</code> and use it — no copy-paste</li>
+</ul>
+</div>
+<hr />
+<p>➡️ <em>One more step — let's make the genre badge its own component.</em></p>
+<hr />
+<h2 id="phase-5-extract-genrebadgevue">Phase 5 — Extract <code>GenreBadge.vue</code><a class="headerlink" href="#phase-5-extract-genrebadgevue" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>This is a small component, but it teaches something important: <strong>components nest</strong>. <code>App.vue</code> uses <code>MovieCard</code>. <code>MovieCard</code> uses <code>GenreBadge</code>. Real apps have many layers of nesting like this.</li>
+<li>The genre colour logic — choosing between purple, red, blue, etc. — currently lives in the template as a hardcoded class. Moving it into <code>GenreBadge</code> means that logic has one home.</li>
+<li>After replacing the <code>&lt;span&gt;</code> in <code>MovieCard</code>, ask: <em>"If we wanted to add a new genre colour, where do we go?"</em> — <code>GenreBadge.vue</code>, one place.</li>
+</ul>
+</details>
+<h3 id="why-a-genrebadge-component">Why a <code>GenreBadge</code> component?<a class="headerlink" href="#why-a-genrebadge-component" title="Permanent link">&para;</a></h3>
+<p>Right now the genre badge in <code>MovieCard</code> is a hardcoded purple pill. Every genre gets purple. In reality, Sci-Fi, Action, and Drama should each have their own colour.</p>
+<p>We could add a long <code>v-if/v-else-if</code> chain directly in <code>MovieCard</code>. But that colour-mapping logic is a self-contained concern — a natural fit for its own small component.</p>
+<h3 id="create-srccomponentsgenrebadgevue">Create <code>src/components/GenreBadge.vue</code><a class="headerlink" href="#create-srccomponentsgenrebadgevue" title="Permanent link">&para;</a></h3>
+<div class="language-vue highlight"><span class="filename">GenreBadge.vue</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  <span class="p">&lt;</span><span class="nt">span</span> <span class="p">:</span><span class="na">class</span><span class="o">=</span><span class="s">&quot;</span><span class="p">[</span><span class="s1">&#39;text-xs font-medium px-2 py-0.5 rounded-full&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">colourClass</span><span class="p">]</span><span class="s">&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="cp">{{</span><span class="w"> </span><span class="nx">genre</span><span class="w"> </span><span class="cp">}}</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">computed</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="kd">const</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineProps</span><span class="p">({</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="nx">genre</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="p">})</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="kd">const</span><span class="w"> </span><span class="nx">colourClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (2)</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span><span class="s1">&#39;Sci-Fi&#39;</span><span class="o">:</span><span class="w">   </span><span class="s1">&#39;bg-purple-100 text-purple-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="s1">&#39;Action&#39;</span><span class="o">:</span><span class="w">   </span><span class="s1">&#39;bg-red-100    text-red-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">    </span><span class="s1">&#39;Drama&#39;</span><span class="o">:</span><span class="w">    </span><span class="s1">&#39;bg-blue-100   text-blue-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">    </span><span class="s1">&#39;Thriller&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bg-orange-100 text-orange-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">    </span><span class="s1">&#39;Comedy&#39;</span><span class="o">:</span><span class="w">   </span><span class="s1">&#39;bg-yellow-100 text-yellow-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">    </span><span class="s1">&#39;Horror&#39;</span><span class="o">:</span><span class="w">   </span><span class="s1">&#39;bg-gray-100   text-gray-700&#39;</span><span class="p">,</span>
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">map</span><span class="p">[</span><span class="nx">props</span><span class="p">.</span><span class="nx">genre</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;bg-indigo-100 text-indigo-700&#39;</span><span class="w"> </span><span class="c1">// (3)</span>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="p">})</span>
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li><code>:class</code> with an array lets you merge static classes with a dynamic one. The base styling stays the same; only the colour changes per genre.</li>
+<li>A <code>computed</code> property is the right tool here — the colour is <em>derived</em> from the genre prop. If the genre changes, the colour updates automatically.</li>
+<li><code>??</code> is the nullish coalescing operator — if the genre isn't in the map, fall back to indigo. New genres always get a colour.</li>
+</ol>
+<h3 id="use-genrebadge-inside-moviecard">Use <code>GenreBadge</code> inside <code>MovieCard</code><a class="headerlink" href="#use-genrebadge-inside-moviecard" title="Permanent link">&para;</a></h3>
+<p>In <code>MovieCard.vue</code>, add the import and replace the genre <code>&lt;span&gt;</code>:</p>
+<div class="language-vue highlight"><span class="filename">MovieCard.vue — updated top of script</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">GenreBadge</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./GenreBadge.vue&#39;</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1">// ...rest of defineProps and defineEmits unchanged</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>The import path is relative to <code>MovieCard.vue</code>, not <code>App.vue</code>.</li>
+</ol>
+<p>Replace the genre <code>&lt;span&gt;</code> in the template:</p>
+<div class="language-vue highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex justify-between items-start mb-3&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="hll">  <span class="p">&lt;</span><span class="nt">GenreBadge</span> <span class="p">:</span><span class="na">genre</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">genre</span><span class="s">&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- (1) --&gt;</span>
+</span></span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  <span class="cm">&lt;!-- watched badge unchanged --&gt;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  ...
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>Pass <code>genre</code> as a prop — <code>MovieCard</code> received it from <code>App.vue</code> and now passes it down to <code>GenreBadge</code>. This is the component tree in action.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">The component tree at the end</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>App.vue
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>│  owns: movies[], showForm, newMovie
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>│  handles: toggleWatched(), addMovie()
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>│
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>└── MovieCard.vue  (one per movie, via v-for)
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    │  receives: id, title, director, year, genre, rating, watched
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    │  emits: &#39;toggle&#39;
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    │
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>    └── GenreBadge.vue  (one per card)
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>        │  receives: genre
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>        │  no emits — display only
+</span></code></pre></div>
+Three files. Each one has a single, clear responsibility. <code>App.vue</code> manages data. <code>MovieCard</code> displays one movie and asks to toggle. <code>GenreBadge</code> maps a genre string to a colour.</p>
+</div>
+<hr />
+<h2 id="phase-6-pitfalls-wrap-up">Phase 6 — Pitfalls &amp; Wrap-up<a class="headerlink" href="#phase-6-pitfalls-wrap-up" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>🗣️ Talking Points</summary>
+<ul>
+<li>Keep this fast — 5 minutes. Students are tired.</li>
+<li>The prop mutation one will bite them in the assignment. Say it once clearly.</li>
+<li>End on the big picture summary — it's worth spelling out what they just built.</li>
+</ul>
+</details>
+<h3 id="mutating-a-prop-directly">❌ Mutating a prop directly<a class="headerlink" href="#mutating-a-prop-directly" title="Permanent link">&para;</a></h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// Inside MovieCard.vue — DON&#39;T do this</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nx">props</span><span class="p">.</span><span class="nx">watched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">// ❌ Vue will warn and behaviour is unpredictable</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1">// ✅ Instead, emit an event and let the parent update the data</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="forgetting-on-non-string-props">❌ Forgetting <code>:</code> on non-string props<a class="headerlink" href="#forgetting-on-non-string-props" title="Permanent link">&para;</a></h3>
+<div class="language-vue highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">&lt;</span><span class="nt">MovieCard</span> <span class="na">watched</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="p">/&gt;</span>   <span class="cm">&lt;!-- ❌ passes the STRING &quot;true&quot;, not the boolean true --&gt;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p">&lt;</span><span class="nt">MovieCard</span> <span class="p">:</span><span class="na">watched</span><span class="o">=</span><span class="s">&quot;</span><span class="kc">true</span><span class="s">&quot;</span> <span class="p">/&gt;</span>  <span class="cm">&lt;!-- ✅ passes the actual boolean --&gt;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">&lt;</span><span class="nt">MovieCard</span> <span class="na">year</span><span class="o">=</span><span class="s">&quot;2021&quot;</span> <span class="p">/&gt;</span>      <span class="cm">&lt;!-- ❌ passes the STRING &quot;2021&quot; --&gt;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">&lt;</span><span class="nt">MovieCard</span> <span class="p">:</span><span class="na">year</span><span class="o">=</span><span class="s">&quot;</span><span class="mf">2021</span><span class="s">&quot;</span> <span class="p">/&gt;</span>     <span class="cm">&lt;!-- ✅ passes the NUMBER 2021 --&gt;</span>
+</span></code></pre></div>
+<h3 id="using-v-modelnumber-dont-forget-it-for-numeric-inputs">❌ Using <code>v-model.number</code> — don't forget it for numeric inputs<a class="headerlink" href="#using-v-modelnumber-dont-forget-it-for-numeric-inputs" title="Permanent link">&para;</a></h3>
+<div class="language-vue highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="s">&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="p">/&gt;</span>        <span class="cm">&lt;!-- ❌ rating is stored as a string --&gt;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="p">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">newMovie</span><span class="p">.</span><span class="nx">rating</span><span class="s">&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- ✅ stored as a number --&gt;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p><strong>What we built:</strong> a fully interactive Movie Watchlist — data-driven, with a toggle, an add form, and a clean component structure.</p>
+<p><strong>The journey:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What changed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Static HTML</td>
+<td>Hand-coded cards, data locked in markup</td>
+</tr>
+<tr>
+<td>2 — Data-driven</td>
+<td><code>ref([])</code> array + <code>v-for</code> — add a movie to data, card appears</td>
+</tr>
+<tr>
+<td>3 — Interactions</td>
+<td><code>toggleWatched()</code> + add form — the page responds to the user</td>
+</tr>
+<tr>
+<td>4 — <code>MovieCard</code></td>
+<td>Card HTML in its own file — props down, emits up</td>
+</tr>
+<tr>
+<td>5 — <code>GenreBadge</code></td>
+<td>Colour logic in its own file — components nest</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The pattern to remember:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Data lives in App.vue
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>      │
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>      │  :prop=&quot;value&quot;     → pass data DOWN to child
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>      │  @event=&quot;handler&quot;  → receive signals UP from child
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>      ▼
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>  MovieCard.vue
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>      │
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>      │  :prop=&quot;value&quot;     → pass data DOWN again
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>      ▼
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>  GenreBadge.vue
+</span></code></pre></div>
+<hr />
+<div class="admonition tip practice">
+<p class="admonition-title">Tip</p>
+<p>Extend the watchlist with these features:</p>
+<ol>
+<li><strong>Delete a movie</strong> — add a delete button to <code>MovieCard</code>, emit a <code>'delete'</code> event, handle it in <code>App.vue</code> with <code>movies.value.filter()</code></li>
+<li><strong>Filter by status</strong> — make the All / Watched / Unwatched buttons in the filter bar actually work using a <code>computed</code> property</li>
+<li><strong>Star rating input</strong> — in the add form, replace the number input for rating with five clickable ★ buttons</li>
+</ol>
+<p>All three use only what you learned today: props, emits, <code>computed</code>, and <code>v-model</code>.</p>
+</div>
+<hr />
+<p><em>COSC2956 Internet Tools — End of Lecture 2</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kareem Jaradat
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/abedjar/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm5 170.2h66.5V416H69zm71.7-67.7a38.5 38.5 0 1 1-77 0 38.5 38.5 0 1 1 77 0M317.9 416V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://scholar.google.com/citations?user=y1XN-iQAAAAJ&hl=en" target="_blank" rel="noopener" title="scholar.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M390.9 298.5s0 .1.1.1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64 1.7-3.6 3.6-7.2 5.6-10.7q6.6-11.4 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3 33.6 0 64.6 11.1 89.6 29.9 9.1 6.9 17.4 14.7 24.8 23.5 5.6 6.6 10.6 13.8 15 21.3 2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0l256 202.7-94.7 77.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.researchgate.net/profile/Kareem-Jaradat" target="_blank" rel="noopener" title="www.researchgate.net" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.586 0q-1.226.001-2.073.565-.846.565-1.213 1.68a3 3 0 0 0-.112.437 8 8 0 0 0-.078.53 9 9 0 0 0-.05.727q-.014.423-.013 1.016a31.121 31.123 0 0 0 .014 1.017 9 9 0 0 0 .05.727 8 8 0 0 0 .077.53h-.005a3 3 0 0 0 .113.438q.368 1.114 1.214 1.68.847.564 2.075.564c.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.558.177-.93a11 11 0 0 0 .043-1.207v-.82q0-.142-.14-.142h-3.064q-.14 0-.14.141v.956q0 .14.14.14h1.666q.084.001.084.086c0 .36 0 .62-.036.865-.038.244-.1.447-.147.606-.108.385-.348.664-.638.876s-.738.35-1.227.35c-.545 0-.901-.15-1.21-.353-.306-.203-.517-.454-.67-.915a3.1 3.1 0 0 1-.147-.762 17.366 17.367 0 0 1-.034-.656q-.015-.39-.014-.939a26.401 26.403 0 0 1 .014-.938 16 16 0 0 1 .035-.656 3.2 3.2 0 0 1 .148-.76 1.9 1.9 0 0 1 .742-1.01c.344-.244.593-.352 1.137-.352.508 0 .815.096 1.144.303.33.207.528.492.764.925q.069.141.198.07l1.044-.43q.113-.072.042-.199a3.6 3.6 0 0 0-.466-.742 3 3 0 0 0-.679-.607 3.3 3.3 0 0 0-.903-.41A4 4 0 0 0 19.586 0M8.217 5.836c-1.69 0-3.036.086-4.297.086-1.146 0-2.291 0-3.007-.029v.831l1.088.2c.744.144 1.174.488 1.174 2.264v11.288c0 1.777-.43 2.12-1.174 2.263l-1.088.2v.832c.773-.029 2.12-.086 3.465-.086 1.29 0 2.951.057 3.667.086v-.831l-1.49-.2c-.773-.115-1.174-.487-1.174-2.264v-4.784c.688.057 1.29.057 2.206.057 1.748 3.123 3.41 5.472 4.355 6.56.86 1.032 2.177 1.691 3.839 1.691.487 0 1.003-.086 1.318-.23v-.744c-1.031 0-2.063-.716-2.808-1.518-1.26-1.376-2.95-3.582-4.355-6.074 2.32-.545 4.04-2.722 4.04-4.9 0-3.208-2.492-4.698-5.758-4.698zm-.515 1.29c2.406 0 3.839 1.26 3.839 3.552 0 2.263-1.547 3.782-4.097 3.782-.974 0-1.404-.03-2.063-.086v-7.19c.66-.059 1.547-.059 2.32-.059z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://orcid.org/0000-0002-2694-884X" target="_blank" rel="noopener" title="orcid.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0M7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947m-.722 3.038h1.444v10.041H6.647zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  <!-- Add scripts that need to run before here -->
+  
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <!-- Add scripts that need to run afterwards here -->
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="f1012d34-509c-42f7-8f38-41f26889a96f"></script>
+
+
+  </body>
+</html>
