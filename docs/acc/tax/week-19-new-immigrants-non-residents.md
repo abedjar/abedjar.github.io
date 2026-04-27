@@ -155,6 +155,24 @@ The OTB (ON-BEN) covers only the months the client was an Ontario resident payin
 
 ---
 
+!!! question "Quick Check"
+    Maria arrives from the Philippines on June 15, 2025. Before arriving, she earned $24,000 CAD equivalent in the Philippines (January–June 14). After arriving, she earns $38,000 in Canada (July–December). What income appears on her Canadian T1, and how are her personal credits treated — pro-rated or full?
+
+??? answer
+    **T1 income:** Only the **$38,000 Canadian employment income** from the residency period (June 15–December 31). The $24,000 Philippine income earned before arrival is **not taxable in Canada** — pre-residency foreign income is excluded for part-year residents.
+
+    **Credits — check the 90% test first:**
+    Canadian income ($38,000) ÷ total worldwide income ($62,000) = 61.3% — **below 90%.**
+    Pro-ration applies.
+
+    Days resident: June 15 to December 31 = 200 days. Fraction: 200 ÷ 365 = **54.8%**
+    Federal BPA credit: $2,419 × 54.8% = **$1,326** (not the full $2,419)
+    The same 54.8% pro-ration applies to the Age Amount, Disability Amount, and all other personal credits.
+
+    **The 90% exception:** If Maria had earned only $4,000 outside Canada and $38,000 in Canada, the ratio would be 90.5% — above 90% — and she would qualify for **full credits with no pro-ration**, worth an additional $1,090 in credits. Always calculate this percentage before applying pro-ration. When a client's foreign income is small relative to Canadian income, the full credit is available and worth verifying precisely.
+
+---
+
 ## 19.3 Foreign Income — Converting and Reporting Correctly
 
 A new immigrant with worldwide income during their Canadian residency period must report that foreign income on their T1. The mechanics of doing this correctly are critical — and frequently botched.
@@ -392,6 +410,26 @@ Then prepare the return with every legitimate deduction and credit maximized, an
 
 ---
 
+!!! question "Quick Check"
+    A client from India arrives on May 1, 2025. His foreign assets at that date: an NRO bank account (₹1,200,000 ≈ $19,200 CAD), Indian equity mutual funds (₹3,250,000 ≈ $52,000 CAD), a family home in Mumbai used personally when visiting (₹17,500,000 ≈ $280,000 CAD), and a rental apartment in Pune (₹11,560,000 ≈ $185,000 CAD). Is T1135 required? What is the total specified foreign property?
+
+??? answer
+    | Asset | Specified Foreign Property? | Amount (CAD) |
+    |---|---|---|
+    | NRO bank account | ✅ Yes | $19,200 |
+    | Indian equity mutual funds | ✅ Yes | $52,000 |
+    | Mumbai family home (personal use only) | ❌ No — personal use property | $0 |
+    | Pune rental apartment (investment) | ✅ Yes | $185,000 |
+    | **Total specified foreign property** | | **$256,200** |
+
+    **$256,200 exceeds $100,000 → T1135 is required.**
+
+    The Mumbai home is excluded because it is held exclusively for personal use — only property held for investment purposes counts as specified foreign property. Had he rented the Mumbai apartment even part of the year, it would shift toward investment property and be included.
+
+    At $256,200 (over $250,000), the **detailed reporting method** is required — the simplified method applies only for $100,001–$250,000. T1135 must be filed with the T1. Penalties for non-filing: $25/day, minimum $100, maximum $2,500 — plus gross negligence penalties up to 5% of property cost if CRA treats non-filing as wilful.
+
+---
+
 ## 19.6 The Deemed Acquisition on Arrival — The Immigrant's ACB Reset
 
 When a person becomes a Canadian resident, CRA deems them to have **acquired their property at fair market value** on the date of residency. This is called the **deemed acquisition** under Section 128.1 of the Income Tax Act.
@@ -594,6 +632,19 @@ This is your must-ask list for every client who arrived in Canada during the yea
 - [ ] OTB — monthly payments, what amount to expect
 - [ ] CRA My Account — how to set up, what to monitor
 - [ ] T1135 — annual filing obligation explained if applicable
+
+---
+
+!!! tip "In your tax software"
+    - **Residency start date:** Enter the immigration date in the "Date of Entry to Canada" field in the taxpayer information section. Software will automatically pro-rate personal credits by days resident ÷ 365. If the 90% test is met (Canadian-source income ≥ 90% of worldwide income for the year), override the pro-ration and enter full annual credits — verify whether your software has a "substantial resident" override or whether you must enter the full credit amounts manually.
+
+    - **Foreign income entry:** Foreign employment income → Line 10400 (Other Employment Income). Foreign investment income → Lines 12000/12100. Foreign rental income → T776. All amounts must be entered in Canadian dollars using the Bank of Canada annual average rate. Document the exchange rate and source in the client file — software does not auto-convert currencies.
+
+    - **Foreign tax credit (T2209 / T2036):** Enter foreign tax paid (converted to CAD) in the foreign tax credit section. Software caps the credit at the Canadian tax that would apply to the same income — you cannot receive a refund of excess foreign tax. Clients from zero-tax jurisdictions (UAE, Qatar, Gulf states) have paid $0 in foreign tax; their income is fully taxable in Canada with no credit available.
+
+    - **T1135 filing trigger:** T1135 is a separate form filed alongside the T1. Determine the T1135 obligation at intake — not after completing the return. For $100,001–$250,000: simplified method (country + property type + maximum cost). For over $250,000: detailed method requiring property-by-property breakdown. Personal use property (family home used only personally) is excluded from specified foreign property.
+
+    - **RC66 for CCB — file immediately, not at tax time:** The Canada Child Benefits Application (RC66) is submitted directly to CRA by mail or online — not through EFILE. Prepare and submit it at the first client meeting. CCB is not retroactive beyond 11 months from application approval. Every month of delay is lost CCB that cannot be recovered — for a family with two young children, this can be $1,000+ per month.
 
 ---
 

@@ -208,6 +208,14 @@ In shared custody arrangements (at least 40% of time with each parent), each par
 
 ---
 
+!!! question "Quick Check"
+    Kevin and Sandra have two children: one is 2 years old and one is 7 years old. Their combined adjusted family net income (AFNI) is $52,000. Calculate their approximate annual Canada Child Benefit.
+
+    ??? answer
+        Maximum CCB: $7,787 (child under 6) + $6,570 (child 6–17) = **$14,357**. Tier 1 phase-out (2 children, 19.0% rate): ($52,000 − $36,502) × 19.0% = $15,498 × 19.0% = $2,945. **Annual CCB: $14,357 − $2,945 = $11,412/year ($951/month)**. Tier 2 phase-out doesn't apply until $79,087. Bonus: if they contribute $5,000 to an RRSP (AFNI drops to $47,000), phase-out = ($47,000 − $36,502) × 19.0% = $1,995. New CCB = $14,357 − $1,995 = $12,362 — an increase of **$950/year** on top of the income tax saving. Every dollar of net income reduced in the CCB phase-out range recovers 19 cents in CCB plus the full income tax saving.
+
+---
+
 ## 14.4 Canada Workers Benefit — Line 45300
 
 The **Canada Workers Benefit (CWB)** is a refundable credit for low-income working Canadians. It replaced the Working Income Tax Benefit (WITB) in 2019 and was significantly enhanced in 2021 and again in 2023.
@@ -427,6 +435,14 @@ This is the most important synthesis in this entire week. Every benefit in Secti
 
 ---
 
+!!! question "Quick Check"
+    Jennifer is a single mother with one child (age 4). Her adjusted family net income (AFNI) is $42,000. She is considering a $4,000 RRSP contribution. Beyond the income tax saving, how does this affect her Canada Child Benefit, and what is the total combined value of the contribution?
+
+    ??? answer
+        **Income tax saving:** $4,000 × 29.65% (combined rate at $42,000) = **$1,186**. **CCB impact:** At AFNI $42,000 (1 child, 13.5% phase-out rate): CCB = $7,787 − ($42,000 − $36,502) × 13.5% = $7,787 − $742 = $7,045/year. After $4,000 RRSP (AFNI $38,000): CCB = $7,787 − ($38,000 − $36,502) × 13.5% = $7,787 − $202 = $7,585/year. **CCB increase: $540/year**. **Total value of $4,000 RRSP: $1,186 (tax) + $540 (CCB) = $1,726 — an effective 43.2% return on the contribution.** A preparer who mentions only the tax saving gives Jennifer less than 70% of the full picture.
+
+---
+
 ## 14.8 The Benefit Cliffs — Where $1 of Income Costs Far More Than $1 in Tax
 
 A **benefit cliff** occurs when a small increase in net income causes a disproportionately large reduction in benefits — creating an effective marginal rate far above the nominal tax bracket.
@@ -527,6 +543,11 @@ A core theme of this entire week is that **filing the return is the trigger for 
     **Cost of not filing: approximately $4,468** — from a return that takes 20 minutes to prepare.
 
     Filing for new Canadians in their first year — even with zero personal income — is one of the highest-return services you offer. The return establishes residency, triggers all income-tested benefits, and builds the filing history that CRA requires for ongoing eligibility.
+
+---
+
+!!! tip "In your tax software"
+    The **CCB, GST/HST credit, and CWB** are calculated automatically once you enter the correct net income and family information — but the software needs accurate marital status, dependant birth dates, and custody arrangement details. For **OTB (Form ON-BEN)**: enter rent or property tax amounts and the complete landlord information — missing landlord details is the most common ON-BEN error that triggers CRA review. For **CWB advance payments**: enter the amount from the client's CRA My Account (or the advance payment statement); the software reconciles the advance against the calculated CWB and generates either an additional credit or a repayment owing. For the **FHSA**: track the account opening date and contribution room separately from RRSP room — these are distinct registered accounts with different T-slip reporting (T4FHSA). FHSA contribution room is visible in CRA My Account but software may require manual entry of the opening year.
 
 ---
 

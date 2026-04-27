@@ -220,6 +220,16 @@ At December 31, the client must conduct a physical count of remaining inventory 
 
     The gross profit is what's left before deducting operating expenses. For Rachel, the raw materials cost represents 21.7% of her revenue — a healthy margin for handmade jewelry.
 
+!!! question "Quick Check — Revenue vs. COGS"
+    David is a freelance web developer. He earned $85,000 in client fees and paid $3,200 for stock photos and third-party APIs used in client projects. He also paid $1,800 for his home office and $600 for professional development courses. What is his gross profit, and where do each of these expenses go on the T2125?
+
+    ??? answer
+        **Revenue:** $85,000
+        **COGS** (direct costs of delivering the service): $3,200 (stock photos and APIs used in client projects) → Part 3 of T2125
+        **Gross profit:** $85,000 − $3,200 = **$81,800**
+        **Operating expenses** (cost of running the business): home office $1,800 + professional development $600 → Part 4 of T2125
+        **Net income:** $81,800 − $2,400 = **$79,400** — this flows to Line 13500 on the T1. The distinction between COGS and operating expenses matters for the gross profit calculation and for CRA audit review of margin ratios.
+
 ---
 
 ## 8.5 Operating Expenses — The Complete Deductible Business Expense Catalogue
@@ -568,6 +578,17 @@ UCC continues at the full rate next year
 
 Unused CCA is NOT lost — the UCC remains in the class and generates future CCA when there is income to absorb it.
 
+!!! question "Quick Check — CCA Calculation"
+    Ahmed bought a laptop for his consulting business on March 1 for $2,400. It is a Class 10 asset (30% rate). This is his first year in business. What CCA can he claim?
+
+    ??? answer
+        Class 10 rate = 30%. However, in the **year of acquisition**, the half-year rule (50% rule) applies — CCA is limited to 50% of the normal claim.
+        Normal CCA: $2,400 × 30% = $720
+        Half-year rule: $720 × 50% = **$360 maximum CCA in Year 1**
+        UCC at end of Year 1: $2,400 − $360 = **$2,040** (carries forward to future years)
+
+        Note: if Ahmed's net business income before CCA is less than $360, the CCA claim is limited to net income (CCA cannot create a business loss). The unused amount stays in the UCC and is available in future profitable years.
+
 ---
 
 ## 8.9 CPP on Self-Employment — The Calculation Nobody Enjoys
@@ -754,6 +775,19 @@ CRA uses "net worth assessments" for cash businesses — comparing the taxpayer'
 ### Trigger 8 — Business Losses Used to Offset Employment Income for Multiple Years
 
 A full-time employee who repeatedly shows a side business generating $30,000+ in losses that offset their $90,000 salary is a pattern CRA recognizes as a tax shelter. The business must have a genuine commercial purpose and reasonable expectation of profit.
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - Self-employment CPP (both halves) via Schedule 8 once net business income is entered
+    - The deductible half of CPP flowing to Line 22200
+    - HST/GST remittance is a separate CRA filing — software does not file HST returns
+
+    **You must verify or enter manually:**
+    - NAICS code — software requires it; choose the most accurate 6-digit code for the business type
+    - CCA class for each asset — software applies the correct rate once you select the class, but class selection is your judgment call
+    - Business-use percentage for home office and vehicle — software applies what you enter; you must verify supporting documentation exists
+    - Whether multiple T2125s are needed — one per business activity; software allows multiple but does not create them automatically
+    - Revenue recognition — software enters what you type; gross revenue vs. net-of-fees must be clarified with the client before entry
 
 ---
 

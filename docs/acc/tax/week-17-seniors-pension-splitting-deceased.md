@@ -154,6 +154,29 @@ The most important threshold for tax planning is **65** — it unlocks the major
 
 ---
 
+!!! question "Quick Check"
+    Robert (72) has net income of $96,500: DB pension $54,000, CPP $13,000, OAS $8,300, and RRIF mandatory minimum $21,200. His wife Helen (68) has only CPP $7,200 and OAS $7,500 (total income: $14,700). Calculate Robert's OAS clawback before any pension splitting, then determine the minimum eligible pension allocation to Helen that eliminates the clawback entirely.
+
+??? answer
+    **OAS clawback before splitting:**
+    ($96,500 − $90,997) × 15% = $5,503 × 15% = **$826 clawed back**
+    Robert keeps only $8,300 − $826 = $7,474 of his annual OAS.
+
+    **Minimum allocation to eliminate the clawback:**
+    Robert's net income must drop to $90,997.
+    Required reduction: $96,500 − $90,997 = **$5,503**
+
+    Allocate $5,503 of eligible pension income to Helen via Form T1032.
+    Robert's eligible income: DB pension $54,000 + RRIF $21,200 (eligible at age 65+) = $75,200. The $5,503 allocation is well within the 50% maximum of $37,600.
+
+    **After the split:**
+    Robert's net income: $90,997 → OAS clawback: **$0** ✅
+    Helen's new income: $14,700 + $5,503 = $20,203 — still below BPA, so she pays **no additional federal tax**.
+
+    **Total annual saving:** $826 OAS recovered + marginal rate differential on $5,503 ≈ **$1,052/year** — from allocating just $5,503 on a form that takes 15 minutes. Over a 15-year retirement: **$15,780 in cumulative savings** from one overlooked planning decision.
+
+---
+
 ## 17.3 Pension Income Splitting — The Most Powerful Senior Tax Strategy
 
 **Pension income splitting** allows a taxpayer to allocate up to **50% of their eligible pension income** to their spouse or common-law partner — even if the pension is paid entirely to one person. The split is made on paper only — no money actually changes hands. The tax savings are real.
@@ -258,6 +281,25 @@ CPP sharing is **different** from pension income splitting. It is administered b
 **How to apply:** Form ISP-1002 (Application for CPP Benefit Sharing) — submitted to Service Canada, not CRA.
 
 **Key distinction:** CPP sharing is a benefit administration change. Pension income splitting (T1032) is a tax election. Both can be used simultaneously, but they operate through completely different systems.
+
+---
+
+!!! question "Quick Check"
+    Patricia is 69 years old. She receives only OAS ($8,300) and CPP ($9,800) — total income $18,100. She has a $35,000 RRSP she has never touched. She currently claims neither the federal Pension Income Amount nor the Ontario pension income deduction. What single action generates these credits, and what is the combined annual credit worth?
+
+??? answer
+    Patricia has no eligible pension income — CPP and OAS **never** qualify for the Pension Income Amount, regardless of age. To unlock the credit, she can **convert a portion of her RRSP to a RRIF** and take a minimum withdrawal of at least $2,000. RRIF payments qualify as eligible pension income for taxpayers age 65+.
+
+    Even a withdrawal of exactly $2,000 is sufficient to access the full $2,000 Pension Income Amount base.
+
+    **Annual credit value:**
+    - Federal Pension Income Amount: $2,000 × 15% = **$300**
+    - Ontario pension income deduction: $1,533 × 5.05% = **$77**
+    - **Combined annual credit: $377**
+
+    At Patricia's income level ($18,100), she pays minimal or zero tax. The $377 offsets any residual Ontario tax, and any excess reduces her tax to zero. The $2,000 RRIF withdrawal itself is taxable — but fully sheltered by her BPA and other credits at this income level. Net additional tax: approximately $0.
+
+    RRIF setup costs nothing at major banks. This one-time suggestion delivers **$377 per year for the rest of her life** — from a single phone call to her bank.
 
 ---
 
@@ -466,6 +508,21 @@ Use this for every client aged 65 or older.
 - [ ] OEPTC claimed using correct senior rate (higher maximum at 65+)
 - [ ] Senior Homeowners' Property Tax Grant: ON-BEN completed for every senior homeowner
 - [ ] Long-term care resident: 25% of accommodation cost used as property tax equivalent
+
+---
+
+!!! tip "In your tax software"
+    - **T1032 joint election (pension income splitting):** Both spouses' returns must be prepared together in the same software session. Enter the split amount in the T1032 section — it deducts from the transferring spouse's income (Line 21000) and adds to the receiving spouse's income (Line 11600). Both must sign the Form T1032 before filing. Confirm the allocated amount does not exceed 50% of the transferring spouse's eligible pension income for the year.
+
+    - **OAS clawback verification:** When net income exceeds $90,997, software should automatically populate Line 23500 (social benefits repayment deduction) and Line 42200 (repayment amount added to tax payable). Verify both appear. If the client is splitting pension income to drop below the threshold, confirm the split is entered first before rechecking the clawback calculation.
+
+    - **T4RIF entry:** Box 16 (minimum RRIF amount) goes to the pension income section (Line 11500). Confirm age: RRIF payments are eligible for pension income splitting and the Pension Income Amount only for taxpayers age 65+. For taxpayers under 65 receiving RRIF income, neither the split nor the credit applies.
+
+    - **Terminal T1 — death date entry:** Enter the date of death in the taxpayer information section. Software should prompt for the RRSP/RRIF deemed disposition. If a surviving spouse exists and the rollover is elected (Form T2019), indicate this in the RRSP section — the RRSP value does not appear in income. If no rollover is available, the full FMV is added to terminal return income.
+
+    - **Rights or Things optional return:** File as a separate T1 within the software. This optional return gets its own complete set of personal credits — BPA, Age Amount, etc. — which is the entire source of the tax saving. Explain to the executor why a second return is being prepared; many assume one return per deceased person.
+
+    - **Senior Homeowners' Property Tax Grant (ON-BEN):** Every senior homeowner client — age 64+ — must have ON-BEN completed. Maximum $500, refundable. Verify the client's age and ownership status at intake. This grant is routinely missed when preparers assume ON-BEN only applies to renters.
 
 ---
 

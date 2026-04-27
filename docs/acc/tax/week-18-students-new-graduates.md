@@ -171,6 +171,23 @@ They have **four strategic choices**, calculated on **Schedule 11**:
 
 ---
 
+!!! question "Quick Check"
+    Tyler is 20 years old and in his second year of university. He paid $11,500 in tuition in 2025 and earned $8,200 from a summer job. He owes zero federal tax after applying his BPA. His father earns $105,000 and has significant federal tax owing. Should Tyler carry forward the tuition credit or transfer $5,000 to his father? Calculate both options and explain the decision.
+
+??? answer
+    **Option A — Transfer $5,000 to father:**
+    Father's credit: $5,000 × 15% (federal) + $5,000 × 5.05% (Ontario) = $750 + $253 = **$1,003**
+    Tyler's remaining carry-forward: ($11,500 − $5,000) × 20.05% = $6,500 × 20.05% = **$1,303**
+
+    **Option B — Carry forward everything:**
+    Tyler's total carry-forward: $11,500 × 20.05% = **$2,306** for Tyler's future use
+
+    **Decision:** **Carry forward everything.** Tyler is in second year — he will graduate in approximately 2 years and likely start employment at $75,000+. At that income, his combined marginal rate will be approximately 29.65%. His accumulated $2,306 carry-forward will eliminate $2,306 in future tax — worth more than the $1,003 his father gets today.
+
+    **The rule of thumb:** Transfer to parent only when graduation is far off (3+ years away) or the student's career prospects are genuinely uncertain. If graduation is imminent — carry forward everything. The future year value consistently exceeds the transfer value when the student has near-term employment income.
+
+---
+
 ## 18.4 Moving Expenses for Students — The Massively Underused Deduction
 
 !!! success "This is the single most underused deduction in student tax returns"
@@ -326,6 +343,38 @@ The EAP is reported on a **T4A** slip issued by the RESP provider. Box 40 on the
     If a student is not in school (gap year, or school ended mid-year) and the RESP provider still pays out an EAP, it is still taxable — but the student may not have tuition credits to offset it. Time withdrawals to correspond with enrollment years.
 
     Also: If the student does **not** pursue post-secondary education, the EAP cannot be paid out. The contributions go back to the subscriber tax-free; the accumulated income becomes an Accumulated Income Payment (AIP) — taxed at the subscriber's rate plus a **20% penalty tax**. Avoid this outcome by ensuring the RESP stays active until the student enrolls.
+
+---
+
+!!! question "Quick Check"
+    Ahmed is 18 and just started university in September 2025. His documents: T4 showing $9,200 summer job income (tax withheld $1,100), T2202 showing $12,000 in tuition (September–December 2025), and a T4A Box 40 showing $16,000 RESP Education Assistance Payment. He rents a room off-campus at $900/month starting in September. Walk through his complete tax picture — income, federal tax, credits, and benefits.
+
+??? answer
+    **Income:**
+    Employment (T4 Box 14): $9,200 → Line 10100
+    RESP EAP (T4A Box 40): $16,000 → Line 13010
+    **Total income: $25,200**
+
+    **Federal tax:**
+    $25,200 × 15% = $3,780
+    Less BPA ($16,129 × 15% = $2,419), CPP/EI credits (~$90), Canada Employment (~$75):
+    Net federal tax before tuition: approximately **$1,196**
+    Tuition credit: $12,000 × 15% = **$1,800**
+    Applied against $1,196 federal tax → **Federal tax: $0**
+    Remaining tuition carry-forward: $1,800 − $1,196 = **$604 for future years**
+
+    **Ontario tax:** LIFT Credit applies (employment income present, income under $30,000) → **$0 Ontario tax**
+
+    **Refund:** $1,100 withheld − $0 tax owing = **$1,100 refund**
+
+    **Benefits:**
+    GST/HST credit (turns 19 in 2025 — eligible from the quarter after his birthday): approximately **$389** (partial year)
+    OTB: Rent September–December = $900 × 4 = $3,600. OEPTC: 20% × $3,600 = $720 → approximately $277. OSTC: approximately $345.
+    **Total OTB: ~$622**
+
+    **Total first-year value: $1,100 refund + $389 GST/HST + $622 OTB ≈ $2,111**
+
+    Ahmed received $16,000 from his RESP and paid **zero income tax**. The entire RESP tax arbitrage worked exactly as designed.
 
 ---
 
@@ -554,6 +603,21 @@ Use this as your intake guide for every student and new graduate client.
 8. "Have you filed returns in prior years? Do you know your tuition carry-forward balance?"
 9. "Are you a first-time filer? We want to make sure you get your GST/HST credit set up."
 10. "Are your parents claiming you as a dependant? Are they claiming your tuition transfer?"
+
+---
+
+!!! tip "In your tax software"
+    - **T2202 entry:** Students download this from their school portal — it is rarely mailed. If the T2202 isn't in hand, check CRA My Account (Represent a Client) — many institutions file T2202s electronically and they appear there. Enter Box 20 (eligible tuition — full-time) and Box 21 (months enrolled) in the Schedule 11 section of the software.
+
+    - **Schedule 11 — tuition credit options:** Software presents the four distribution choices: apply to own tax, carry forward, transfer to spouse, or transfer to parent/grandparent (maximum $5,000 base). The transfer fields require the recipient's SIN. Prior-year carry-forwards **cannot** be transferred — only the current year's tuition. Unused carry-forwards accumulate indefinitely with no expiry.
+
+    - **RESP EAP (T4A Box 40):** Enter the amount on Line 13010 (Other income). Confirm the slip specifies Box 40 — not Box 105 (scholarships for full-time students, which may be tax-free). Box 40 EAP is always taxable regardless of full-time enrollment status.
+
+    - **Ontario Trillium Benefit (ON-BEN):** For students in private rentals, enter monthly rent × actual Ontario months rented. For university or college residence: enter $25 as the flat student property tax equivalent — not 20% of actual residence fees. For students living with parents at no rent: enter $0 for OEPTC (but still claim OSTC if income is below the threshold).
+
+    - **LIFT Credit:** Applied automatically by software when employment income is present and net income is under $30,000. A student with zero T4 income (RESP or scholarship income only, no employment) does not qualify for LIFT. Verify it is appearing on ON428 before filing — if it's missing when it should apply, check whether the software is correctly identifying employment income.
+
+    - **Tuition carry-forward balance:** Check CRA My Account or the prior NOA for accumulated federal tuition credit carry-forwards. Enter this in the carry-forward field in Schedule 11 — software does not auto-populate this from CRA. Students who have filed for 3–4 years may have significant accumulated carry-forwards that dramatically reduce their first employment year tax.
 
 ---
 

@@ -18,6 +18,28 @@
 !!! tip "Work every section before reading the answers"
     The gap between what you find and what was there is your most honest learning signal. Resist the urge to check answers mid-analysis. Complete your work. Then compare. Note what you missed. Go back to the source week for anything that wasn't solid.
 
+## How Weeks 1–3 Connect
+
+```
+PHASE 1 INTEGRATION MAP
+═══════════════════════════════════════════════════════════════════
+WEEK 1: The System          WEEK 2: The Form           WEEK 3: The Process
+─────────────────           ────────────────           ───────────────────
+Tax brackets                Total Income               Who must file
+Marginal vs. effective      Net Income                 Residency rules
+T1 flow concept             Taxable Income             Deadlines & penalties
+Credits vs. deductions      Schedule 1                 EFILE & T183
+                            ON428                      T1-ADJ
+                            NOA
+       │                          │                          │
+       └──────────────────────────┴──────────────────────────┘
+                                  │
+                    Every T1 return you file uses
+                    all three weeks simultaneously:
+                    System knowledge → Form mechanics → Filing process
+═══════════════════════════════════════════════════════════════════
+```
+
 ---
 
 ## 4.1 The Phase 1 Knowledge Map — Confirm Everything Before Testing
@@ -415,6 +437,22 @@ Work through these seven steps. Show your calculation for each. Then check the a
     - His income is approaching the Ontario surtax zone — maximizing RRSP annually will keep his Ontario tax bill lower
     - His CLP and her income need to be considered jointly for any future benefit calculations
 
+## Putting It All Together in Software
+
+Everything you calculated manually above is what your tax software does automatically — with one critical difference: **software only knows what you tell it**.
+
+| Phase 1 Concept | What Software Does | What You Must Do |
+|---|---|---|
+| Tax brackets (Week 1) | Calculates federal and Ontario tax automatically | Verify all income is entered completely and correctly |
+| Credits (Week 1) | Applies BPA, CPP, EI, Employment Amount automatically | Identify and enter non-standard credits (DTC, medical, donations) |
+| Total → Net → Taxable Income (Week 2) | Computes all three levels as slips are entered | Enter every deduction — software does not find missed RRSP or union dues |
+| Carry-forwards (Week 2) | Imports prior-year data if using the same software | Manually enter capital loss and tuition carry-forwards from prior NOA if switching software |
+| Residency (Week 3) | Applies provincial tax based on province selected | Select the correct December 31 province — one wrong selection changes the entire provincial calculation |
+| EFILE (Week 3) | Transmits and captures ACK number | Review the return summary before transmitting — software sends what you built, errors included |
+| T1-ADJ (Week 3) | Does NOT detect when amendments are needed | Identify post-filing errors and initiate the T1-ADJ process manually |
+
+**The key insight:** Understanding the manual calculations means you can catch software errors when they occur — and they do occur. Week 22 (Tax Software Mastery) covers the full software workflow. For now, every manual calculation in this review has a software equivalent.
+
 ---
 
 ## 4.4 The Error Hunt — Eight Statements With Embedded Mistakes
@@ -445,7 +483,17 @@ Work through all eight before checking answers.
 *"My client is self-employed and earned $52,000 net. I have his return ready. He came in June 10 — well within the June 15 deadline for self-employed filers. He owes $8,400. I'm transmitting today and he'll send the payment through his bank today as well."*
 
 ??? success "Error 3 — Answer"
-    **The error:** The self-employed filing extension is June 15. But the **payment deadline is April 30 — for everyone.** If today is June 10 and the client just now pays $8,400, interest has been accruing since May 1 (41 days). At 9% annual: approximately $8,400 × 0.02466% × 41 days = **$85 in avoidable interest.** The return can be filed June 10 within the deadline. But the payment should have been made on or before April 30. The client should have been advised in April (or at the November year-end planning call) to estimate their balance and make the payment by April 30 even if the return wasn't ready. The June 15 date covers filing, not payment.
+    **The error:** The self-employed filing extension is June 15. But the **payment deadline is April 30 — for everyone.**  If today is June 10 and the client just now pays $8,400, interest has been accruing since May 1 (41 days). At 9% annual: approximately $8,400 × 0.02466% × 41 days = **$85 in avoidable interest.** The return can be filed June 10 within the deadline. But the payment should have been made on or before April 30. The client should have been advised in April (or at the November year-end planning call) to estimate their balance and make the payment by April 30 even if the return wasn't ready. The June 15 date covers filing, not payment.
+
+---
+
+!!! question "Quick Check — Before Continuing the Error Hunt"
+    Without looking ahead: what are the two most common reasons a T1 return produces a wrong refund amount even when the software shows no errors?
+
+    ??? answer
+        **1. Missing income** — A T-slip the client forgot to mention (T5, T4 from a second job, T3). Software cannot detect income it was never given. CRA's automated slip-matching will catch this and reassess.
+        **2. Missing deductions or credits** — An RRSP contribution, union dues, medical expenses, or charitable donations the client didn't mention. Software applies what you enter; it cannot find deductions for you. The result: the client pays more tax than legally required — and may never know.
+        Both errors are prevented by a thorough intake interview, not by better software.
 
 ---
 

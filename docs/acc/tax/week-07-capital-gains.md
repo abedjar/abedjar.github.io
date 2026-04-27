@@ -217,6 +217,21 @@ The T5008 (Securities Transactions) slip issued by brokerages includes Box 20 (C
 
     For long-held securities, reconstructing ACB from scratch may take time — but the alternative (a potentially large reassessment years later) is worse.
 
+!!! question "Quick Check — ACB Calculation"
+    Robert bought 200 shares of a company at $18.00 in January. In June he bought 100 more shares at $24.00. In November he sold 150 shares at $28.00. What is his ACB per share at the time of sale, and what is his capital gain?
+
+    ??? answer
+        **ACB calculation (average cost method):**
+        January: 200 shares × $18.00 = $3,600
+        June: 100 shares × $24.00 = $2,400
+        Total: 300 shares, $6,000 invested → **ACB per share = $6,000 ÷ 300 = $20.00**
+
+        **Capital gain on 150 shares sold at $28.00:**
+        Proceeds: 150 × $28.00 = $4,200
+        ACB: 150 × $20.00 = $3,000
+        Capital gain: $4,200 − $3,000 = **$1,200**
+        Taxable capital gain (at 50% inclusion): $1,200 × 50% = **$600 added to income**
+
 ---
 
 ## 7.4 DRIP Investors — The ACB Complication Nobody Explains
@@ -519,6 +534,12 @@ The superficial loss rule applies not just to the taxpayer's own repurchase — 
 
 A client who sold shares at a loss and had their corporation repurchase the same shares within 30 days has triggered the superficial loss rule. The loss is denied. This is a common planning error when clients try to manage losses at year-end through their corporate accounts.
 
+!!! question "Quick Check — Superficial Loss"
+    Sandra sold 500 shares of XYZ Corp on December 15 at a $3,200 loss. On January 8 of the following year, she repurchased 500 shares of XYZ Corp. Can she claim the capital loss on her current-year return?
+
+    ??? answer
+        **No — this is a superficial loss.** Sandra repurchased the identical shares within 30 days after the sale (December 15 + 30 days = January 14). The January 8 repurchase falls inside that window. The $3,200 loss is **denied** and instead added to the ACB of the newly repurchased shares. She cannot claim the loss on her current return. The loss is not permanently lost — it is preserved in the higher ACB and will reduce the capital gain (or increase the capital loss) when she eventually sells those shares permanently. To crystallize the loss legitimately, Sandra would need to wait until at least January 15 to repurchase.
+
 ---
 
 ## 7.10 Deemed Dispositions — When You're Treated as Having Sold Without Selling
@@ -740,6 +761,19 @@ Advise clients who have a large one-time capital gain: *"Next year, CRA may send
 | Not tracking Box 42 return of capital on trust investments | ACB overstated → capital gain understated on eventual sale | Maintain ACB schedule for every trust unit holding |
 | Ignoring capital improvements on real estate ACB | ACB understated → capital gain overstated | Ask about major renovations: "Did you make any substantial improvements?" |
 | Treating spouse's crypto/security repurchase as not triggering superficial loss | Loss claimed that should be denied | The 30-day window applies to spouse/CLP purchases too |
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - 50% taxable capital gain inclusion from the proceeds and ACB you enter on Schedule 3
+    - PRE formula when you complete Form T2091 and enter years of designation
+    - Capital loss carry-forward application against current-year gains
+
+    **You must verify or enter manually:**
+    - ACB for every security — software does not track purchase history; T5008 Box 20 is unreliable and must be independently verified
+    - Principal residence designation years (T2091) — software applies the formula but you must determine the correct number of qualifying years
+    - Superficial loss situations — software does not know whether the client repurchased within 30 days; you must ask at intake
+    - Cryptocurrency dispositions — most exchanges do not issue T5008s; client must provide transaction records and you calculate ACB manually
+    - Deemed dispositions on death, emigration, or gift — software needs you to flag these non-cash events
 
 ---
 

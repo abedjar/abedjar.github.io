@@ -122,6 +122,14 @@ This is not the same as Total Income — a critical distinction that many prepar
 
 ---
 
+!!! question "Quick Check"
+    Sandra earned $78,000 in 2024 from employment (net of union dues already excluded). Her T4 Box 52 shows a pension adjustment of $6,400. She has $9,800 in unused RRSP room carried forward from prior years. What is her 2025 RRSP deduction limit?
+
+    ??? answer
+        Earned income for RRSP purposes: $78,000. RRSP room from earned income: $78,000 × 18% = $14,040 (well below the $31,560 cap). Minus pension adjustment: $14,040 − $6,400 = $7,640. Plus prior year carryforward: $7,640 + $9,800 = **$16,840**. Always verify this against CRA My Account before any contribution — the NOA figure reflects the limit calculated at year-end and may not account for contributions already made this year.
+
+---
+
 ## 11.3 The Contribution Deadline — Where Clients Get Confused Every Year
 
 RRSP contributions can be made at any time during the calendar year, OR within the **first 60 days of the following year** — and still count against the prior year's deduction limit.
@@ -268,6 +276,14 @@ If the **annuitant spouse** withdraws from a spousal RRSP within **3 calendar ye
     Rachel must wait until **January 1, 2028** (no contributions in 2025, 2026, or 2027) for attribution to clear entirely.
 
     **Practical rule for your clients:** Stop contributing to the spousal RRSP at least 3 calendar years before the annuitant plans to make any withdrawal. Mark this date in your client management system.
+
+---
+
+!!! question "Quick Check"
+    Thomas contributed $18,000 to his wife Sofia's spousal RRSP in February 2024. He made no contributions in 2023 or 2025. Sofia wants to withdraw $10,000 in December 2025. Will the withdrawal be attributed back to Thomas, and what is the earliest year Sofia can withdraw without attribution?
+
+    ??? answer
+        **Yes — attribution applies.** The 3-year rule covers the year of withdrawal (2025) plus the 2 preceding calendar years (2024 and 2023). Thomas contributed in February 2024, which falls within this window. The attributed amount is the lesser of (a) the $10,000 withdrawal and (b) contributions in the 3-year window ($18,000) = **$10,000 attributed to Thomas** and taxed at his marginal rate. Sofia must wait until **January 1, 2027**: a withdrawal in 2027 looks back at 2027, 2026, and 2025. Thomas's 2024 contribution falls outside that window — no attribution applies. No contributions in 2025, 2026, or 2027 means attribution is fully cleared by 2027.
 
 ---
 
@@ -580,6 +596,11 @@ These are errors you will find in client files that were prepared elsewhere — 
 | RRIF income | T4RIF Box 16 | **11500** | Eligible for pension income credit if 65+ |
 | RRSP over-contribution penalty | Form T1-OVP | N/A (separate filing) | Penalty calculated and paid separately |
 | Pension income splitting (RRIF) | Form T1032 | **11600** | Up to 50% of eligible pension income can shift to spouse |
+
+---
+
+!!! tip "In your tax software"
+    On the RRSP screen: enter contributions from **Schedule 7** slips — always verify the deduction limit from CRA My Account before finalizing. For spousal RRSP contributions, confirm whether the plan is registered in the contributor's name or the annuitant's; the annuitant's SIN links to their plan. For **HBP repayments**, designate them explicitly on Schedule 7 — the software will not automatically treat a regular RRSP contribution as an HBP repayment. For **deduction deferral**, enter the full contribution amount on Schedule 7 but enter $0 on Line 20800; the unused deduction carries forward to the next return automatically. Use your software's RRIF projection feature for any client over 60 with a substantial RRSP — this is the basis for the melt-down strategy conversation.
 
 ---
 

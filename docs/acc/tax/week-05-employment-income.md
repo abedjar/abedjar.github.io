@@ -52,6 +52,20 @@ The breadth of Box 14 is the reason the Box 40/Box 14 double-counting error is s
 
 **Deadline:** Employers must provide T4s to employees and file them with CRA by **February 28** of the following year.
 
+```
+T4 BOX → T1 RETURN ROUTING MAP
+═══════════════════════════════════════════════════════════════
+Box 14  (Employment Income)    ──────────→  Line 10100  (income)
+Box 22  (Income Tax Deducted)  ──────────→  Line 43700  (already paid)
+Box 16  (CPP contributions)    ──────────→  Schedule 8 → credit at 15%
+Box 18  (EI premiums)          ──────────→  Line 31200  → credit at 15%
+Box 20  (RPP contributions)    ──────────→  Line 20700  (deduction)
+Box 44  (Union dues)           ──────────→  Line 21200  (deduction)
+Box 52  (Pension Adjustment)   ──────────→  Line 20600  (info only — no tax effect)
+Box 40  (Taxable benefits)     ──────────→  NOWHERE — already inside Box 14
+═══════════════════════════════════════════════════════════════
+```
+
 ---
 
 ## 5.2 The Complete T4 Field Guide — Every Box That Matters
@@ -186,6 +200,20 @@ CRA's test: *"Does the benefit primarily serve the employee's personal interest,
     **James's planning question:** "Can I reduce this benefit?"
 
     **Your answer:** If James kept a logbook showing his business-use percentage, the employer can use the "reduced standby charge" formula — which lowers the taxable benefit proportionally. James needs a detailed logbook. If he has one and the employer uses it, his T4 should already reflect the reduced standby charge. If not — the opportunity exists for future years.
+
+!!! question "Quick Check — Taxable vs. Non-Taxable Benefits"
+    Patricia's employer provides: (1) a $400 non-cash gift card for her work anniversary, (2) reimbursement for her business travel to a client site, (3) employer-paid group dental premiums, (4) free parking at the office. Which are taxable benefits that should appear in Box 14/40?
+
+    ??? answer
+        **Taxable (in Box 14/40):**
+        - $400 gift card — non-cash gifts are non-taxable only up to $500/year total; at $400 this is under the limit, so actually **non-taxable** if it's the only gift
+        - Free parking at the office — personal commuting benefit, **taxable** (FMV of parking spot)
+
+        **Non-taxable (not in Box 14):**
+        - Business travel reimbursement — employer expense, not a personal benefit
+        - Group dental premiums — specifically exempt under CRA policy
+
+        **Correction on the gift card:** If Patricia also received other non-cash gifts totalling over $500 for the year, the excess is taxable. Under $500 total — exempt. The parking is the clearest taxable benefit here.
 
 ---
 
@@ -556,6 +584,19 @@ These are the errors professional preparers must actively prevent. Build checks 
 **What happens:** Client says "I drive a lot for work" and claims 60% business use. No logbook exists.
 **CRA response:** Requests logbook documentation. None produced. Claim denied. Potential gross negligence if the business-use percentage was fabricated.
 **Prevention:** Confirm logbook exists before preparing T777. If no logbook — advise the client to start one immediately for future years. For prior years without a logbook: the claim is difficult to support and should be approached cautiously.
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - CPP and EI credits from Box 16 and Box 18 amounts you enter
+    - CPP/EI over-contribution refunds when multiple T4s push totals above the annual maximum
+    - Canada Employment Amount credit for any return with employment income
+    - Pension Adjustment (Box 52) carried to Line 20600 for record-keeping
+
+    **You must verify or enter manually:**
+    - That Box 40 is NOT added to Box 14 — software enters what you type; entering $94,000 + $9,200 separately creates the double-count error
+    - T777 expenses — software has the form but you must determine eligibility, confirm T2200 exists, and calculate the business-use percentage
+    - Vehicle logbook business-use % — software applies whatever percentage you enter; you must verify it is supported by an actual logbook
+    - CPP2 (Box 16A) — entered separately from CPP (Box 16); some software versions require manual selection of the CPP2 field
 
 ---
 

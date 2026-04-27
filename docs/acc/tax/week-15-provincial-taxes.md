@@ -111,6 +111,14 @@ Ontario is one of the few provinces that charges a **surtax** — a tax on your 
 
 ---
 
+!!! question "Quick Check"
+    Helen has taxable income of $85,000 in 2025. Calculate her Ontario basic tax using the 2025 brackets, and determine whether the Ontario surtax applies.
+
+    ??? answer
+        Bracket 1: $51,446 × 5.05% = $2,598. Bracket 2: ($85,000 − $51,446) × 9.15% = $33,554 × 9.15% = $3,070. **Ontario basic tax: $5,668**. Surtax check: $5,668 > $5,315? **Yes — surtax applies.** First surtax layer: ($5,668 − $5,315) × 20% = $353 × 20% = **$71 surtax**. Second layer threshold ($6,802): $5,668 < $6,802 — does not apply. **Total Ontario tax before credits: $5,739**. Helen is just above the first surtax threshold — the $71 surtax is modest here, but every additional dollar she earns continues to attract the 20% surtax on any new Ontario tax it generates. At this income level, the effective Ontario rate on income in the second bracket is approximately 9.15% × 1.20 = **11.0%** rather than 9.15%.
+
+---
+
 ## 15.3 Ontario Non-Refundable Tax Credits — ON428
 
 Ontario has its own set of non-refundable credits that parallel the federal credits on Schedule 1 — but with Ontario rates and amounts. They all appear on **Form ON428**.
@@ -262,6 +270,14 @@ ON-BEN is straightforward but contains several questions that require precision:
     | **Patrick, 34** | Renter, $2,400/month (expensive apartment) | OEPTC ~$1,195 (capped) + OSTC $0 = **~$1,195** |
 
     Note: Patrick's high rent doesn't give him proportionally more OTB — the OEPTC is capped. The maximum benefit is reached well before his rent level.
+
+---
+
+!!! question "Quick Check"
+    David is 32, single, and has rented an Ontario apartment for $1,200/month all year. His net income is $31,000. What Ontario Trillium Benefit components does he qualify for and approximately how much will he receive annually?
+
+    ??? answer
+        David qualifies for two OTB components: **OEPTC** — deemed property tax = 20% × $14,400 (annual rent) = $2,880. His income is below the $36,195 phase-out threshold, so he receives near the maximum. Energy component ($277) + property component ≈ **$900–$1,000 OEPTC/year**. **OSTC** — base amount $345. Reduction: ($31,000 − $24,916) × 4% = $6,084 × 4% = $243. OSTC: $345 − $243 = **$102/year**. **Total annual OTB: approximately $1,000–$1,100**, paid monthly from July to June. David does not qualify for the NOEC (not in northern Ontario). He must file Form ON-BEN with his landlord's complete name and address — without this, CRA cannot process the OEPTC claim.
 
 ---
 
@@ -469,6 +485,11 @@ Use this for every Ontario resident's return.
 - [ ] Senior homeowner (64+): Ontario Senior Homeowners' Property Tax Grant
 - [ ] NOEC: client lives in a northern Ontario district?
 - [ ] All months claimed are for Ontario principal residence only (not cottage, not pre-Ontario-residency months)
+
+---
+
+!!! tip "In your tax software"
+    Ontario provincial tax is calculated automatically on **Form ON428** — but verify the software is using the Ontario BPA ($11,865) and not the federal BPA ($16,129) in the Ontario credit fields. For **ON-BEN**, enter the client's Ontario principal residence address, rent paid (only for Ontario months if they moved mid-year — not the full year), and complete landlord information including name and address. For the **Ontario surtax**: software calculates this automatically, but understand the thresholds ($5,315 and $6,802 in Ontario basic tax) so you can explain the output to surprised high-income clients. The **LIFT Credit** applies automatically for low-income clients with employment income — verify it appears correctly on the ON428 output. For clients who moved to Ontario mid-year: pro-rate only the ON-BEN rent/property tax to the Ontario months; the full Ontario tax rates still apply to the entire year's income.
 
 ---
 

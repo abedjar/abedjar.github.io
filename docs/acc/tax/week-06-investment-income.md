@@ -156,6 +156,12 @@ The premium amortizes over the bond's life — reducing the interest income repo
 
 These are specialized situations. Flag them and verify the T5 treatment is consistent with the rules.
 
+!!! question "Quick Check — Interest Income"
+    Helen has a GIC that matures in 18 months. She bought it January 1, 2024. The bank issues a T5 in February 2025 for the portion of interest earned in 2024 even though the GIC hasn't matured yet. Helen says "I didn't receive any money — why do I have to report income?" What do you tell her?
+
+    ??? answer
+        Interest income is taxed on an **accrual basis** — meaning it is reported as it is earned, not when it is received. CRA requires interest to be reported at least annually, even on multi-year GICs. Helen earned interest in 2024 and must report it in her 2024 return. The T5 correctly captures the accrued portion. This is one reason why "I didn't get any money" is not a valid reason to omit a T5 — the obligation is based on earning, not receipt.
+
 ---
 
 ## 6.3 The T5 Slip — Complete Field Guide
@@ -304,6 +310,13 @@ Ontario has its own Dividend Tax Credit on ON428, separate from the federal DTC:
     Both must be claimed to get the full benefit of the dividend credit mechanism. Missing the Ontario DTC significantly overstates the client's tax.
 
     Professional tax software calculates both automatically from the T5 Box 12/26 amounts. But you should verify the Ontario DTC is present on the ON428 for every return with dividend income.
+
+!!! question "Quick Check — Dividend Gross-Up"
+    Kevin's T5 shows Box 24 (actual eligible dividends) = $4,000. What amount goes on Line 12000, and why is it more than $4,000?
+
+    ??? answer
+        **Line 12000 = $4,000 × 1.38 = $5,520** (the taxable grossed-up amount).
+        The gross-up adds 38% to reflect the pre-tax corporate income that generated the dividend. Kevin reports $5,520 on Line 12000, which increases his income — but he also gets the **Dividend Tax Credit (DTC)** on Line 40425 to offset the excess. The DTC for eligible dividends is 15.0198% of the grossed-up amount: $5,520 × 15.0198% = **$829 federal DTC**. Plus an Ontario DTC. The net effect is that Kevin pays less combined tax on eligible dividends than on the same amount of interest income — the system credits him for the corporate tax already paid.
 
 ---
 
@@ -592,6 +605,19 @@ Build these into your review checklist for every return with investment income.
 **What happens:** Client owns a REIT or return-of-capital ETF. Box 42 amounts are ignored year after year. When the investment is sold, the ACB is overstated and the capital gain is understated.
 **CRA discovers this** when the client uses a higher ACB than is supported by the distribution history.
 **Prevention:** For every client with trust investments, track Box 42 amounts annually and update the ACB accordingly. Start a spreadsheet for any holding with recurring Box 42 amounts.
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - Dividend gross-up and federal Dividend Tax Credit from T5 Box 24/25 amounts
+    - Ontario Dividend Tax Credit on ON428
+    - Foreign tax credit (Form T2209) when you enter the foreign income and withholding tax paid
+    - Interest income routing to Line 12100
+
+    **You must verify or enter manually:**
+    - T3 slip data — software cannot pull T3s via AFR until late March; never file investment clients in February
+    - ACB adjustments from T3 Box 42 (return of capital) — software does not track ACB across years; you must maintain a separate record
+    - Foreign currency conversion — enter income in Canadian dollars; software does not convert automatically
+    - T5008 ACB (Box 20) — treat as unreliable; manually verify against client's purchase records before accepting software's calculated gain/loss
 
 ---
 

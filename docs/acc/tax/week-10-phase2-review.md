@@ -58,6 +58,30 @@ Commit this table to memory. In your first tax season, you will reach for this m
 | Carrying charges | 22100 | Investment loan interest, advisory fees |
 | Support payments made | 23200 | Court-ordered to former spouse only |
 
+```
+ALL FIVE INCOME TYPES → ONE T1 RETURN
+═══════════════════════════════════════════════════════════════════════
+Employment (T4)        → Line 10100 ─┐
+Self-Employment (T2125) → Line 13500 ─┤
+Rental (T776)           → Line 12600 ─┼→ LINE 15000: TOTAL INCOME
+Investment (T5/T3)      → Line 12100 ─┤    (every dollar from every source)
+Capital Gains (Sched 3) → Line 12700 ─┘
+                                           │
+                              Minus above-the-line deductions
+                              (RRSP, union dues, childcare, T777...)
+                                           │
+                                   LINE 23600: NET INCOME
+                              (used for: CCB, OTB, GST credit,
+                               OAS clawback, benefit phase-outs)
+                                           │
+                              Minus below-the-line deductions
+                              (capital loss carry-forwards, etc.)
+                                           │
+                                   LINE 26000: TAXABLE INCOME
+                              (tax brackets applied here)
+═══════════════════════════════════════════════════════════════════════
+```
+
 ---
 
 ## 10.2 The Income Interaction Map — How Types Affect Each Other

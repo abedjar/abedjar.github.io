@@ -258,6 +258,20 @@ When the category is ambiguous, ask:
 
     If Sarah's preparer incorrectly treated everything as current: $34,000 deducted vs. correct $11,220. Overstatement: $22,780. At Sarah's 37.16% rate: **$8,465 in excess deductions** — and a clear audit trigger when CRA reviews the return against building permit records or contractor invoices.
 
+!!! question "Quick Check — Current vs. Capital"
+    Ahmed owns a rental property. This year he paid: (1) $800 to repaint the exterior, (2) $12,000 to replace the entire roof, (3) $450 for a new lock set on the front door, (4) $18,000 to add a new bathroom that didn't exist before. Which are current expenses and which are capital?
+
+    ??? answer
+        **Current expenses (deduct in full this year):**
+        - $800 exterior paint — routine maintenance, restores to original condition
+        - $450 lock set — minor repair, incidental cost
+
+        **Capital expenditures (add to UCC, claim CCA over time):**
+        - $12,000 roof replacement — replaces a major structural component, extends the property's useful life significantly beyond the original
+        - $18,000 new bathroom — adds something that didn't previously exist; clear capital improvement
+
+        The key test: does it restore to original condition (current) or improve/extend/add (capital)?
+
 ---
 
 ## 9.7 Soft Costs During Construction and Renovation
@@ -379,6 +393,19 @@ Every dollar of CCA claimed reduces the building's UCC. When the property sells,
     Simpler. No year-end UCC tracking. No surprise recapture conversation at sale.
 
     **The professional conversation:** *"Patricia, here's the math. CCA on rental buildings is a deferral, not an elimination. You save approximately $5,000/year now and pay it back at sale. The real benefit is only the return you earn on those savings in the interim. If you'll invest the savings wisely — it's modestly beneficial. If you won't, there's an argument for not claiming it and keeping your life simpler at sale. What would you do with the annual tax savings?"*
+
+!!! question "Quick Check — CCA on Rental Property"
+    Robert owns a rental property. Original building cost: $320,000 (land value: $80,000, building value: $240,000). He has claimed CCA for 5 years totalling $28,800. The UCC is now $211,200. He sells the property for $480,000 (land $120,000, building $360,000). What is the recapture amount?
+
+    ??? answer
+        **Recapture occurs when proceeds of the building exceed the UCC.**
+        Building proceeds: $360,000
+        Building UCC: $211,200
+        Recapture: $360,000 − $211,200 = **$148,800** — this is fully taxable as income (not a capital gain) at Line 13000.
+
+        Additionally, the original building cost was $240,000. Proceeds are $360,000. Capital gain = $360,000 − $240,000 = $120,000 → taxable capital gain = $60,000.
+
+        **This is why CCA on rentals is a deferral not an elimination** — Robert deducted $28,800 over 5 years but now faces $148,800 in recapture. The deferral benefit was the time value of money on those annual savings.
 
 ---
 
@@ -734,6 +761,19 @@ A clearly below-market rental to a family member (son, daughter, sibling) combin
 ### Trigger 8 — Personal Condo Rental Portion Overstated
 
 Clients who rent their vacation property or a second home "sometimes" but claim it as a full rental property with 100% business expenses. Particularly for Muskoka cottages or Florida condos claimed as rentals but used primarily personally.
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - Net rental income flowing from T776 to Line 12600 on the T1
+    - CCA deduction within the T776 once UCC and class are entered
+    - Recapture at Line 13000 when building proceeds exceed UCC (you must flag the disposition)
+
+    **You must verify or enter manually:**
+    - Land vs. building split — software requires separate entries; use the municipal property tax assessment ratio as the starting point
+    - CCA class selection (Class 1 for most residential buildings at 4%; Class 3 for older buildings)
+    - Whether CCA should be claimed at all — software will claim maximum CCA unless you override; for properties the client will sell, consider skipping CCA to avoid recapture
+    - Rental-use percentage for partially personal properties — software applies what you enter; you must determine the defensible percentage
+    - One T776 per property — software allows multiple T776s; create a separate one for each rental address
 
 ---
 

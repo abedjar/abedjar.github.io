@@ -183,6 +183,14 @@ Childcare expenses are deductible when paid to allow the **lower-income spouse**
 
 ---
 
+!!! question "Quick Check"
+    Ahmed earns $74,000; his wife Maria earns $42,000. They paid $16,000 in daycare and after-school programs for their two children — a 3-year-old and an 8-year-old. Who claims the childcare deduction, what is the maximum claimable amount, and what happens to the unclaimed portion?
+
+    ??? answer
+        **Maria claims** — she is the lower-income spouse. Per-child annual limits: 3-year-old (under 7) → $8,000; 8-year-old (7–16) → $5,000. **Total maximum: $13,000**. Actual expenses of $16,000 are capped at $13,000 — the remaining $3,000 is not claimable and does not carry forward. Ahmed cannot claim any portion regardless of who wrote the cheques. At Maria's combined ~33% marginal rate: $13,000 × 33% = **$4,290 in tax saved**.
+
+---
+
 ## 12.4 Moving Expenses — Line 21900
 
 Moving expenses are one of the most underused deductions in Canada. A qualifying move can generate $5,000–$50,000+ in deductions — and most clients have no idea they qualify, or what they can claim.
@@ -308,6 +316,14 @@ Moving expenses can only be deducted against **income earned at the new location
     The $15,000 taxable allowance added $15,000 to income. The $50,495 deduction more than offset it — netting James a **$35,495 deduction advantage** from the move.
 
     He had never heard that the mortgage penalty, land transfer tax, and temporary accommodation were all deductible. Neither had the person who prepared his taxes last year. You found $27,000 in tax savings that were simply sitting there unclaimed.
+
+---
+
+!!! question "Quick Check"
+    Rachel moved from Winnipeg to Toronto for a new job in May 2025. Her eligible moving expenses total $38,000. She earned $22,000 at the new Toronto location from May to December. She also wants to claim a $10,000 RRSP deduction. In what order should the deductions be applied, and how much of each carries forward?
+
+    ??? answer
+        Apply **moving expenses first**: $22,000 − $22,000 (moving expenses, limited to new-location income) = $0 remaining income. The $16,000 balance of moving expenses carries forward **one year only** to the 2026 return. The $10,000 RRSP deduction cannot be claimed this year either, but it carries forward **indefinitely**. Why this order matters: moving expense carryforwards are capped at one year and then lost; RRSP unused deductions never expire. Applying moving expenses first protects the most time-sensitive deduction while preserving the RRSP carryforward intact. Flag the 2026 return to claim the $16,000 moving carryforward before it disappears.
 
 ---
 
@@ -596,6 +612,11 @@ When a client has multiple deductions available and income-based limits apply to
     **Which is better?** Option A is safer. RRSP unused deductions carry forward indefinitely; moving expense carryforwards are limited to one year. By claiming moving expenses first, Rachel ensures the time-sensitive carryforward is used, while the RRSP deduction — which never expires — is simply deferred.
 
     Tax software may not automatically sequence this optimally. Understanding the interaction lets you override the default and protect the client's carryforward.
+
+---
+
+!!! tip "In your tax software"
+    Each deduction lives on its own input screen: **union dues (Line 21200)** — enter T4 Box 44 amounts plus any direct professional regulatory fees (these won't appear on any slip); **childcare (T778)** — assign to the lower-income spouse's file, enter each child's birth date so the software applies the correct per-child limit automatically; **moving expenses (T1-M)** — enter the new employer's address and the new-location income earned so the software calculates the deductible ceiling correctly; **carrying charges (Line 22100)** — enter investment loan interest and advisory fees with the lender or advisor name for audit support; **support payments (Line 22000)** — enter the recipient's SIN (required by CRA for cross-matching). For any moving expense carryforward, flag the client file to claim it next year — software does not automatically carry moving expenses forward the way it does RRSP room.
 
 ---
 

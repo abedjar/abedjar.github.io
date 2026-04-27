@@ -131,6 +131,12 @@ BUCKET 1: 15% rate  ←── First $57,375 fills here
 !!! warning "Brackets change every year — indexed to inflation"
     CRA adjusts bracket thresholds annually by an inflation factor. The figures above are the confirmed 2025 amounts. For every subsequent tax year, verify the current-year brackets from CRA's published T1 General package, released each January. Your tax software updates automatically — but you must understand what it's calculating, not just trust it blindly.
 
+!!! question "Quick Check — Tax Brackets"
+    Kevin earns $80,000 in taxable income. Using the 2025 federal brackets, what is his marginal rate? What rate applies to his last dollar of income?
+
+    ??? answer
+        Kevin's last dollar of income falls in the **$57,376–$114,750 bracket**, so his **marginal rate is 20.5%**. His first $57,375 is taxed at 15%. His next $22,625 (up to $80,000) is taxed at 20.5%. His **effective (average) rate is lower** than 20.5% because most of his income was taxed at 15%.
+
 ---
 
 ## 1.3 Marginal Rate vs. Effective Rate — Two Numbers You Explain to Clients Every Day
@@ -181,6 +187,12 @@ The effective rate is always **lower** than the marginal rate — because lower 
     Your answer: *"Exactly right. The first $51,446 you earn is taxed at about 20%. Everything above that — including this contract — is taxed at nearly 30% combined. This is how progressive taxation works: the more you earn, the higher the rate on the additional dollars — but never on the ones you already earned."*
 
     Sandra now understands something fundamental about the system she lives in. That understanding builds trust.
+
+!!! question "Quick Check — Marginal vs. Effective Rate"
+    Sandra earns $96,000. Her friend tells her "you're in the 26% bracket so you pay 26% of everything." What do you say?
+
+    ??? answer
+        Sandra's friend is describing the **marginal rate**, not the effective rate. Sandra pays 15% on the first $57,375, 20.5% on the next $57,375 (up to $114,750) — so on $96,000 she pays: ($57,375 × 15%) + ($38,625 × 20.5%) = $8,606 + $7,918 = **$16,524 federal tax**. Her effective rate is $16,524 ÷ $96,000 = **17.2%** — significantly less than 26%. Only the dollars above $57,375 are taxed at 20.5%.
 
 ---
 
@@ -485,6 +497,19 @@ Refund deposited or balance owing due April 30
 ```
 
 The NOA is CRA's official statement of what they assessed. If their numbers differ from yours — investigate. If you filed correctly and they made an error — file a Notice of Objection within 90 days. If the error was yours — file a T1-ADJ (amendment).
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - Federal and Ontario tax based on income you enter
+    - Basic Personal Amount credit and all standard non-refundable credits
+    - The tax bracket math — you never manually calculate rates
+    - GST/HST credit and CCB eligibility based on Net Income
+
+    **You must verify or enter manually:**
+    - That every income source is entered (software only knows what you tell it)
+    - That deductions (RRSP, union dues, etc.) are claimed — software does not find them for you
+    - That the correct province is selected — wrong province = wrong tax calculation
+    - That the client's marital status and dependants are accurate — these drive benefit calculations
 
 ---
 

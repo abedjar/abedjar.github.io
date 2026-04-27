@@ -248,6 +248,14 @@ Most clients have identical Net Income and Taxable Income. The deductions in thi
 
     This distinction is what separates practitioners who understand the T1 architecturally from those who are simply entering data.
 
+!!! question "Quick Check — Income Levels"
+    Maria has employment income of $72,000, RRSP contributions of $8,000, and union dues of $600. What are her Total Income, Net Income, and Taxable Income (before personal credits)?
+
+    ??? answer
+        **Total Income (Line 15000):** $72,000 — all income before any deductions.
+        **Net Income (Line 23600):** $72,000 − $8,000 (RRSP) − $600 (union dues) = **$63,400** — this is the number used for benefit calculations (CCB, GST/HST credit, OAS clawback).
+        **Taxable Income (Line 26000):** $63,400 — in this case the same as Net Income (no further deductions like capital loss carry-forwards apply). Tax is calculated on this number.
+
 ---
 
 ## 2.6 Section 4 — Federal Tax: Schedule 1 in Detail
@@ -299,6 +307,13 @@ Non-refundable credits are calculated at **15%** — the lowest federal bracket 
     "Non-refundable" has a specific meaning: the credit reduces tax to zero but cannot go below zero. If a client has $1,200 in federal tax and $1,800 in non-refundable credits — their federal tax is $0. The extra $600 in credits is permanently lost (for most non-refundable credits). This is why we optimize which family member claims which credit — always claim credits where they will be fully absorbed against actual tax.
 
     The practical implication: for a low-income client with minimal tax, some non-refundable credits may provide no benefit if they exceed the tax owing. For example, a student with $0 federal tax — their tuition credit is worth nothing against this year's return. It must be carried forward to future years when they have tax to apply it against.
+
+!!! question "Quick Check — Credits vs. Deductions"
+    Ahmed has $14,000 in RRSP contributions and $500 in charitable donations. His combined marginal rate is 29.65%. Which saves him more tax per dollar — the RRSP deduction or the charitable donation credit?
+
+    ??? answer
+        **RRSP deduction:** Reduces Taxable Income by $14,000. Tax saved = $14,000 × 29.65% = **$4,151**. The saving depends on the marginal rate — higher income = more valuable deduction.
+        **Charitable donation credit:** The first $200 of donations gives a 15% federal credit ($30). Amounts above $200 give a 29% federal credit. For Ahmed's $500: ($200 × 15%) + ($300 × 29%) = $30 + $87 = **$117 federal credit** plus Ontario credit. Credits reduce tax at a fixed rate regardless of income. The RRSP deduction saves significantly more per dollar at higher incomes.
 
 ---
 
@@ -613,6 +628,21 @@ When CRA's assessment differs from the filed return, this section explains every
     The formal Notice of Objection must be filed within **90 days of the date on the NOA** (not the date you received it — the date printed on the NOA). After 90 days, the right to object at that level is permanently lost. The client can apply for an extension, but it is not guaranteed.
 
     For every NOA that shows an unexpected change: calculate the 90-day deadline on the day you receive it. Note it in the client file. Act before it expires.
+
+!!! tip "In your tax software"
+    **Software calculates automatically:**
+    - The three income levels (Total → Net → Taxable Income) as you enter slips
+    - Federal tax on Schedule 1 using current-year brackets
+    - All standard non-refundable credits (BPA, CPP, EI, Canada Employment Amount)
+    - Ontario tax on ON428 and the Ontario surtax if applicable
+    - The final refund or balance owing
+
+    **You must verify or enter manually:**
+    - Every T-slip amount — software only calculates from what you enter
+    - RRSP deduction amount — software may suggest the limit but you confirm the contribution
+    - Carry-forward amounts (capital losses, tuition) — these come from the prior year's NOA, not automatically
+    - That spousal/dependant information is complete — missed dependants = missed credits
+    - The province of residence on December 31 — one wrong click changes the entire provincial calculation
 
 ---
 

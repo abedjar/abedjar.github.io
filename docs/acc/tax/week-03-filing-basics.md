@@ -90,6 +90,31 @@ This is where professional value compounds. These clients have no legal obligati
 
 Residency determines whether someone files a Canadian return, on what basis, and on how much of their income. This is a legal analysis grounded in CRA's significant ties test — not immigration status, not citizenship, not the number of days spent in Canada (mostly).
 
+```
+RESIDENCY DECISION TREE
+═══════════════════════════════════════════════════════════
+Did the person live in Canada for most of the year?
+       │
+       ├─ YES → Resident → File a full-year T1
+       │
+       └─ NO
+           │
+           Did they maintain significant ties to Canada?
+           (home, spouse, dependants, driver's licence, bank accounts)
+           │
+           ├─ YES → Factual resident → File a full-year T1
+           │
+           └─ NO
+               │
+               Did they spend 183+ days in Canada?
+               │
+               ├─ YES → Deemed resident → T1 with worldwide income
+               │
+               └─ NO → Non-resident → NR4 / Part XIII only
+                        (refer to specialist — outside standard T1 scope)
+═══════════════════════════════════════════════════════════
+```
+
 ### The Four Filing Categories
 
 === "Full-Year Canadian Resident"
@@ -334,6 +359,15 @@ Interest also accrues on outstanding penalties — not just on the original tax 
 
     **The professional recommendation:** Even if the return won't be ready by April 30, make a payment equal to your best estimate of what will be owed. This stops the interest clock on that amount. The return can be filed later (by June 15 if self-employed, or with a late-filing penalty if not).
 
+!!! question "Quick Check — Deadlines & Penalties"
+    Rosa filed her 2024 return on August 15, 2025 — 3.5 months late. She owes $4,000 in tax. She has never filed late before. What is her late-filing penalty?
+
+    ??? answer
+        Late-filing penalty = **5% of balance owing + 1% per complete month late**.
+        Rosa is **3 complete months late** (May, June, July — August 15 does not complete a fourth month).
+        Penalty = $4,000 × 5% + $4,000 × 1% × 3 = $200 + $120 = **$320**.
+        Plus daily compound interest on both the $4,000 balance and the $320 penalty from April 30 onward. If Rosa had filed on time even without paying, the penalty would be $0 — the penalty is for late *filing*, not late *payment* (though interest still applies on the unpaid balance).
+
 ---
 
 ## 3.5 The EFILE System — Professional Filing From Registration to Confirmation
@@ -466,6 +500,27 @@ CRA's EFILE server is offline during:
 - System updates: announced in advance at canada.ca/efile-status
 
 During peak tax season (March–April), the EFILE server can be slow during peak daytime hours. Transmitting in early morning (7–9 AM) or evening (after 7 PM) often results in faster response times.
+
+!!! question "Quick Check — EFILE Process"
+    You prepare Marcus's return. He reviews it, agrees with the numbers, and you transmit via EFILE. The next day he calls saying he forgot to mention a T5 for $840 in bank interest. What do you do?
+
+    ??? answer
+        File a **T1 adjustment (T1-ADJ)** — either through CRA My Account or by paper. The T1-ADJ reports the correct T5 amount and CRA recalculates. You can amend returns going back **10 years**. For Marcus, submit the T1-ADJ promptly. The additional $840 at his marginal rate will generate a small balance owing plus interest from the original due date. The lesson: always ask clients at intake whether they have received all their slips — and follow up after T3 season (post March 31) for investment clients.
+
+!!! tip "In your tax software"
+    **Software handles automatically:**
+    - EFILE transmission and ACK number capture
+    - T183 generation (pre-populated with return data — client signs before you transmit)
+    - Deadline warnings if filing after April 30
+    - Late-filing penalty calculation (displayed on the return summary)
+    - Interest estimates on balances owing
+
+    **You must verify or enter manually:**
+    - Client's SIN, date of birth, and address — errors here cause EFILE rejection
+    - Province of residence on December 31 — software cannot determine this for you
+    - Whether the client is a first-time filer (no prior year carry-forwards to import)
+    - AFR (Auto-fill my Return) data — review every pre-filled slip; CRA's data can lag or be incomplete
+    - Whether a T1-ADJ is needed — software files the original return only; amendments are a separate process
 
 ---
 

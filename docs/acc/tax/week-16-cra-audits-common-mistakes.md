@@ -333,6 +333,22 @@ These are the errors that generate the most CRA letters, reassessments, and avoi
 
 ---
 
+!!! question "Quick Check"
+    A client calls in a panic: "I got a letter from CRA. It says I need to provide documentation for my medical expenses from last year. The deadline is in 25 days." Walk through the five professional steps you take.
+
+??? answer
+    **Step 1 — Read the letter carefully.** Identify exactly what CRA is asking for. Note the 25-day deadline, the CRA contact name and reference number, and which specific claim is under review. CRA review letters are precise — do not guess.
+
+    **Step 2 — Gather documentation.** Collect all medical expense receipts, insurance EOB statements, and prescription records for the amounts claimed. Verify the total matches what was filed on the return.
+
+    **Step 3 — Write the cover letter.** Prepare a professional, organized response: cite the client's name, SIN, tax year, and CRA reference number. Describe the claim factually. Tab the documentation by category (Tab 1 — prescriptions, Tab 2 — dental, etc.). Never send an unsorted pile of receipts with no explanation.
+
+    **Step 4 — Submit before the deadline.** Mail with tracking, or submit through CRA My Account if available. Retain a complete copy of everything submitted. Note the submission date in the client file.
+
+    **Step 5 — Follow up.** If CRA has not responded within 8 weeks, follow up. If CRA disallows the claim after review, the client has 90 days from the reassessment date to file a Notice of Objection. Missing the original 25-day deadline is the worst possible outcome — respond on time, even if only to request an extension.
+
+---
+
 ## 16.4 When CRA Writes to Your Client — Responding to Review Letters
 
 This section teaches you exactly what to do when a client calls saying "I got a letter from CRA."
@@ -451,6 +467,20 @@ CRA accepts digital records (scanned receipts, PDF statements, electronic record
 2. **Organize by year and category** — one folder per tax year, subfolders by income type and expense category
 3. **Back up to cloud storage** — one hard drive failure should not destroy 6 years of records
 4. **Keep original documents for anything over $1,000** — even if you have a scan
+
+---
+
+!!! question "Quick Check"
+    A new client is a self-employed landscaper who earns approximately $65,000 in cash. His prior preparer "retired." He says: *"Can you just do what my last guy did?"* — implying returns were filed showing only $28,000–$32,000 in income. What do you say and what do you document?
+
+??? answer
+    **What you say:** Decline clearly, without apology. *"I understand what you're describing. Here's the situation: I'm legally required to file based on your actual income. Filing with $30,000 when you earned $65,000 is tax evasion — and I personally face penalties under Section 163.2 of the Income Tax Act in addition to you. I won't do that."*
+
+    Then offer two legitimate paths: *"What I can help you with is getting your tax affairs in order. Option 1: we file correctly going forward with all your legitimate deductions — vehicle, equipment, fuel, insurance, sub-contractors, home office — which will significantly reduce your net tax. Option 2: if you want to correct prior years, the Voluntary Disclosure Program may reduce your penalties for past under-reporting."*
+
+    **What you document immediately:** Write a brief file note dated today: *"Discussed income reporting requirements with [client name]. Explained legal obligations under the Income Tax Act. Client advised that this practice cannot prepare returns that do not reflect actual income."* If he engages you, the engagement letter must explicitly state that the client warrants all income is disclosed.
+
+    The client who walks away is not your client. The one who stays and files correctly becomes a long-term client who refers others — because they know you have integrity.
 
 ---
 
@@ -604,6 +634,21 @@ Build this into your closing process for every return.
 - [ ] CRA My Account slip verification screenshot
 - [ ] Notes on any unusual claims and client explanations
 - [ ] EFILE confirmation number
+
+---
+
+!!! tip "In your tax software"
+    **Before filing any return — the non-negotiable workflow steps:**
+
+    - **CRA My Account T-slip verification:** Access CRA My Account (via RepID or Group ID) before starting the return. Review all T-slips on file — T4, T5, T3, T4A — and add any that aren't already in the client's documents. Screenshot the slip list and save it to the client folder. This single step prevents the most common CRA reassessment in Canadian tax preparation.
+
+    - **EFILE confirmation number:** After transmitting the return, record the EFILE confirmation number in the client file immediately. This is your proof of submission. If a client later disputes receipt or CRA denies transmission, the EFILE number is your evidence. Most software stores this automatically — ensure it's in your records.
+
+    - **Client authorization (T1013 / RepID):** To access CRA My Account on behalf of a client, the client must authorize you via Form T1013. Build this into your intake process — without authorization, you cannot verify T-slips or respond to CRA on the client's behalf. File the signed T1013 with each client's documents.
+
+    - **Engagement letter confirmation:** Before transmitting any return for a paying client, confirm the signed engagement letter is on file. Store a signed PDF in the client folder. Never file without it — your engagement letter is your primary protection if a client later disputes what information they provided to you.
+
+    - **Prior NOA for carry-forwards:** For RRSP room, tuition carry-forwards, and loss carry-forwards, pull the prior year Notice of Assessment from CRA My Account. Do not rely solely on what the client brings — the NOA is the authoritative record of carry-forward balances. Clients frequently don't know their own carry-forward amounts.
 
 ---
 

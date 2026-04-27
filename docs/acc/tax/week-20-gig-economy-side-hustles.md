@@ -86,6 +86,21 @@ NET INCOME for benefit calculations
 
 ---
 
+!!! question "Quick Check"
+    Kevin drives for Uber evenings and weekends. His T4A Box 48 shows $48,000. He knows from his Uber app that gross customer fares were $48,000, Uber deducted a 25% service fee of $12,000, and deposited $36,000. His logbook shows 38,000 km driven for Uber out of 52,000 total km for the year. What is his gross income on T2125, how is the Uber service fee treated, and what is his vehicle business-use percentage?
+
+??? answer
+    **Gross income on T2125: $48,000** — the full customer fare before Uber's deduction. Never use the net deposit amount as gross income. CRA cross-references T4A Box 48 amounts against T2125 gross revenue: if Kevin reports $36,000 gross but the T4A shows $48,000, CRA flags a $12,000 discrepancy immediately. This mismatch is one of the most common gig economy audit triggers.
+
+    **Uber service fee:** $12,000 (25% × $48,000) is claimed as a **business expense** on the T2125. The net effect on taxable profit is identical ($36,000 before other expenses), but the structure correctly matches the T4A slip and avoids the mismatch.
+
+    **Business-use percentage:**
+    Business km ÷ Total km = 38,000 ÷ 52,000 = **73.1%**
+
+    All vehicle expenses — fuel, insurance, maintenance, CCA — are multiplied by 73.1% to determine the deductible portion. The Uber app's trip data is a useful supplement but not sufficient alone as a logbook. Kevin must also track personal km and total annual odometer readings.
+
+---
+
 ## 20.3 Rideshare and Delivery Drivers — Uber, Lyft, DoorDash, Skip
 
 This is the largest single group of gig workers you will encounter. In Southern Ontario, the rideshare market is massive — hundreds of thousands of drivers operate across the GTA, Hamilton, Kitchener, and London.
@@ -516,6 +531,18 @@ This is where creators are shocked by what's actually legitimate:
 
 ---
 
+!!! question "Quick Check"
+    Sarah hosts on Airbnb in Toronto. She provides fresh linens on arrival, a welcome basket of snacks, and weekly cleaning services during longer stays. Her 2025 Airbnb revenue is $28,400. Does her income go on T776 (rental) or T2125 (business)? Does she need to register for HST? Explain the reasoning for both answers.
+
+??? answer
+    **T2125 (business income)** — Sarah provides services beyond basic accommodation. CRA's test: if a host provides hotel-like services (linens, cleaning, amenities, guest services), the income is business income. A host who simply provides a key and is otherwise absent uses T776; a host providing ongoing services to guests uses T2125. Sarah's linens, cleaning, and welcome basket clearly put her in the T2125 category.
+
+    **HST: Not required in 2025** — Sarah's revenue is $28,400, which is below the $30,000 small supplier threshold. Important distinction: short-term rentals (under 30 consecutive days) are a **taxable supply** under the Excise Tax Act — unlike long-term residential rentals, which are HST-exempt. However, the $30,000 small supplier exemption still applies when cumulative revenue is under that threshold.
+
+    **The monitoring obligation:** If Sarah's 12-month cumulative revenue crosses $30,000 at any point in 2026, she must register for HST within 29 days and begin collecting 13% on Ontario short-term bookings. Airbnb has a formal data-sharing arrangement with CRA — host revenues are cross-matched against T1 filings. An unregistered host earning $32,000 will eventually receive a letter.
+
+---
+
 ## 20.8 The Hobby vs. Business Question — Why It Matters Enormously
 
 CRA distinguishes between a **business** (operated with a reasonable expectation of profit) and a **hobby** (pursued for personal satisfaction without genuine profit intent).
@@ -673,6 +700,21 @@ The LIFT Credit requires **employment income** — self-employment income does n
     If Maria only had $21,000 from Uber (self-employment only): LIFT Credit = $0. She pays Ontario tax. Same dollar amount of income — completely different Ontario tax outcome based solely on the income source.
 
     This is one of the most important distinctions for low-income gig workers. When advising clients on structuring their income mix, the LIFT Credit availability is a real consideration.
+
+---
+
+!!! tip "In your tax software"
+    - **T2125 — one per distinct business:** If a client drives Uber AND sells on Etsy, enter two separate T2125 forms. Each business is independent. Shared expenses (home office, vehicle, phone, internet) are allocated proportionally between businesses. Label each T2125 clearly with the business type and industry code.
+
+    - **Gross revenue entry:** Always enter the T4A Box 48 amount (gross fares or fees) as income — not the net bank deposit. Enter the platform commission (Uber service fee, Etsy transaction fee, Airbnb host service fee) as a separate business expense line. This structure matches the T4A and prevents the income mismatch that triggers CRA flags.
+
+    - **Rideshare HST registration:** Remind every new Uber or Lyft client to register for an HST account before their first trip — there is no $30,000 threshold for taxi/rideshare services. For all other gig workers, monitor cumulative revenue against the $30,000 threshold. Build a note in the client file for the year they're approaching it and prompt them to register when they cross.
+
+    - **Vehicle CCA:** Enter vehicle cost, class (Class 10 for most; Class 10.1 for vehicles over the prescribed luxury threshold), and acquisition date in the CCA section of T2125. Apply the business-use percentage. The half-year rule (50% of normal CCA in year of acquisition) applies automatically when the acquisition date is entered correctly.
+
+    - **Annual platform summaries:** Uber Tax Summary, Etsy Annual Report, Google AdSense Annual Statement, DoorDash Year-End Statement — advise every gig client to download these in January each year before they archive. These are the primary income records for T2125 preparation and CRA review defence. Store a copy in the client file.
+
+    - **Self-employment CPP:** Software calculates 11.9% on net self-employment income above the $3,500 basic exemption. The deductible half goes on Line 22200 (reducing net income); the credit half (at 15%) goes on Line 31000. Verify both appear — especially for clients with low net income close to the $3,500 exemption level where the calculation may net to near zero.
 
 ---
 

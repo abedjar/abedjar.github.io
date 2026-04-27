@@ -86,6 +86,25 @@ There is nothing unusual about a shareholder's T4 on the personal return.
 
 ---
 
+!!! question "Quick Check"
+    Patricia paid herself $85,000 in salary from her corporation and also received a $45,000 non-eligible dividend from the corporation. What amounts appear on her T1, on which lines, and what is the grossed-up dividend amount reported on Line 12000?
+
+??? answer
+    **Line 10100 (employment income):** $85,000 — from the T4 issued by the corporation. Treated identically to any employer T4.
+
+    **Line 12000 (taxable dividends):** Non-eligible dividends are grossed up by 15%.
+    $45,000 × 1.15 = **$51,750** → Line 12000
+    (T5 Box 25 will already show this grossed-up amount of $51,750)
+
+    **Line 40425 (Dividend Tax Credit):**
+    $51,750 × 9.0301% = **$4,673** → applied against federal tax
+
+    **Total T1 income: $85,000 + $51,750 = $136,750**
+
+    Patricia received $130,000 in cash but reports $136,750. The $6,750 gross-up represents the pre-tax corporate income — as if she had earned it personally and the corporation paid tax on it. The DTC of $4,673 partially compensates for the corporate tax already paid, preventing full double-taxation. This is the integration mechanism in action.
+
+---
+
 ## 21.3 The Dividend Channel — T5 From Your Own Corporation
 
 Dividends are distributions of **after-tax corporate profits** to shareholders. They appear on the shareholder's T1 as investment income — not employment income. This distinction has massive implications:
@@ -222,6 +241,22 @@ For a shareholder with a full-time corporation as their primary income, the **cl
     Retained in corporation for investment: **$128,305**.
 
     Over 10 years at 6% growth inside the corporation — this retained amount compounds to $229,753 before eventual personal tax on extraction. The deferral benefit is real and substantial.
+
+---
+
+!!! question "Quick Check"
+    David is the sole shareholder of a corporation and currently pays himself only non-eligible dividends — no salary, no payroll. He wants to contribute $25,000 to his RRSP in 2026. What is the problem with his current approach, and what minimum 2025 salary must he pay himself to generate sufficient RRSP room?
+
+??? answer
+    **The problem:** Dividends do not generate RRSP contribution room. Only **earned income** — salary, self-employment net income, and certain other sources — creates RRSP room at 18%. If David pays himself only dividends in 2025, his 2026 RRSP contribution limit from 2025 earned income will be **$0**, regardless of how profitable his corporation is.
+
+    **Minimum salary required for 2026:**
+    RRSP room = 18% × earned income (from the prior year)
+    $25,000 ÷ 18% = **$138,889 minimum salary from the corporation in 2025**
+
+    David must pay himself at least $138,889 in salary before December 31, 2025. This salary must be processed through payroll (T4 issued, CPP deducted, income tax remitted) — it cannot be retroactively declared after year-end.
+
+    **The CPP implication:** A salary of $138,889 triggers approximately $7,735 in combined employer + employee CPP contributions. This is a real additional cost — but it also builds David's CPP retirement entitlement. Whether the RRSP tax savings ($25,000 × marginal rate ≈ $9,000–$12,000) exceed the CPP cost ($7,735) depends on his marginal rate and CPP situation.
 
 ---
 
@@ -497,6 +532,21 @@ A business owner with a modest personal income (perhaps taking most income as re
 ### Ontario Surtax on Dividends
 
 As covered in Week 15, Ontario's surtax applies to Ontario tax above $5,315. Dividend income — after the gross-up — adds to taxable income that may push a shareholder into surtax territory. The effective Ontario rate on dividends at high income levels is higher than the nominal rate suggests. The surtax makes Ontario's integrated tax on dividends less favourable compared to salary at very high income levels.
+
+---
+
+!!! tip "In your tax software"
+    - **T4 from own corporation:** Enter identically to any employer T4. Box 14 → Line 10100, Box 22 → Line 43700 (income tax withheld), Box 16 → CPP employee contributions, Box 18 → EI premiums (if applicable). There is no special flag for "T4 from own corporation" in the software — it is processed exactly like a T4 from any employer.
+
+    - **T5 dividend entry:** Enter T5 Box 24 (actual amount of non-eligible dividends), Box 25 (grossed-up taxable amount at ×1.15), and Box 26 (dividend tax credit). If the software allows entry from Box 24 only, it will calculate the gross-up and DTC automatically. For eligible dividends: Box 10 (actual amount), Box 11 (grossed-up at ×1.38), Box 12 (DTC at 15.0198%). Verify the correct dividend type is selected — the DTC rate is very different for eligible vs. non-eligible.
+
+    - **Shareholder loan — no automatic T1 entry:** A shareholder loan balance does not appear on the T1 unless formally converted to income via a T4 (salary) or T5 (dividend), or unless Section 15(2) income inclusion is triggered. When a client mentions drawing from the corporation informally, note it in the file and flag it for the T2 preparer immediately. Do not guess at the amount — get the shareholder loan account balance from the bookkeeper.
+
+    - **LCGE — Line 25400 (Capital Gains Deduction):** When shares of a qualified small business corporation are sold, the capital gain appears on Schedule 3 (Line 12700). The LCGE deduction is applied on Line 25400 — up to $1,250,000 (2025 indexed amount) less any prior capital gains deduction used in prior years (shown on prior NOA). Coordinate with the T2 preparer to confirm the QSBC qualification tests are met before claiming.
+
+    - **TOSI check — family dividends:** If T5 dividends were paid to a spouse or adult children of the shareholder, ask about their active involvement in the business before filing. Software does not automatically apply TOSI — this is your professional judgment. If TOSI applies, the dividend is taxed at the top marginal rate in the recipient's hands rather than at their lower personal rate. Flag any unusual family dividend structures for CPA review.
+
+    - **Coordination with the T2 preparer:** The dividend amount declared on the T2 corporate return must exactly match the T5 issued to the shareholder. If the T5 shows $40,000 but the client expected $35,000, contact the bookkeeper before filing. Filing with mismatched amounts creates corporate-personal reconciliation issues and can trigger CRA questions on both returns.
 
 ---
 

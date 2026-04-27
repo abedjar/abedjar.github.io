@@ -252,6 +252,14 @@ The transfer amount is calculated on **Schedule 2** and flows to the supporting 
 
 ---
 
+!!! question "Quick Check"
+    Your client mentions that her 64-year-old mother has managed Type 1 diabetes with multiple daily insulin injections for over 20 years — spending approximately 15+ hours per week on diabetes-related activities (injections, blood glucose monitoring, diet management, medical appointments). No one has ever applied for the Disability Tax Credit. What do you do and what is the estimated combined annual tax saving?
+
+    ??? answer
+        **Apply for the DTC immediately** using Form T2201 — have the mother's endocrinologist or family doctor complete Part B certifying the life-sustaining therapy requirement (14+ hours/week qualifies for T1 diabetes since the 2021 CRA policy change). Annual combined saving once approved: $9,872 × 15% = $1,481 (federal) + ~$830 (Ontario) = **approximately $2,311/year**. If the mother has low income and can't use the full credit, the unused amount transfers to your client on Schedule 2. File **T1-ADJ for all eligible prior years** (up to 10 years back) — retroactive recovery could total **$20,000–$23,000 in combined refunds**. This question takes five seconds to ask. The outcome changes a family's finances for years.
+
+---
+
 ## 13.4 Medical Expenses — Line 33099 / 33199
 
 Medical expenses are one of the most complex and most underused credits on the T1. The rules have enough nuance that even experienced preparers regularly leave money on the table.
@@ -390,6 +398,14 @@ For **other dependants** (adult children, parents, siblings) with low income, yo
     His mother claiming her own expenses generates a **$324 higher credit** — because her 3% threshold is so much smaller. Even though she may have low federal tax, the credit may still apply against provincial taxes, or create a refund if she has any tax liability.
 
     The decision depends on her actual tax owing. If she pays no tax at all, David should claim the expenses on his return (something is better than nothing). Model both scenarios.
+
+---
+
+!!! question "Quick Check"
+    Sandra (net income $34,000) and Robert (net income $95,000) paid $6,800 in eligible medical expenses this year — dental work, physiotherapy, and prescriptions. Which spouse should claim the medical expense credit and why? Calculate the federal credit on each return.
+
+    ??? answer
+        **Sandra should claim.** Her 3% threshold: $34,000 × 3% = $1,020. Robert's: $95,000 × 3% = $2,850. **Sandra's return:** $6,800 − $1,020 = $5,780 × 15% = **$867 federal credit**. **Robert's return:** $6,800 − $2,850 = $3,950 × 15% = **$593 federal credit**. Sandra generates $274 more credit — from the same expenses — because her lower income produces a smaller 3% threshold, allowing more of the expenses to clear the hurdle. Medical expense credits work opposite to deductions: **lower income = smaller threshold = larger credit.** Always model on the lower-income spouse first.
 
 ---
 
@@ -632,6 +648,11 @@ These are the errors that appear in amended returns — filed by other preparers
 | 6 | Transferring tuition credits before checking if the student can use them | Student loses carry-forward value if they'll have income soon | Model the student's expected income for next 1–3 years |
 | 7 | Claiming donations in every year instead of stacking | Loses the above-$200 rate advantage on small annual amounts | For donors giving $600/year or less — consider biennial stacking |
 | 8 | Missing the Home Accessibility Tax Credit for renovations at a senior's home | Up to $3,000 federal credit lost | Ask every client 65+ or with a disabled family member: "Any home renovations this year?" |
+
+---
+
+!!! tip "In your tax software"
+    On Schedule 1: the **Disability Tax Credit** screen will prompt for the T2201 approval date and eligible years — enter exactly what the CRA approval letter states; the software auto-calculates the credit and flags when a transfer to a supporting person is available. For **medical expenses**, use the 12-month window tool if your software offers one — if not, manually test the window that captures the highest-cost cluster of expenses; always assign to the lower-income spouse. For **charitable donations**: pool both spouses' receipts on the higher-income spouse's Schedule 9; the software applies the 15% and 29% tiers automatically. For **tuition transfers**, the student must first enter their T2202 on Schedule 11 and designate the transfer amount — the supporting parent's return then imports it on Line 32400. Verify carried-forward tuition credits from the prior year NOA appear correctly in the student's current return.
 
 ---
 
