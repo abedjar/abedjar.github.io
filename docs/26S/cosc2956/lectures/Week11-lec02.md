@@ -11,12 +11,6 @@ search:
 
 ## Phase 1 — What is Persistence?
 
-??? note "🗣️ Talking Points"
-    - Ask: *"In Lec 5 we built a FastAPI server with a courses list. What happened when you stopped the server and started it again?"* — all added/deleted courses were gone. That's the problem.
-    - Persistence = data that outlives the process that created it. When the server restarts, the data is still there.
-    - Analogy: RAM vs hard drive. The in-memory list is RAM — gone when power is cut. A file is the hard drive — survives restarts.
-    - Draw the difference on the board: in-memory (list in Python) vs persistent (file on disk, database).
-    - Today we use JSON files — simple, readable, no installation. Not suitable for production, but perfect for learning the concept.
 
 ### The problem with in-memory data
 
@@ -68,11 +62,7 @@ Today we use Tier 1 — JSON files. The concept is identical at every tier. Only
 
 ## Phase 2 — Notes API: Basic File Persistence
 
-??? note "🗣️ Talking Points"
-    - This example is deliberately minimal. One resource (notes), one file (`notes.json`), three routes.
-    - The goal is for students to clearly see the pattern: read from file → do something → write back to file.
-    - Build the file layer first (`storage.py`), then the routes (`main.py`), then the Vue page.
-    - After the first POST, open `notes.json` in VSCode — students should see the file update live. That moment makes persistence tangible.
+
 
 ### What we're building
 
@@ -260,12 +250,7 @@ def delete_note(note_id: int):
 
 ## Phase 3 — Student Portal: Master-Detail with Files
 
-??? note "🗣️ Talking Points"
-    - This is a full multi-view application. Students list → student detail → enrolments.
-    - Master-detail: the "master" is the list of students. The "detail" is one student's courses.
-    - Introduce `data.py` (business logic) before the routes. The separation of concerns is the teaching point: `data.py` knows about files and data, `main.py` knows about HTTP, Vue knows about the UI.
-    - Build in this order: data files → `data.py` → `main.py` routes → Vue views.
-    - Keep each snippet short. Stop and test after each route before moving on.
+
 
 ### What we're building
 
@@ -758,11 +743,7 @@ body { background: #f3f4f6; font-family: system-ui, sans-serif; }
 
 ## Phase 4 — Beyond Files: Databases
 
-??? note "🗣️ Talking Points"
-    - Keep this short — 10 minutes, concept only. No code.
-    - The goal is to plant the seed and map where students are in the bigger picture.
-    - Ask: *"What are the limitations of JSON files?"* — no concurrent writes (two users saving at the same moment corrupt the file), no search, no relationships enforced, slow for large datasets.
-    - Make clear: the FastAPI code barely changes when you swap files for a database. The routes stay the same. Only `data.py` changes — from `json.load()` to a database query.
+
 
 ### Limitations of file-based storage
 

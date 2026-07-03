@@ -437,10 +437,6 @@ li {
 
 ## 5. Methods & Computed Properties
 
-??? note "🗣️ Talking Points"
-    - Methods are just regular functions. No magic. Stress this — students coming from Options API tutorials expect a `methods: {}` object.
-    - The caching point is the key insight for computed. Ask: "If filtering 10,000 items on every render sounds bad, what would you want instead?"
-
 ### Methods
 
 In `<script setup>`, methods are just **regular functions**:
@@ -521,9 +517,6 @@ const filtered = computed(() =>
 
 ## 6. Introduction to Components
 
-??? note "🗣️ Talking Points"
-    - Keep this short — components get a full lecture later. The goal is just to show the props-down / events-up pattern so students understand the mini-project's structure.
-    - Draw the tree on the whiteboard: App → TaskList → TaskItem.
 
 ### What is a component?
 
@@ -585,11 +578,6 @@ Imported components in `<script setup>` are **automatically available** in the t
 
 ## 7. Live Demo — Task List Application
 
-??? note "🗣️ Talking Points"
-    - Build this incrementally using the stages below. Don't paste the final version straight away.
-    - Stage 1 alone demonstrates reactivity and v-model. Pause and explain before continuing.
-    - Stage 3 is where computed properties become obviously useful — make the connection explicit.
-    - If time is short, skip Stage 4 (filtering) and do it as a class exercise.
 
 !!! example "🎯 Demo — Setup"
     Start with a clean `App.vue`:
@@ -824,9 +812,6 @@ Change the `v-for` to use `filteredTasks`:
 
 ## 8. Common Pitfalls
 
-??? note "🗣️ Talking Points"
-    - These come directly from the most common student support questions. Worth spending 3–4 minutes on.
-    - The direct DOM manipulation one tends to resonate — ask "so what should you use instead?"
 
 ### ❌ Direct DOM manipulation inside components
 

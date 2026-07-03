@@ -11,13 +11,6 @@ search:
 
 ## 1. Recap & What's Ahead
 
-??? note "🗣️ Talking Points"
-    - Quick 3-question verbal check: *"What does `ref()` do? What is `v-for` for? What is a component?"*
-    - Last lecture: we built a Task List in one file — `App.vue`. It worked, but everything was crammed into one place.
-    - Today's problem: what happens when your app has 10 pages and 50 UI elements? You can't keep them all in `App.vue`.
-    - The answer is **components** — breaking the UI into small, focused, reusable pieces.
-    - Draw on the board: a box labelled `App.vue` with child boxes `Header`, `TaskList`, `TaskItem`, `Badge`. This tree is what we're building towards.
-
 ### Where we left off
 
 In Lecture 1 we introduced components with a simple `Badge` example. We touched on:
@@ -42,11 +35,6 @@ In Lecture 1 we introduced components with a simple `Badge` example. We touched 
 ---
 
 ## 2. Props — Passing Data Down
-
-??? note "🗣️ Talking Points"
-    - Analogy: props are like function arguments. Every time you call the function (use the component), you pass in different values.
-    - Key rule to land early and hard: **props are read-only in the child**. The child can read them, display them, use them in computed properties — but it must never mutate them. If it needs to change something, it emits an event (next section).
-    - Walk through the type definitions slowly — students coming from plain JS aren't used to declaring types. Explain that Vue validates at runtime and logs warnings in the dev console.
 
 ### What are props?
 
@@ -255,11 +243,6 @@ const projectName = ref('Vue App')
 
 ## 3. Events — Sending Signals Up
 
-??? note "🗣️ Talking Points"
-    - The instinct students have is to pass a function as a prop and call it from the child. That works in React. In Vue, the convention is events — cleaner and more explicit.
-    - Analogy: a button on a TV remote emits a signal. The TV (parent) decides what to do with it. The remote (child) doesn't know — and shouldn't know — what the TV will do.
-    - Show the broken version first (mutating a prop directly) before showing the event solution. Students need to feel the problem before the solution makes sense.
-    - `defineEmits` is the mirror image of `defineProps` — it declares what signals the component can send out.
 
 ### The problem: children can't change parent data directly
 
@@ -401,11 +384,7 @@ function onArchive(id) {
 
 ## 4. Slots — Flexible Component Content
 
-??? note "🗣️ Talking Points"
-    - Props pass data. Slots pass *markup*. That's the one-sentence summary.
-    - Without slots, every component is a closed box. With slots, the parent can inject any HTML it wants into a designated spot inside the child.
-    - Real-world analogy: a `Modal` component. The modal's structure (overlay, box, close button, animation) is always the same. But what's *inside* the modal is different every time — a form, a confirmation message, an image gallery. Slots solve this.
-    - Named slots: think of them as multiple insertion points — a `header` slot, a `default` slot, a `footer` slot.
+
 
 ### Default slot
 
@@ -606,11 +585,7 @@ When a component needs more than one injection point:
 
 ## 5. `v-model` on Components
 
-??? note "🗣️ Talking Points"
-    - Students already know `v-model` on native inputs from Lec 1. Now we're lifting that concept to custom components.
-    - The key insight: `v-model` on a component is syntactic sugar for `:modelValue` + `@update:modelValue`. Once students see what it expands to, they can implement it themselves.
-    - This is the first pattern that feels genuinely 'clever' — students often have a lightbulb moment here.
-    - Good real-world use case: a custom `SearchInput` component that a parent uses in many places. The parent binds its `query` ref to it with `v-model` and forgets about it.
+
 
 ### What `v-model` expands to on a component
 
@@ -734,10 +709,6 @@ So to support `v-model`, your component must:
 
 ## 6. Live Demo — Product Card + Quick-View Modal
 
-??? note "🗣️ Talking Points"
-    - This demo uses everything from today: typed props, emits, slots, and v-model.
-    - Build it stage by stage. Don't rush to stage 4 — the value is in watching each piece connect.
-    - After stage 3, pause and ask: *"What does the ProductCard component know about the modal? Nothing. What does the modal know about the product? Nothing. Who connects them?"* — App.vue. That's the component architecture point.
 
 !!! example "🎯 Demo — Setup"
     Start fresh. Delete the content from `App.vue`. We will build three components: `ProductCard.vue`, `QuickViewModal.vue`, and wire them in `App.vue`.
@@ -1004,9 +975,7 @@ Type in the search field — the grid filters live.
 
 ## 7. Pitfalls & Wrap-up
 
-??? note "🗣️ Talking Points"
-    - These are the mistakes that will show up in student assignments. Keep it fast — 5 minutes.
-    - The prop mutation one is the most important. If a student hits a confusing reactivity bug, 80% of the time it's this.
+
 
 ### ❌ Mutating a prop directly
 

@@ -16,11 +16,7 @@ search:
 
 ## Phase 1 — What is Routing?
 
-??? note "🗣️ Talking Points"
-    - Ask: *"In a traditional website, what happens when you click a link?"* — a full HTTP request, the server responds with a new HTML document, the browser throws everything away and starts again.
-    - Ask: *"Has anyone noticed that Gmail or YouTube doesn't do a full page reload when you navigate?"* That's client-side routing.
-    - The key concept: in a SPA the browser loads one HTML file. Vue Router intercepts link clicks, updates the URL, and swaps the component rendered on screen — no server trip, no flash.
-    - Draw on the board: MPA (browser ↔ server on every click) vs SPA (browser only talks to server for data, not for pages).
+
 
 ### Traditional navigation vs client-side routing
 
@@ -67,11 +63,7 @@ Page updates instantly — no reload
 
 ## Phase 2 — Install & Configure Vue Router
 
-??? note "🗣️ Talking Points"
-    - Students are continuing from the Lec 2 Watchlist project. If they don't have it, the starter code is in the `movies` array below — paste it into a fresh Vite + Vue + Tailwind project.
-    - Walk through the router config file slowly. The `routes` array is the entire routing table — URL on the left, component on the right. That's it.
-    - The `createWebHistory` vs `createHashHistory` distinction is worth one sentence: hash mode puts a `#` in the URL (`/#/movies`) and works without any server config; history mode gives clean URLs (`/movies`) but needs the server to always serve `index.html`. Vite's dev server does this automatically.
-    - After wiring everything up, open the browser and manually type `/movies` in the URL bar. Show that it loads the right component. That moment lands the concept.
+
 
 ### Install Vue Router
 
@@ -196,10 +188,7 @@ src/
 
 ## Phase 3 — `HomeView` and `MoviesView`
 
-??? note "🗣️ Talking Points"
-    - `HomeView` is intentionally simple — a welcome page. Its purpose is to show that navigating to `/` renders a different component than `/movies`. That navigation moment is the demo.
-    - Move the movie list logic from `App.vue` into `MoviesView.vue`. It's the same code students wrote in Lec 2 — point that out. Routing didn't change the component logic at all, it just gave it a URL.
-    - After both views are done, click between Home and Movies in the navbar and show the URL changing in the browser bar. Then open DevTools Network tab and show that **no new requests are made** when navigating. That's the SPA difference.
+
 
 ### `HomeView.vue`
 
@@ -312,12 +301,7 @@ function addMovie() {
 
 ## Phase 4 — Route Params: `MovieDetailView`
 
-??? note "🗣️ Talking Points"
-    - Route params are the most important concept in this lecture. Take your time.
-    - The URL `/movies/1` — ask: *"How does Vue know which movie to show?"* The `:id` param. It's just a variable in the URL.
-    - `useRoute()` is the composable that reads the current URL's params. Show students `route.params.id` in the console before wiring it to the movie lookup.
-    - The `movie` being `undefined` case is important — what if someone types `/movies/999` in the address bar? That's what Phase 6 (navigation guards) handles.
-    - After the detail page works, point out that `MoviesView` and `MovieDetailView` don't know about each other at all. The URL is the connection between them.
+
 
 ### What we want
 
@@ -447,10 +431,6 @@ function toggleWatched() {
 
 ## Phase 5 — Programmatic Navigation
 
-??? note "🗣️ Talking Points"
-    - Ask: *"What if you want to navigate after a form submission? Or after a successful login? There's no link to click — the navigation happens in JavaScript."*
-    - `useRouter()` vs `useRoute()` — easy to mix up. Route (no r) = read the current URL. Router (with r) = navigate to a new URL.
-    - The `router.push()` vs `router.replace()` distinction is one sentence: `push` adds to history (back button works), `replace` replaces the current entry (back button skips it — useful for login redirects).
 
 ### `useRouter` — navigate from code
 
@@ -519,11 +499,7 @@ function addMovie() {
 
 ## Phase 6 — Navigation Guards
 
-??? note "🗣️ Talking Points"
-    - Students often think navigation guards are just for authentication. True, but today's use case — redirecting when a movie doesn't exist — is simpler and more relatable.
-    - `beforeEnter` runs before a route is entered. It receives `to` (destination route) and `from` (current route). Returning `false` cancels the navigation. Returning a path string redirects.
-    - After the guard works, type `/movies/999` in the URL bar again. Instead of showing "Movie not found", the user gets bounced back to `/movies`. That's the UX improvement.
-    - The auth guard example at the end is a preview — students will need it for assignments.
+
 
 ### What is a navigation guard?
 
@@ -601,9 +577,6 @@ router.beforeEach((to, from) => { // (1)
 
 ## Phase 7 — Pitfalls & Wrap-up
 
-??? note "🗣️ Talking Points"
-    - The `route.params.id` is a string pitfall trips almost every student the first time. It's worth a slow demo — show `typeof route.params.id` in the console.
-    - The `<a>` vs `<RouterLink>` one is quick but important — using `<a>` causes a full page reload and resets all Vue state.
 
 ### ❌ Forgetting that route params are strings
 

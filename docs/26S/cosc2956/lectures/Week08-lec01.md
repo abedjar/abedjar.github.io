@@ -7,11 +7,6 @@ search:
 
 ## 0. Frontend Frameworks — The Big Picture
 
-??? note "🗣️ Talking Points"
-    - This section has no code. It's a discussion. Keep it conversational.
-    - Ask: "Has anyone used a framework before? React, Vue, Angular? What was your first impression?"
-    - The goal is to establish *why this category of tool exists at all* before we look at any specific one.
-    - Transition: "All frameworks solve the same core problems — they just make different trade-offs. Let's look at what those problems are, then see why we landed on Vue for this course."
 
 ### What is a frontend framework?
 
@@ -170,11 +165,6 @@ The official Vue 3 docs at [vuejs.org](https://vuejs.org) are widely regarded as
 
 ## 1. Why Vue? The Problem with Vanilla JS
 
-??? note "🗣️ Talking Points"
-    - Ask the class: "Who has built something in vanilla JS where you had to call a render function after every change?"
-    - The core problem is **manual synchronisation** — the data changed, but *you* are responsible for updating the DOM.
-    - Transition: "Vue flips this — you describe *what* the UI looks like, Vue figures out the *how*."
-
 ### What goes wrong at scale?
 
 Consider a shopping cart. In vanilla JS:
@@ -234,11 +224,6 @@ function renderCart() {
 ---
 
 ## 2. Installation & Project Setup
-
-??? note "🗣️ Talking Points"
-    - Briefly explain *why* we need a build tool at all — browsers can't read `.vue` files natively.
-    - Contrast Vite vs old Webpack/Vue CLI: Vite doesn't pre-bundle everything, it serves native ES modules and transforms on-demand. Much faster startup.
-    - Walk through the scaffold live, then open it in the browser before explaining each file.
 
 ### Prerequisites
 
@@ -367,11 +352,6 @@ createApp(App).mount('#app')
 
 ## 3. App Instance, Reactivity & Templates
 
-??? note "🗣️ Talking Points"
-    - Vue 3 has two APIs: Options API (the old `data()`, `methods:` object style) and Composition API (`<script setup>`). We use Composition API — it's the modern standard.
-    - Stress the `.value` thing early. It's the #1 source of beginner bugs.
-    - The `Proxy` explanation is optional depth — mention it, don't dwell on it.
-
 ### `createApp()` and mounting
 
 ```javascript
@@ -483,11 +463,6 @@ user.age = 23
 ---
 
 ## 4. Directives
-
-??? note "🗣️ Talking Points"
-    - Directives are `v-` prefixed attributes. They're Vue's instruction set for the template layer.
-    - Cover them in order of frequency of use: `v-bind`, `v-model`, `v-if`, `v-for`, `v-on`.
-    - For each one, give the vanilla JS equivalent so students see what problem it's solving.
 
 Directives are special `v-` prefixed HTML attributes that give Vue instructions about how to render or behave.
 

@@ -108,11 +108,7 @@ The following is a static HTML page that will be used as a starting point for th
 
 ## Phase 1 — App setup
 
-??? note "🗣️ Talking Points"
-    - Don't mention Vue yet. Just build a page.
-    - Ask: *"Who recognises this workflow — you design the HTML first, then figure out how to make it dynamic?"* That's exactly what we're doing today, but we'll make it dynamic the Vue way.
-    - Keep the Tailwind classes minimal. Explain you're using Tailwind just for spacing and colour — not to show off, just to avoid writing a big `<style>` block during the demo.
-    - After you finish this phase, pause and say: *"Right now this is dead. The data is locked inside the HTML. If a new movie comes out, you edit the HTML. If you want to mark something watched, you edit the HTML. Let's fix that."*
+
 
 ### Setup
 
@@ -178,11 +174,7 @@ createApp(App).mount('#app')
 
 ## Phase 2 — Data-Driven with Vue
 
-??? note "🗣️ Talking Points"
-    - The move from Phase 1 to Phase 2 is the central insight of this lecture. You're not changing what the page looks like at all — you're changing *where the data lives*.
-    - Walk through the `movies` array slowly. Ask students to spot the connection between the array properties and where they appear in the template.
-    - When you add `v-for`, the three hardcoded cards disappear and get replaced by one `<div>` that renders three times. That moment is worth pausing on.
-    - After `v-for` works, add a fourth movie to the array and save. The page updates instantly with no HTML change. That's the payoff.
+
 
 ### Move the data into a `ref`
 
@@ -297,11 +289,7 @@ Now replace the three hard-coded card `<div>` blocks with a single `v-for`:
 
 ## Phase 3 — Interactions
 
-??? note "🗣️ Talking Points"
-    - Students sometimes expect interactions to be complicated. Show them they're just function calls that change a property.
-    - For the toggle: point at the `movie.watched = !movie.watched` line and ask *"How many lines of DOM code did we write?"* Zero. Vue saw the change and updated the badge and button label automatically.
-    - For the add form: introduce `v-model` as revision from Lec 1. The new thing here is that the form is in the same component as the list — we're not doing components yet. That deliberate simplicity sets up the motivation for Phase 4.
-    - After the form works, point out that `App.vue` is getting long. Ask: *"What if you had 50 movies and a different page for each genre? Would you keep everything in one file?"* That leads into Phase 4.
+
 
 ### Toggle watched status
 
@@ -471,11 +459,6 @@ Add the form to the template, just above the grid:
 
 ## Phase 4 — Extract `MovieCard.vue`
 
-??? note "🗣️ Talking Points"
-    - The key message: **the app doesn't change at all from the user's perspective.** The same page, the same behaviour. We're just reorganising *where the code lives*.
-    - Walk through `defineProps` carefully. For each prop, ask: *"Where does this value come from?"* — it comes from the `movie` object in `App.vue`.
-    - When you add `defineEmits(['toggle'])`, ask: *"Why not just call `toggleWatched` directly from inside the card?"* — because `MovieCard` doesn't own the data. It doesn't even know `movies` exists. It can only ask politely.
-    - After `App.vue` is updated, scroll through it. It's now about half the length. That's the payoff.
 
 ### What goes in the component?
 
@@ -587,10 +570,6 @@ Replace the entire `<div v-for>` block with:
 
 ## Phase 5 — Extract `GenreBadge.vue`
 
-??? note "🗣️ Talking Points"
-    - This is a small component, but it teaches something important: **components nest**. `App.vue` uses `MovieCard`. `MovieCard` uses `GenreBadge`. Real apps have many layers of nesting like this.
-    - The genre colour logic — choosing between purple, red, blue, etc. — currently lives in the template as a hardcoded class. Moving it into `GenreBadge` means that logic has one home.
-    - After replacing the `<span>` in `MovieCard`, ask: *"If we wanted to add a new genre colour, where do we go?"* — `GenreBadge.vue`, one place.
 
 ### Why a `GenreBadge` component?
 
@@ -678,10 +657,6 @@ Replace the genre `<span>` in the template:
 
 ## Phase 6 — Pitfalls & Wrap-up
 
-??? note "🗣️ Talking Points"
-    - Keep this fast — 5 minutes. Students are tired.
-    - The prop mutation one will bite them in the assignment. Say it once clearly.
-    - End on the big picture summary — it's worth spelling out what they just built.
 
 ### ❌ Mutating a prop directly
 

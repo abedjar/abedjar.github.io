@@ -11,11 +11,7 @@ search:
 
 ## Phase 1 — How APIs Work
 
-??? note "🗣️ Talking Points"
-    - Ask: *"When you open Instagram, where do the posts come from?"* — a server. Your browser sends a request, the server sends back data (JSON), and the app renders it.
-    - Key distinction: the API doesn't send HTML. It sends raw data — JSON. The client (browser, app, terminal) decides how to display it.
-    - Start with `curl` — it strips away every abstraction. You type a URL, you get JSON. That's the whole thing.
-    - Progress from curl → browser → JS console → Vue. The request is identical each time. Only the tool changes.
+
 
 ### The request-response cycle
 
@@ -52,11 +48,6 @@ The format APIs use to send data back. It maps directly to JavaScript objects an
 
 ### Way 1 — `curl` (terminal)
 
-??? note "🗣️ Talking Points"
-    - `curl` is installed on every Mac and Linux machine. On Windows it's in Git Bash or PowerShell.
-    - This is the most direct way to talk to an API — no browser, no code, just a command.
-    - Run these live in the terminal. Students should run them too.
-    - `| python3 -m json.tool` is a quick pretty-printer built into Python — no install needed.
 
 `curl` sends HTTP requests from the terminal. It's the fastest way to test an API before writing any code.
 
@@ -100,10 +91,7 @@ The simplest way to see a GET response — just paste the URL.
 
 ### Way 3 — Browser DevTools Console
 
-??? note "🗣️ Talking Points"
-    - This is the bridge between the terminal and Vue. Students can test a fetch call before putting it in a component.
-    - Open any tab (even this one), open the console, and run the snippet live.
-    - The `.then()` syntax is the Promise-based equivalent of `async/await` — just easier to paste into a console.
+
 
 Open DevTools → Console tab on any page and run:
 
@@ -120,10 +108,7 @@ You'll see the full Pokémon object logged. Expand it to explore the structure b
 
 ### Way 4 — Plain JavaScript (no Vue, no framework)
 
-??? note "🗣️ Talking Points"
-    - Before jumping into Vue, show a completely plain HTML file that fetches an API and renders the result. No build tools, no components, no reactivity.
-    - The point: `fetch` is a browser API. Vue doesn't own it. You could do this in any framework — or no framework at all.
-    - Create this as `test.html` and open it directly in the browser. Students can see it working before any Vue scaffolding exists.
+
 
 A single HTML file — no Vue, no build tools, no npm:
 
@@ -228,11 +213,6 @@ Always handle all three in the template. Users should never stare at a blank pag
 
 ## Phase 2 — Weather: Open-Meteo
 
-??? note "🗣️ Talking Points"
-    - Open-Meteo is perfect for a first demo: no API key, the URL is readable, the response is flat JSON.
-    - Read the URL out loud and ask students to guess what each parameter does. `latitude`, `longitude`, `current=temperature_2m` — it's self-documenting.
-    - After the fetch works, open the browser DevTools → Network tab. Click the request. Show students the raw JSON response. Point out that `data.value` in Vue is exactly that object.
-    - The loading/error template pattern is what they'll use in every project that touches an API. Make sure students understand *why* each `v-if` branch is there.
 
 **API:** `https://api.open-meteo.com/v1/forecast`
 **Docs:** [open-meteo.com](https://open-meteo.com)
@@ -366,11 +346,7 @@ h1 { color: #111827; margin-bottom: 1.5rem; }
 
 ## Phase 3 — Countries: REST Countries
 
-??? note "🗣️ Talking Points"
-    - This demo introduces two new challenges: the response is an **array** (not a single object), and the data is deeply nested.
-    - Before writing any Vue, open `https://restcountries.com/v3.1/region/oceania` in the browser and look at the raw JSON. Ask students: *"How would you get the population? The flag emoji? The capital city?"* Let them call it out.
-    - The search filter is revision from Lec 1 (`computed` + `v-model`) — but now the data source is an API instead of a hardcoded array. Stress that the Vue code is identical. Only the data source changed.
-    - `?fields=` is worth explaining — you're asking the API to send only the fields you need. Smaller payload, faster response.
+
 
 **API:** `https://restcountries.com/v3.1`
 **Docs:** [restcountries.com](https://restcountries.com)
@@ -530,11 +506,6 @@ h1 { color: #111827; margin-bottom: 1.5rem; }
 
 ## Phase 4 — Pokémon: PokeAPI
 
-??? note "🗣️ Talking Points"
-    - This is the most advanced demo — two fetches, dependent on each other. The pattern is extremely common in real apps: fetch a list of items, then fetch the full details for whichever item the user clicks.
-    - Walk through the two API responses side by side before writing any code. The list endpoint returns names and URLs. The detail endpoint (a different URL per Pokémon) returns the full data.
-    - `watch` is the key new concept here. When `selectedUrl` changes (user clicks a card), the watcher fires and fetches the detail. This is the reactive trigger.
-    - After it works, ask: *"Could we have done this with `onMounted`?"* — No, because `onMounted` only runs once. The watcher runs every time `selectedUrl` changes.
 
 **API:** `https://pokeapi.co/api/v2`
 **Docs:** [pokeapi.co](https://pokeapi.co)
@@ -761,11 +732,7 @@ h1 { color: #111827; margin-bottom: 1.5rem; }
 
 ## Phase 5 — Reusable `useFetch` Composable
 
-??? note "🗣️ Talking Points"
-    - Ask students to look back at the three demos. Every one has `loading`, `error`, `data`, `try/catch/finally`. That's identical boilerplate.
-    - A composable is just a function that encapsulates reactive logic and returns refs. It's not magic — it's the same code, moved into a function.
-    - After showing `useFetch`, rewrite `WeatherCard` to use it. Students should see that the component gets significantly shorter, and the behaviour is identical.
-    - This is the first time they're writing something genuinely reusable — not a component (UI), but a piece of logic.
+
 
 ### The problem: duplicated boilerplate
 
@@ -879,10 +846,6 @@ Use the same code for `App.vue` as before, and make sure to use `WeatherCard` co
 
 ## Phase 6 — Pitfalls & Wrap-up
 
-??? note "🗣️ Talking Points"
-    - The `res.ok` one is the most surprising — students assume a failed request throws an error. Demo it: fetch a URL with a bad endpoint and log `res.status` before the throw.
-    - The template rendering before data arrives is the most common cause of "cannot read property of null" errors. The `v-if="data"` guard fixes it every time.
-    - Keep this fast — 5 minutes max.
 
 ### ❌ Not checking `res.ok`
 

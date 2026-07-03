@@ -15,11 +15,7 @@ search:
 
 ## Phase 1 — Install & Hello World
 
-??? note "🗣️ Talking Points"
-    - Ask: *"Who has used Python before?"* — Most students will have. This is revision, not from scratch.
-    - The important thing to check is the version. FastAPI requires Python 3.8+. Python 2 is dead — if a student has it, they need to upgrade.
-    - On macOS `python` might point to Python 2. Always use `python3` to be safe.
-    - Run hello world live. Then show `python3 -i` (interactive mode) — you can use it like a calculator, test expressions, explore data structures.
+
 
 ### Install
 
@@ -75,11 +71,7 @@ Use this to test expressions quickly without creating a file.
 
 ## Phase 2 — Python Essentials
 
-??? note "🗣️ Talking Points"
-    - This is fast — 20 minutes for the whole section. The goal isn't to teach Python comprehensively, it's to cover what FastAPI needs.
-    - Students who already know Python: these are anchors, not new content.
-    - Students who don't: focus on the *shape* of Python — indentation instead of braces, no semicolons, type annotations are optional but FastAPI uses them.
-    - Run every snippet live in `python3 -i` or a scratch file. Don't just read — show the output.
+
 
 ### Variables & types
 
@@ -302,11 +294,6 @@ print(loaded["name"])                # "Alice"
 
 ## Phase 3 — Why FastAPI & First Server
 
-??? note "🗣️ Talking Points"
-    - Ask: *"In Lec 4 we fetched data from public APIs — restcountries, pokeapi, open-meteo. Who built those? Someone had to write a server that listens for requests and sends JSON back. Today we build that server."*
-    - Why FastAPI and not Flask, Django, Express? Speed of development — one file, minimal boilerplate, automatic docs. And because it uses Python type annotations to do work for you — validation, serialisation, documentation all happen automatically.
-    - The two-terminal setup is critical to explain visually. Draw it: terminal 1 runs Vue on :5173, terminal 2 runs FastAPI on :8000. The browser talks to both. They don't know about each other — yet.
-    - After starting the server, open `http://localhost:8000/docs` in the browser. The interactive docs are generated automatically from the code — this always gets a reaction.
 
 ### Where FastAPI fits
 
@@ -401,11 +388,7 @@ Open:
 
 ## Phase 4 — Routes: GET, Path Params, Query Params
 
-??? note "🗣️ Talking Points"
-    - Walk through the courses data first. Students recognise it from the assignment.
-    - Path params: the value comes from the URL itself — `/courses/2`. Query params: the value comes after a `?` — `/courses?status=Completed`. Ask students which one they'd use to get a specific item vs to filter a list.
-    - After each route, test it in `/docs` — click the route, hit "Try it out", enter a value, hit Execute. Students see the request and response live.
-    - The 404 pattern is important — `HTTPException` is how FastAPI sends an error response with the correct HTTP status code.
+
 
 ### The data
 
@@ -484,11 +467,6 @@ Test:
 
 ## Phase 5 — POST: Receiving JSON from Vue
 
-??? note "🗣️ Talking Points"
-    - Up until now the server only reads. POST lets the Vue app send data to the server — a form submission, a new item, login credentials.
-    - `BaseModel` is FastAPI's way of defining what JSON it expects. Point at it and say: "This is exactly like `defineProps` in Vue — you're declaring the shape of the data you expect, and FastAPI validates it automatically."
-    - After showing the route, test it in `/docs` — paste a JSON body into the Try it out form. Then show what happens if you leave out a required field — FastAPI returns a 422 with a clear error.
-    - The 422 Unprocessable Entity response is a feature, not a bug — automatic validation with no code.
 
 ### Defining the expected shape with `BaseModel`
 
@@ -624,11 +602,6 @@ def delete_course(course_id: int):
 
 ## Phase 6 — CORS: Connecting Vue and FastAPI
 
-??? note "🗣️ Talking Points"
-    - CORS is the thing that breaks when you first try to fetch your own FastAPI from a Vue app. Students will hit this — it's better to explain it before they see the red browser error.
-    - Draw on the board: Vue is on port 5173, FastAPI is on port 8000. The browser sees these as different origins. It blocks cross-origin requests by default as a security measure.
-    - The fix is one middleware block in `main.py`. After adding it, show the browser console — the error is gone.
-    - `allow_origins=["http://localhost:5173"]` is specific to dev. In production you'd put your real domain here.
 
 ### What is CORS?
 
@@ -687,12 +660,7 @@ app.add_middleware(                                  # (2)
 
 ## Phase 7 — Full Example: Vue + FastAPI
 
-??? note "🗣️ Talking Points"
-    - This is the payoff of everything in the course — Vue on one side, Python on the other, talking over HTTP.
-    - The Vue code uses the exact same `fetch` pattern from Lec 4. The only difference is the URL points to `localhost:8000` instead of a public API.
-    - Walk through the three operations: load the list, add a course, delete a course. Each one is a different HTTP method.
-    - Emphasise: the FastAPI server holds the real data. If you add a course in Vue and then open `/docs`, you'll see it there. Two different clients, same data.
-    - After the demo, open `/docs` and `/courses` in the browser while the Vue app is running — show that the data is the same in both places.
+
 
 ### The project structure
 
@@ -877,10 +845,7 @@ h1   { color: #111827; margin-bottom: 1rem; }
 
 ## Phase 8 — Pitfalls & Wrap-up
 
-??? note "🗣️ Talking Points"
-    - Keep this under 5 minutes. Students are full of new information.
-    - The CORS one is first because it's the first thing that goes wrong — guaranteed.
-    - The indentation one is for the Python newcomers.
+
 
 ### ❌ CORS error in the browser
 
