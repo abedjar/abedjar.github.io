@@ -3,6 +3,58 @@ search:
   exclude: true
 ---
 
+## 1. Directives
+
+Directives are special `v-` prefixed HTML attributes that give Vue instructions about how to render or behave.
+
+### `v-bind` — Bind reactive data to HTML attributes
+Standard HTML attributes are static. To link an attribute to a reactive variable or expression, use `v-bind`. This allows the UI to update **automatically** when the underlying data changes.
+
+```vue
+<a v-bind:href="url">Visit</a>
+
+<!-- Shorthand (: prefix) — use this in practice -->
+<a :href="url">Visit</a>
+<img :src="imageUrl" :alt="imageAlt">
+<button :disabled="isLoading">Submit</button>
+```
+
+```vue
+<template>
+  <div>
+    <a :href="url">Visit website</a>
+    <br>
+    <img :src="imageUrl" :alt="imageAlt" />
+    <br>
+    <button :disabled="isLoading">
+      Submit
+    </button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const url = ref('https://example.com')
+const imageUrl = ref('https://play-lh.googleusercontent.com/NW2ASwJ4qtxfThhVIpm4641sR4o-yGv80yqaJnOnpC4lEmdxEcNTFcF6-TlZYtmdaA=w480-h960-rw')
+const imageAlt = ref('Placeholder image')
+const isLoading = ref(true)
+</script>
+
+<style scoped>
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+</style>
+```
+**Vanilla equivalent:** `element.setAttribute('href', url)` — called manually after every change.
+
 ### `v-model` — Two-way binding for form inputs
 
 ```vue
@@ -435,7 +487,7 @@ li {
 
 ---
 
-## 5. Methods & Computed Properties
+## 2. Methods & Computed Properties
 
 ### Methods
 
@@ -517,7 +569,7 @@ const filtered = computed(() =>
 
 ---
 
-## 7. Live Demo — Task List Application
+## 3. Live Demo — Task List Application
 
 
 !!! example "🎯 Demo — Setup"
@@ -751,7 +803,7 @@ Change the `v-for` to use `filteredTasks`:
 
 ---
 
-## 8. Common Pitfalls
+## 4. Common Pitfalls
 
 
 ### ❌ Direct DOM manipulation inside components
@@ -802,31 +854,4 @@ state.count++             // template won't update via `count`
 // Inside a child — never do this
 props.title = 'New value'                    // ❌
 emit('update:title', 'New value')            // ✅ emit an event instead
-```
-
----
-
-## 9. Summary
-
-### What we covered today
-
-- **Why frameworks** — manual DOM sync doesn't scale; declarative rendering solves this
-- **Vite** — modern build tool that serves ES modules natively during development
-- **Reactivity** — `ref()` and `reactive()` create observable state; Vue's `Proxy`-based system updates the DOM automatically
-- **Template syntax** — `{{ }}` interpolation, directives (`v-bind`, `v-model`, `v-if`, `v-for`, `v-on`)
-- **Computed properties** — cached derived state; recalculates only when dependencies change
-- **Components** — self-contained UI units; props flow down, events flow up
-
-### Vue in the frontend ecosystem
-
-```
-index.html  →  createApp(App).mount('#app')
-                    │
-              Root Component (App.vue)
-                    │
-          ┌─────────┴──────────┐
-     Child Components      Reactive State
-     (props ↓, events ↑)   (ref, reactive, computed)
-                    │
-              Template → Virtual DOM diff → Real DOM
 ```
