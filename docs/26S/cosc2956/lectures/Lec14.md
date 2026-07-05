@@ -509,66 +509,7 @@ const filtered = computed(() =>
 !!! question "Reflection"
     If you called `getFiltered()` as a method in the template, and some *other* unrelated state changed causing a re-render, the filter would re-run over 10,000 items unnecessarily. How often does this matter in practice?
 
----
 
-➡️ *Next: a quick introduction to components — the building block of every Vue app.*
-
----
-
-## 6. Introduction to Components
-
-
-### What is a component?
-
-A self-contained unit of UI in its own `.vue` file.
-
-- The main component is `App.vue`. It is the root component of the application and is the entry point of the application.
-- Other components are imported as children and used in the `App.vue` file.
-- Components can be nested inside other components to create a tree of components.
-- All components are placed in the `src/components` directory.
-
-### Props & Events
-
-- **Props** — data passed *down* from parent to child (read-only in the child)
-- **Events** — signals emitted *up* from child to parent
-- This creates **unidirectional data flow**: data flows down, signals flow up.
-
-### Simple example
-
-```vue title="Badge.vue"
-<!-- src/components/Badge.vue -->
-<template>
-  <span class="badge" :class="type">{{ label }}</span>
-</template>
-
-<script setup>
-defineProps({
-  label: { type: String, required: true },
-  type:  { type: String, default: 'info' }  // 'info' | 'warning' | 'error'
-})
-</script>
-
-<style scoped>
-.badge { padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.8rem; }
-.info    { background: #dbeafe; }
-.warning { background: #fef9c3; }
-.error   { background: #fee2e2; }
-</style>
-```
-
-```vue title="App.vue"
-<!-- App.vue — using the component -->
-<script setup>
-import Badge from './components/Badge.vue'
-</script>
-
-<template>
-  <Badge label="New" type="info" />
-  <Badge label="Urgent" type="warning" />
-</template>
-```
-
-Imported components in `<script setup>` are **automatically available** in the template — no registration needed.
 
 ---
 

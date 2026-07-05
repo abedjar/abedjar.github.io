@@ -204,24 +204,7 @@ function renderCart() {
 | DOM updates | Manual | Automatic |
 | Data–UI sync | Your responsibility | Framework's responsibility |
 
-### Key Terms
 
-**Reactive data** — data that, when changed, automatically triggers dependent UI to update.
-
-**Declarative rendering** — describing the desired output state rather than the steps to reach it.
-
-**Virtual DOM** — an in-memory JS object tree Vue uses to calculate the *minimum* set of real DOM changes needed.
-
-**Component** — a self-contained, reusable unit of UI (template + logic + styles).
-
-!!! question "Reflection"
-    A spreadsheet: change cell A1 and every formula referencing it updates instantly. What is the software concept at work here?
-
----
-
-➡️ *Next: let's get a Vue project running on your machine.*
-
----
 
 ## 2. Installation & Project Setup
 
