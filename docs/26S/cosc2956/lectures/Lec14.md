@@ -4,7 +4,7 @@ search:
 ---
 
 ## 1. Directives
-
+ 
 Directives are special `v-` prefixed HTML attributes that give Vue instructions about how to render or behave.
 
 ### `v-bind` — Bind reactive data to HTML attributes
