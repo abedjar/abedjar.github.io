@@ -219,6 +219,25 @@ const movies = ref([ // (1)
 1. `ref([])` makes the entire array reactive. When any movie's data changes, the template updates automatically.
 2. `watched: true/false` is the single source of truth for whether a movie has been seen. We never set this in the HTML — only here.
 
+### Add the basic HTML strucure to `app.vue`
+```vue title="App.vue"
+<div class="min-h-screen bg-gray-100 p-8"> <!--  -->
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">🎬 My Watchlist</h1>
+
+    <!-- Filter bar -->
+    <div class="flex gap-3 mb-6">
+      <button class="px-4 py-1.5 rounded-full bg-indigo-600 text-white text-sm">All</button>
+      <button class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border">Watched</button>
+      <button class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-sm border">Unwatched</button>
+    </div>
+
+    <!-- Movie grid -->
+
+
+  </div>
+```
+
 ### Replace the three cards with `v-for`
 
 Now replace the three hard-coded card `<div>` blocks with a single `v-for`:
@@ -530,10 +549,9 @@ const emit = defineEmits(['toggle']) // (4)
 In `<script setup>`, add the import:
 
 ```javascript hl_lines="1" title="App.vue"
-import MovieCard from './components/MovieCard.vue' // (1)
+import MovieCard from './components/MovieCard.vue' 
 ```
 
-1. The path is relative to `App.vue`. No need to register it — in `<script setup>`, imported components are ready to use immediately.
 
 Replace the entire `<div v-for>` block with:
 
@@ -549,12 +567,12 @@ Replace the entire `<div v-for>` block with:
     :genre="movie.genre"
     :rating="movie.rating"
     :watched="movie.watched"
-    @toggle="toggleWatched(movie.id)" <!-- (1) -->
+    @toggle="toggleWatched(movie.id)" 
   />
 </div>
 ```
 
-1. When `MovieCard` emits `'toggle'`, `App.vue` catches it here and calls `toggleWatched` with the right ID. The card sent the signal — `App.vue` decided what to do with it.
+
 
 !!! note "What just happened"
     - `App.vue` went from ~80 lines of template to ~15

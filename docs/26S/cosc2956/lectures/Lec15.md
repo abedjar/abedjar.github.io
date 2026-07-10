@@ -34,14 +34,11 @@ A self-contained unit of UI in its own `.vue` file.
 ```vue title="Badge.vue"
 <!-- src/components/Badge.vue -->
 <template>
-  <span class="badge" :class="type">{{ label }}</span>
+  <span class="badge info" >This is a message</span>
 </template>
 
 <script setup>
-defineProps({
-  label: { type: String, required: true },
-  type:  { type: String, default: 'info' }  // 'info' | 'warning' | 'error'
-})
+
 </script>
 
 <style scoped>

@@ -4,17 +4,17 @@ search:
 ---
 
 # COSC2956 – Internet Tools
-## Lecture 3: Routing & Views — Vue Router
+## Routing & Views — Vue Router
 
 ---
 
-!!! info "he project"
+!!! info "The project"
 
     the Movie Watchlist from prev lecture. We are adding multiple pages — a Home page, a Movies list page, and a Movie Detail page. The URL changes as you navigate. No full page reloads.
 
 ---
 
-## Phase 1 — What is Routing?
+## 1 — What is Routing?
 
 
 
@@ -61,7 +61,7 @@ Page updates instantly — no reload
 
 ---
 
-## Phase 2 — Install & Configure Vue Router
+## 2 — Install & Configure Vue Router
 
 
 
@@ -186,7 +186,7 @@ src/
 
 ---
 
-## Phase 3 — `HomeView` and `MoviesView`
+## 3 — `HomeView` and `MoviesView`
 
 
 
@@ -299,7 +299,7 @@ function addMovie() {
 
 ---
 
-## Phase 4 — Route Params: `MovieDetailView`
+## 4 — Route Params: `MovieDetailView`
 
 
 
@@ -429,7 +429,7 @@ function toggleWatched() {
 
 ---
 
-## Phase 5 — Programmatic Navigation
+## 5 — Programmatic Navigation
 
 
 ### `useRouter` — navigate from code
@@ -497,85 +497,8 @@ function addMovie() {
 
 ---
 
-## Phase 6 — Navigation Guards
 
-
-
-### What is a navigation guard?
-
-A function that runs **before** a route loads. It can:
-
-- ✅ Allow the navigation (return nothing or `true`)
-- ↩️ Redirect to a different route (return a path string)
-- ❌ Cancel the navigation (return `false`)
-
-### `beforeEnter` — guard a single route
-
-Add a `beforeEnter` guard to the movie detail route in `src/router/index.js`:
-
-```js title="src/router/index.js — updated"
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import MoviesView from '../views/MoviesView.vue'
-import MovieDetailView from '../views/MovieDetailView.vue'
-
-const movies = [ // (1)
-  { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 },
-]
-
-const routes = [
-  { path: '/',       component: HomeView },
-  { path: '/movies', component: MoviesView },
-  {
-    path: '/movies/:id',
-    component: MovieDetailView,
-    beforeEnter: (to) => { // (2)
-      const id = Number(to.params.id) // (3)
-      const exists = movies.some(m => m.id === id) // (4)
-      if (!exists) return '/movies' // (5)
-    },
-  },
-]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
-
-export default router
-```
-
-1. The guard needs to know which IDs are valid. In a real app this would come from an API or a Pinia store — for now we keep a minimal list here.
-2. `beforeEnter` receives `to` (the route being navigated to) and optionally `from`. It runs before the component mounts.
-3. Extract and convert the `:id` param — same `Number()` trick as in the view.
-4. `Array.some()` returns `true` if any element matches the condition.
-5. Returning a string path redirects the user. They never see `MovieDetailView` — they land on `/movies` instead.
-
-!!! example "🎯 Try it live"
-    - Type `/movies/999` in the URL bar — you land on `/movies` instead of "Movie not found"
-    - Type `/movies/2` — the detail page loads normally
-
-### `router.beforeEach` — global guard (preview)
-
-For auth checks you often want to protect many routes at once. Add a global guard in `router/index.js` after `createRouter`:
-
-```js
-router.beforeEach((to, from) => { // (1)
-  const isLoggedIn = false // replace with real auth check later
-
-  if (to.path !== '/' && !isLoggedIn) { // (2)
-    return '/' // redirect to home if not logged in
-  }
-})
-```
-
-1. `beforeEach` runs before **every** navigation in the app. It's the right place for global auth logic.
-2. This says: "if the user is going anywhere other than home, and they're not logged in, send them home." In a real app, you'd check a Pinia store or a cookie here.
-
-
----
-
-## Phase 7 — Pitfalls & Wrap-up
+## 7 — Pitfalls & Wrap-up
 
 
 ### ❌ Forgetting that route params are strings
