@@ -4,7 +4,7 @@ search:
 ---
 
 # COSC2956 – Internet Tools
-## Lecture 6: Persistence — Files, FastAPI & Vue
+## Persistence — Files, FastAPI & Vue
 
 ---
 
@@ -840,6 +840,4 @@ FastAPI (Python — port 8000)
 | `Promise.all()` for parallel fetches | `StudentDetailView` — student + enrolments |
 | Nested REST routes `/students/:id/enrolments` | Related resources linked by ID |
 
----
 
-*COSC2956 Internet Tools — End of Lecture 6 & the Course*

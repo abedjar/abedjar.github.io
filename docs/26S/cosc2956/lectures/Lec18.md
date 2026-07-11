@@ -4,7 +4,7 @@ search:
 ---
 
 # COSC2956 – Internet Tools
-## Lecture 4: Fetching Data from External APIs
+## Fetching Data from External APIs
 
 ---
 
@@ -53,13 +53,13 @@ The format APIs use to send data back. It maps directly to JavaScript objects an
 
 ```bash
 # Basic GET request — returns raw JSON
-curl https://restcountries.com/v3.1/name/australia
+curl https://pokeapi.co/api/v2/pokemon/pikachu
 
 # Pretty-print the JSON (macOS / Linux)
-curl https://restcountries.com/v3.1/name/australia | python3 -m json.tool
+curl https://pokeapi.co/api/v2/pokemon/pikachu | python3 -m json.tool
 
 # See the response headers too
-curl -i https://restcountries.com/v3.1/name/australia
+curl -i https://pokeapi.co/api/v2/pokemon/pikachu
 
 # Pass query parameters
 curl "https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&current=temperature_2m"
@@ -71,7 +71,7 @@ curl -X POST https://jsonplaceholder.typicode.com/posts \
 ```
 
 !!! example "🎯 Demo — run these live"
-    Run the first two commands. Show the raw output, then the pretty-printed version. Point out the JSON structure — the nested objects, the arrays. Students should be able to find `name.common` and `capital[0]` by eye before we write any code.
+    Run the first two commands. Show the raw output, then the pretty-printed version. Point out the JSON structure — the nested objects, the arrays. Students should be able to find `name` and `height` by eye before we write any code.
 
 ---
 
@@ -81,9 +81,9 @@ The simplest way to see a GET response — just paste the URL.
 
 !!! example "🎯 Demo — open these in the browser"
     ```
-    https://restcountries.com/v3.1/name/australia?fields=name,capital,population
     https://pokeapi.co/api/v2/pokemon/pikachu
     https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&current=temperature_2m
+    https://jsonplaceholder.typicode.com/users
     ```
     Install the **JSON Formatter** browser extension if you haven't — it makes the raw JSON readable with collapsible nodes. Show the nested structure by expanding and collapsing objects.
 
@@ -340,171 +340,11 @@ h1 { color: #111827; margin-bottom: 1.5rem; }
 
 ---
 
-➡️ *One city. Now let's fetch a whole list.*
+➡️ *One city at a time is straightforward. Now let's fetch a whole list — and then drill into detail for a single item.*
 
 ---
 
-## Phase 3 — Countries: REST Countries
-
-
-
-**API:** `https://restcountries.com/v3.1`
-**Docs:** [restcountries.com](https://restcountries.com)
-No API key. Returns country data as a JSON array.
-
-### What one country looks like
-
-```json
-{
-  "name": { "common": "Australia" },
-  "flags": { "emoji": "🇦🇺" },
-  "population": 25978935,
-  "capital": ["Canberra"],
-  "region": "Oceania"
-}
-```
-
-Note: `capital` is an **array** — some countries have multiple capitals. Always access it as `country.capital[0]`.
-
-### Demo — `CountryList.vue`
-
-Create `src/components/CountryList.vue`:
-
-```vue title="CountryList.vue"
-<template>
-  <div>
-    <input
-      v-model="search"
-      placeholder="Search countries..."
-      class="search"
-    />
-
-    <p class="count">{{ filtered.length }} countries</p>
-
-    <p v-if="loading" class="state">Loading...</p>
-    <p v-else-if="error" class="state error">⚠ {{ error }}</p>
-
-    <div v-else class="grid">
-      <div v-for="country in filtered" :key="country.cca3" class="card"> <!-- (1) -->
-        <span class="flag">{{ country.flags.emoji }}</span>
-        <div>
-          <p class="cname">{{ country.name.common }}</p>               <!-- (2) -->
-          <p class="detail">🏙 {{ country.capital?.[0] ?? 'N/A' }}</p> <!-- (3) -->
-          <p class="detail">👥 {{ formatPop(country.population) }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref, computed, onMounted } from 'vue'
-
-const props = defineProps({
-  region: { type: String, default: 'oceania' }
-})
-
-const countries = ref([])
-const loading   = ref(true)
-const error     = ref(null)
-const search    = ref('')
-
-onMounted(async () => {
-  try {
-    const res = await fetch(
-      `https://restcountries.com/v3.1/region/${props.region}` +
-      `?fields=name,flags,population,capital,cca3` // (4)
-    )
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    countries.value = await res.json()
-  } catch (e) {
-    error.value = e.message
-  } finally {
-    loading.value = false
-  }
-})
-
-const filtered = computed(() => {                              // (5)
-  const q = search.value.toLowerCase()
-  if (!q) return countries.value
-  return countries.value.filter(c =>
-    c.name.common.toLowerCase().includes(q)
-  )
-})
-
-function formatPop(n) {                                        // (6)
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M'
-  if (n >= 1_000)     return (n / 1_000).toFixed(0) + 'K'
-  return n.toString()
-}
-</script>
-
-<style scoped>
-.search {
-  width: 100%; padding: 0.6rem 0.9rem; font-size: 0.95rem;
-  border: 1px solid #d1d5db; border-radius: 8px; outline: none;
-  box-sizing: border-box; margin-bottom: 0.75rem;
-}
-.search:focus { border-color: #6366f1; }
-.count  { font-size: 0.82rem; color: #9ca3af; margin: 0 0 1rem; }
-.state  { color: #9ca3af; }
-.error  { color: #dc2626; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-.card {
-  background: white; border-radius: 10px; padding: 1rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07); display: flex; gap: 0.75rem; align-items: center;
-}
-.flag   { font-size: 2rem; line-height: 1; }
-.cname  { font-weight: 600; color: #111827; margin: 0 0 0.2rem; font-size: 0.9rem; }
-.detail { font-size: 0.78rem; color: #6b7280; margin: 0.1rem 0; }
-</style>
-```
-
-1. `cca3` is the 3-letter country code — a stable unique key (`"AUS"`, `"NZL"`). Better than using the name or array index.
-2. `country.name.common` — the name is nested inside a `name` object. You have to dig in.
-3. `country.capital?.[0]` — optional chaining (`?.`) safely handles countries with no capital array. `?? 'N/A'` provides a fallback.
-4. `?fields=` tells the API to only send the five fields we need. Without it, each country object has ~40 fields — most of which we don't use.
-5. The `filtered` computed is identical in structure to Lec 1's search filter. The Vue code doesn't care that `countries` came from an API — it's just a reactive array.
-6. A plain helper function to format large population numbers readably. Not reactive, just a utility.
-
-### Use it in `App.vue`
-
-```vue title="App.vue"
-<script setup>
-import CountryList from './components/CountryList.vue'
-</script>
-
-<template>
-  <div class="page">
-    <h1>🌍 Countries by Region</h1>
-    <CountryList region="oceania" />
-  </div>
-</template>
-
-<style>
-body { background: #f3f4f6; margin: 0; }
-.page { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; font-family: system-ui, sans-serif; }
-h1 { color: #111827; margin-bottom: 1.5rem; }
-</style>
-```
-
-!!! example "🎯 Try it live"
-    - Change `region="oceania"` to `region="europe"` — 50 countries load
-    - Type "aus" in the search box — filters to Australia (and Austria if on Europe)
-    - Open Network tab — notice the API URL includes `?fields=` — inspect the response to confirm only 5 fields come back, not 40
-    - Change to an invalid region (`region="xyz"`) — the error state renders
-
----
-
-➡️ *A flat list is straightforward. Now let's handle a two-step fetch — list first, then detail.*
-
----
-
-## Phase 4 — Pokémon: PokeAPI
+## Phase 3 — Pokémon: PokeAPI
 
 
 **API:** `https://pokeapi.co/api/v2`
@@ -589,7 +429,7 @@ Create `src/components/PokedexApp.vue`:
 
         <div class="types">
           <span
-            v-for="t in pokemon.types"                     <!-- (2) -->
+            v-for="t in pokemon.types"                    
             :key="t.type.name"
             class="type-badge"
           >
@@ -730,7 +570,7 @@ h1 { color: #111827; margin-bottom: 1.5rem; }
 
 ---
 
-## Phase 5 — Reusable `useFetch` Composable
+## Phase 4 — Reusable `useFetch` Composable
 
 
 
@@ -844,7 +684,7 @@ Use the same code for `App.vue` as before, and make sure to use `WeatherCard` co
 
 ---
 
-## Phase 6 — Pitfalls & Wrap-up
+## Phase 5 — Pitfalls & Wrap-up
 
 
 ### ❌ Not checking `res.ok`
@@ -896,7 +736,7 @@ v-for="item in data"                   // ❌ iterating the object, not the arra
 // ✅
 data.value = await res.json()
 v-for="item in data.results"           // ✅ — or store data.results directly:
-countries.value = (await res.json()).results
+items.value = (await res.json()).results
 ```
 
 ### ❌ Fetching in `<script setup>` top level without `onMounted`
@@ -916,12 +756,11 @@ onMounted(async () => {
 
 ## Summary
 
-**Three API patterns covered today:**
+**Two API patterns covered today:**
 
 | Pattern | Demo | Key technique |
 |---|---|---|
 | Single object | Weather | `onMounted` + loading/error states |
-| List from API | Countries | `v-for` over API array + `computed` filter |
 | List + Detail | Pokémon | Two fetches + `watch` to trigger the second |
 
 **The fetch template — use this every time:**
@@ -957,11 +796,7 @@ onMounted(async () => {
 | API | URL | Good for |
 |---|---|---|
 | Open-Meteo | `api.open-meteo.com` | Weather, location data |
-| REST Countries | `restcountries.com/v3.1` | Geography, flags, populations |
 | PokeAPI | `pokeapi.co/api/v2` | Lists + detail pattern, pagination |
 | Open Library | `openlibrary.org/api` | Book search |
 | NASA APOD | `api.nasa.gov` | Astronomy image of the day |
 | CoinGecko | `api.coingecko.com/api/v3` | Crypto prices (no key, rate limited) |
-
-
-

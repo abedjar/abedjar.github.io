@@ -4,7 +4,7 @@ search:
 ---
 
 # COSC2956 – Internet Tools
-## Lecture 5: Python & FastAPI — Building Your Own API
+## Python & FastAPI — Building Your Own API
 
 ---
 
@@ -933,6 +933,3 @@ FastAPI (port 8000)
     - **Deployment** — deploy FastAPI to Railway or Render, Vue to Netlify or Vercel
     - **Full-stack framework** — Nuxt.js (Vue + SSR) or Next.js (React + SSR) if you want Vue and the server in one project
 
----
-
-*COSC2956 Internet Tools — End of Lecture 5 & the Vue.js series*
