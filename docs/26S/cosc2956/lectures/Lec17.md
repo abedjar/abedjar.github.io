@@ -10,7 +10,7 @@ search:
 
 !!! info "The project"
 
-    the Movie Watchlist from prev lecture. We are adding multiple pages — a Home page, a Movies list page, and a Movie Detail page. The URL changes as you navigate. No full page reloads.
+    A brand new app for this lecture: **Vinyl Vault** — a personal record collection tracker. We're adding multiple pages — a Home page, an Albums list page, and an Album Detail page. The URL changes as you navigate. No full page reloads.
 
 ---
 
@@ -30,16 +30,16 @@ search:
 ### How Vue Router works
 
 ```
-User clicks <RouterLink to="/movies">
+User clicks <RouterLink to="/albums">
 
 Vue Router intercepts the click
       │
-      ├── Updates the browser URL bar  →  /movies
+      ├── Updates the browser URL bar  →  /albums
       ├── Does NOT request a new page from the server
       └── Looks up the route table:
             /          →  HomeView.vue
-            /movies    →  MoviesView.vue   ← matches
-            /movies/:id → MovieDetailView.vue
+            /albums    →  AlbumsView.vue   ← matches
+            /albums/:id → AlbumDetailView.vue
 
 Vue swaps the component rendered inside <RouterView />
 Page updates instantly — no reload
@@ -52,22 +52,22 @@ Page updates instantly — no reload
 | **Route** | A mapping between a URL path and a component |
 | **`<RouterView>`** | A placeholder in your layout — Vue renders the matched component here |
 | **`<RouterLink>`** | Like `<a>` but intercepts the click — no page reload |
-| **Route param** | A variable segment in the URL, e.g. `:id` in `/movies/:id` |
+| **Route param** | A variable segment in the URL, e.g. `:id` in `/albums/:id` |
 | **Navigation guard** | A function that runs before a route change — can allow, redirect, or block |
 
 ---
 
-➡️ *Concepts clear. Let's install Vue Router and wire it up.*
+➡️ *Concepts clear. Let's install Vue Router and get the simplest possible two-page app working — no components yet, just two views and a link between them.*
 
 ---
 
-## 2 — Install & Configure Vue Router
+## 2 — Install & Configure Vue Router (the simplest version)
 
 
 
 ### Install Vue Router
 
-In the `movie-watchlist` project directory:
+In the `vinyl-vault` project directory:
 
 ```bash
 npm install vue-router
@@ -75,13 +75,12 @@ npm install vue-router
 
 ### Create the router file
 
-Create a new file `src/router/index.js`:
+Create a new file `src/router/index.js`. To start, we'll only register **two** routes — `Home` and `Albums` — and both views will just be placeholders. The goal here is to see routing work end-to-end before we build anything real.
 
 ```js title="src/router/index.js"
 import { createRouter, createWebHistory } from 'vue-router' // (1)
 import HomeView from '../views/HomeView.vue'
-import MoviesView from '../views/MoviesView.vue'
-import MovieDetailView from '../views/MovieDetailView.vue'
+import AlbumsView from '../views/AlbumsView.vue'
 
 const routes = [ // (2)
   {
@@ -89,28 +88,23 @@ const routes = [ // (2)
     component: HomeView,
   },
   {
-    path: '/movies',
-    component: MoviesView,
-  },
-  {
-    path: '/movies/:id', // (4)
-    component: MovieDetailView,
+    path: '/albums',
+    component: AlbumsView,
   },
 ]
 
 const router = createRouter({
-  history: createWebHistory(), // (5)
+  history: createWebHistory(), // (4)
   routes,
 })
 
 export default router
 ```
 
-1. `createRouter` builds the router instance. `createWebHistory` gives clean URLs like `/movies` instead of `/#/movies`.
+1. `createRouter` builds the router instance. `createWebHistory` gives clean URLs like `/albums` instead of `/#/albums`.
 2. The `routes` array is the entire routing table. Every page in your app is one entry here.
 3. `path: '/'` is the root — what loads when someone visits your site's home page.
-4. `:id` is a **route param** — a variable segment. `/movies/1`, `/movies/42`, `/movies/dune` all match this route.
-5. `createWebHistory()` uses the browser's History API. Vite's dev server handles this automatically. On a production server you'd need to configure it to always serve `index.html`.
+4. `createWebHistory()` uses the browser's History API. Vite's dev server handles this automatically. On a production server you'd need to configure it to always serve `index.html`.
 
 ### Register the router in `main.js`
 
@@ -130,44 +124,68 @@ createApp(App)
 
 ### Update `App.vue` — add `<RouterView>`
 
-`App.vue` is now just a shell. It holds the navbar and the `<RouterView>` placeholder. Delete all the movie logic from it — that moves into `MoviesView.vue`.
+`App.vue` is now just a shell. It holds the navbar and the `<RouterView>` placeholder — nothing else lives here.
 
 ```vue title="src/App.vue"
 <template>
   <div class="min-h-screen bg-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm px-8 py-4 flex gap-6 items-center"> <!-- (1) -->
-      <span class="text-lg font-bold text-indigo-600">🎬 Watchlist</span>
-      <RouterLink to="/"        class="text-sm text-gray-600 hover:text-indigo-600">Home</RouterLink>
-      <RouterLink to="/movies"  class="text-sm text-gray-600 hover:text-indigo-600">Movies</RouterLink>
+    <nav class="bg-white shadow-sm px-8 py-4 flex gap-6 items-center"> 
+      <span class="text-lg font-bold text-indigo-600">💿 Vinyl Vault</span>
+      <RouterLink to="/"       class="text-sm text-gray-600 hover:text-indigo-600">Home</RouterLink>
+      <RouterLink to="/albums" class="text-sm text-gray-600 hover:text-indigo-600">Albums</RouterLink>
     </nav>
 
     <!-- Active page renders here -->
-    <RouterView /> <!-- (2) -->
+    <RouterView /> 
 
   </div>
 </template>
 
 <script setup>
-// App.vue has no logic now — each view manages its own data
+// App.vue has no logic — each view manages its own data
 </script>
 ```
 
 1. `<RouterLink to="/">` renders as a regular `<a>` tag in the HTML, but Vue Router intercepts the click so no page reload happens.
-2. `<RouterView />` is the slot where the matched component renders. When the URL is `/`, `HomeView` renders here. When it's `/movies`, `MoviesView` renders here.
+2. `<RouterView />` is the slot where the matched component renders. When the URL is `/`, `HomeView` renders here. When it's `/albums`, `AlbumsView` renders here.
 
-### Create the `views/` folder
+### Two placeholder views — just enough to prove routing works
+
+```vue title="src/views/HomeView.vue"
+<template>
+  <div class="max-w-2xl mx-auto px-8 py-16 text-center">
+    <h1 class="text-4xl font-bold text-gray-800">💿 Vinyl Vault</h1>
+    <p class="text-gray-500 mt-4">This is the Home page.</p>
+  </div>
+</template>
+```
+
+```vue title="src/views/AlbumsView.vue"
+<template>
+  <div class="max-w-4xl mx-auto px-8 py-8">
+    <h1 class="text-2xl font-bold text-gray-800">Albums</h1>
+    <p class="text-gray-500 mt-2">This is the Albums page. Nothing real here yet.</p>
+  </div>
+</template>
+```
+
+!!! example "🎯 Try it live"
+    - Click **Home** in the navbar — `HomeView` renders, URL is `/`
+    - Click **Albums** — `AlbumsView` renders, URL is `/albums`
+    - Open DevTools → Network tab → click between pages. **No new requests.** The browser is not going to the server. Vue Router is just swapping components.
+
+That's the entire mental model of routing: **URL in, component out.** Everything else we do today is just filling these views in with real content.
+
+### Create the `views/` and `components/` folders
 
 ```
 src/
-├── components/
-│   ├── MovieCard.vue
-│   └── GenreBadge.vue
-├── views/             ← create this folder
+├── components/        ← create this folder (empty for now)
+├── views/
 │   ├── HomeView.vue
-│   ├── MoviesView.vue
-│   └── MovieDetailView.vue
+│   └── AlbumsView.vue
 ├── router/
 │   └── index.js
 ├── App.vue
@@ -175,80 +193,155 @@ src/
 ```
 
 !!! note "Components vs Views — the convention"
-    - `src/components/` — reusable pieces used in multiple places (`MovieCard`, `GenreBadge`)
-    - `src/views/` — page-level components that map directly to a route (`MoviesView`, `HomeView`)
+    - `src/components/` — reusable pieces used in multiple places (e.g. a card, a badge)
+    - `src/views/` — page-level components that map directly to a route (`AlbumsView`, `HomeView`)
 
     Technically there's no difference — both are Vue components. The folder separation is just a widely-used convention that makes the project easier to navigate.
 
 ---
 
-➡️ *Router is wired up. Let's build the first two pages.*
+➡️ *Routing itself is done — two pages, one link, zero surprises. Now let's build the pieces the real Albums page will need: small, standalone components, built and tested on their own before any routing gets involved.*
 
 ---
 
-## 3 — `HomeView` and `MoviesView`
+## 3 — Building Simple Components (no routing yet)
 
 
 
-### `HomeView.vue`
+Before we touch `AlbumsView` again, let's build two small, reusable components in isolation. Neither of them knows anything about routes, URLs, or navigation — they just take props and emit events, like any other Vue component.
 
-```vue title="src/views/HomeView.vue"
+### `GenreBadge.vue` — a tiny presentational component
+
+```vue title="src/components/GenreBadge.vue"
 <template>
-  <div class="max-w-2xl mx-auto px-8 py-16 text-center">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">🎬 My Watchlist</h1>
-    <p class="text-gray-500 mb-8">Keep track of movies you want to watch — and ones you already have.</p>
-    <RouterLink
-      to="/movies"
-      class="px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700">
-      Browse Movies
-    </RouterLink>
-  </div>
+  <span :class="colorClasses" class="text-xs font-medium px-2 py-0.5 rounded-full"> 
+    {{ genre }}
+  </span>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({ // (2)
+  genre: { type: String, required: true },
+})
+
+const colorMap = { // (3)
+  Rock:    'bg-red-100 text-red-700',
+  Jazz:    'bg-amber-100 text-amber-700',
+  Pop:     'bg-pink-100 text-pink-700',
+  Electronic: 'bg-blue-100 text-blue-700',
+  Folk:    'bg-green-100 text-green-700',
+}
+
+const colorClasses = computed(() => colorMap[props.genre] ?? 'bg-gray-100 text-gray-700') // (4)
+</script>
 ```
 
-### `MoviesView.vue`
+1. Purely presentational — this component has no state and no logic beyond picking a color.
+2. `defineProps` declares the single input this component needs: `genre`.
+3. A lookup table mapping genre names to Tailwind color classes.
+4. `computed` falls back to gray for any genre not in the map, so an unrecognised genre never breaks the UI.
 
-This is the movie list from Lec 2, moved into its own view. The `movies` data, the form, and the toggle logic all come with it — nothing changes functionally.
+### `AlbumCard.vue` — a component that emits an event
 
-```vue title="src/views/MoviesView.vue"
+```vue title="src/components/AlbumCard.vue"
+<template>
+  <div class="bg-white rounded-xl p-5 shadow-sm">
+    <div class="flex justify-between items-start mb-3">
+      <GenreBadge :genre="genre" /> 
+      <span v-if="owned" class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Owned</span>
+      <span v-else       class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Wishlist</span>
+    </div>
+
+    <h2 class="text-lg font-semibold text-gray-800">{{ title }}</h2>
+    <p class="text-sm text-gray-500 mt-1">{{ year }} · {{ artist }}</p>
+
+    <div class="flex justify-between items-center mt-4">
+      <span class="text-yellow-500 font-semibold">★ {{ rating }}</span>
+      <button @click="emit('toggle')" class="text-sm text-indigo-600 hover:underline"> 
+        {{ owned ? 'Move to wishlist' : 'Mark as owned' }}
+      </button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import GenreBadge from './GenreBadge.vue'
+
+defineProps({ // (3)
+  id:     { type: Number, required: true },
+  title:  { type: String, required: true },
+  artist: { type: String, required: true },
+  year:   { type: Number, required: true },
+  genre:  { type: String, required: true },
+  rating: { type: Number, required: true },
+  owned:  { type: Boolean, default: false },
+})
+
+const emit = defineEmits(['toggle']) // (4)
+</script>
+```
+
+1. `AlbumCard` reuses `GenreBadge` — components composing other components, same as always. Still nothing route-related.
+2. Clicking the button doesn't change any data itself — it just emits a `toggle` event and lets the parent decide what to do.
+3. `id` is declared as a prop even though the card doesn't display it directly — the parent view will need it in a moment to build a link.
+4. `defineEmits` declares the one event this component can send upward: `toggle`.
+
+!!! example "🎯 Try it live"
+    Drop `<AlbumCard :id="1" title="Kind of Blue" artist="Miles Davis" :year="1959" genre="Jazz" :rating="9.4" :owned="true" />` into any view temporarily and confirm it renders correctly — badge, title, artist, rating, and the toggle button all show up. This works with zero routing involved; it's just a component receiving props.
+
+---
+
+➡️ *Two solid components, tested on their own. Now let's go back to `AlbumsView` and have it mix and match them — that's where routing and components meet.*
+
+---
+
+## 4 — Assembling the Albums View
+
+
+
+This is the step where routing and components come together: `AlbumsView` — the component our `/albums` route already points to — will hold the real album data, render one `AlbumCard` per album, and let the user add new albums.
+
+```vue title="src/views/AlbumsView.vue"
 <template>
   <div class="max-w-4xl mx-auto px-8 py-8">
     <div class="flex justify-between items-center mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Movies</h1>
+      <h1 class="text-2xl font-bold text-gray-800">Albums</h1>
       <button @click="showForm = !showForm"
               class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">
-        {{ showForm ? '✕ Cancel' : '+ Add Movie' }}
+        {{ showForm ? '✕ Cancel' : '+ Add Album' }}
       </button>
     </div>
 
-    <!-- Add movie form -->
+    <!-- Add album form -->
     <div v-if="showForm" class="bg-white rounded-xl p-5 shadow-sm mb-6">
-      <h2 class="font-semibold text-gray-700 mb-4">Add a Movie</h2>
+      <h2 class="font-semibold text-gray-700 mb-4">Add an Album</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <input v-model="newMovie.title"          placeholder="Title"    class="border rounded-lg px-3 py-2 text-sm" />
-        <input v-model="newMovie.director"       placeholder="Director" class="border rounded-lg px-3 py-2 text-sm" />
-        <input v-model.number="newMovie.year"    placeholder="Year"     type="number" class="border rounded-lg px-3 py-2 text-sm" />
-        <input v-model="newMovie.genre"          placeholder="Genre"    class="border rounded-lg px-3 py-2 text-sm" />
-        <input v-model.number="newMovie.rating"  placeholder="Rating"   type="number" step="0.1" class="border rounded-lg px-3 py-2 text-sm" />
+        <input v-model="newAlbum.title"        placeholder="Title"  class="border rounded-lg px-3 py-2 text-sm" />
+        <input v-model="newAlbum.artist"       placeholder="Artist" class="border rounded-lg px-3 py-2 text-sm" />
+        <input v-model.number="newAlbum.year"  placeholder="Year"   type="number" class="border rounded-lg px-3 py-2 text-sm" />
+        <input v-model="newAlbum.genre"        placeholder="Genre"  class="border rounded-lg px-3 py-2 text-sm" />
+        <input v-model.number="newAlbum.rating" placeholder="Rating" type="number" step="0.1" class="border rounded-lg px-3 py-2 text-sm" />
       </div>
-      <button @click="addMovie" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">
-        Add to Watchlist
+      <button @click="addAlbum" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">
+        Add to Collection
       </button>
     </div>
 
-    <!-- Movie grid -->
+    <!-- Album grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <MovieCard
-        v-for="movie in movies"
-        :key="movie.id"
-        :id="movie.id"
-        :title="movie.title"
-        :director="movie.director"
-        :year="movie.year"
-        :genre="movie.genre"
-        :rating="movie.rating"
-        :watched="movie.watched"
-        @toggle="toggleWatched(movie.id)"
+      <AlbumCard
+        v-for="album in albums"
+        :key="album.id"
+        :id="album.id"
+        :title="album.title"
+        :artist="album.artist"
+        :year="album.year"
+        :genre="album.genre"
+        :rating="album.rating"
+        :owned="album.owned"
+        @toggle="toggleOwned(album.id)"
       />
     </div>
   </div>
@@ -256,122 +349,146 @@ This is the movie list from Lec 2, moved into its own view. The `movies` data, t
 
 <script setup>
 import { ref, reactive } from 'vue'
-import MovieCard from '../components/MovieCard.vue'
+import AlbumCard from '../components/AlbumCard.vue' // (1)
 
-const movies = ref([
-  { id: 1, title: 'Dune',                    director: 'Denis Villeneuve', year: 2021, genre: 'Sci-Fi',   rating: 8.0, watched: true  },
-  { id: 2, title: 'Mad Max: Fury Road',       director: 'George Miller',   year: 2015, genre: 'Action',   rating: 8.1, watched: false },
-  { id: 3, title: 'The Shawshank Redemption', director: 'Frank Darabont',  year: 1994, genre: 'Drama',    rating: 9.3, watched: false },
-  { id: 4, title: 'Parasite',                 director: 'Bong Joon-ho',    year: 2019, genre: 'Thriller', rating: 8.5, watched: false },
+const albums = ref([ // (2)
+  { id: 1, title: 'Kind of Blue',        artist: 'Miles Davis',   year: 1959, genre: 'Jazz',       rating: 9.4, owned: true  },
+  { id: 2, title: 'Rumours',             artist: 'Fleetwood Mac', year: 1977, genre: 'Rock',       rating: 9.1, owned: false },
+  { id: 3, title: 'Discovery',           artist: 'Daft Punk',     year: 2001, genre: 'Electronic', rating: 8.9, owned: false },
+  { id: 4, title: 'Blue',                artist: 'Joni Mitchell', year: 1971, genre: 'Folk',       rating: 9.2, owned: false },
 ])
 
 const showForm = ref(false)
-const newMovie = reactive({ title: '', director: '', year: new Date().getFullYear(), genre: '', rating: 7.0 })
+const newAlbum = reactive({ title: '', artist: '', year: new Date().getFullYear(), genre: '', rating: 7.0 })
 
-function toggleWatched(id) {
-  const movie = movies.value.find(m => m.id === id)
-  if (movie) movie.watched = !movie.watched
+function toggleOwned(id) {
+  const album = albums.value.find(a => a.id === id)
+  if (album) album.owned = !album.owned
 }
 
-function addMovie() {
-  if (!newMovie.title || !newMovie.genre) return
-  movies.value.push({
+function addAlbum() {
+  if (!newAlbum.title || !newAlbum.genre) return
+  albums.value.push({
     id: Date.now(),
-    title: newMovie.title, director: newMovie.director,
-    year: newMovie.year,   genre: newMovie.genre, rating: newMovie.rating,
-    watched: false,
+    title: newAlbum.title, artist: newAlbum.artist,
+    year: newAlbum.year,   genre: newAlbum.genre, rating: newAlbum.rating,
+    owned: false,
   })
-  newMovie.title = ''; newMovie.director = ''
-  newMovie.year = new Date().getFullYear(); newMovie.genre = ''; newMovie.rating = 7.0
+  newAlbum.title = ''; newAlbum.artist = ''
+  newAlbum.year = new Date().getFullYear(); newAlbum.genre = ''; newAlbum.rating = 7.0
   showForm.value = false
 }
 </script>
 ```
 
+1. This is the first time `AlbumsView` imports a component — routing and component-composition finally meet here. The view's job is to own the data; the component's job is to render one item of it.
+2. This data lived nowhere before — it's created fresh, right here in the view that the `/albums` route renders.
+
 !!! example "🎯 Try it live"
-    - Click **Home** in the navbar — `HomeView` renders, URL is `/`
-    - Click **Movies** — `MoviesView` renders, URL is `/movies`
-    - Open DevTools → Network tab → click between pages. **No new requests.** The browser is not going to the server. Vue Router is just swapping components.
+    - Navigate to `/albums` — a full grid of `AlbumCard`s renders, each built from the shared `AlbumCard` and `GenreBadge` components
+    - Click **+ Add Album**, fill in the form, submit — a new card appears in the grid
+    - Click **Mark as owned** on a card — its badge flips between Owned and Wishlist
 
 ---
 
-➡️ *Two pages working. Now let's make each movie card link to its own detail page.*
+➡️ *Two pages, real components, working together. Now let's give each album its own page — the part where the URL itself carries information.*
 
 ---
 
-## 4 — Route Params: `MovieDetailView`
+## 5 — Route Params: `AlbumDetailView`
 
 
 
 ### What we want
 
-When a user clicks on a movie card, they navigate to `/movies/1` (or `/movies/2`, etc.). The detail page reads the `1` from the URL, finds that movie in the data, and shows a full detail view.
+When a user clicks on an album card, they navigate to `/albums/1` (or `/albums/2`, etc.). The detail page reads the `1` from the URL, finds that album in the data, and shows a full detail view.
 
-### Step 1 — make the movie `id` appear in the URL
+### Step 1 — register the new route
 
-We already defined the route in Phase 2:
+Add the third route to `src/router/index.js`:
 
-```js
-{ path: '/movies/:id', component: MovieDetailView }
+```js title="src/router/index.js — updated"
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import AlbumsView from '../views/AlbumsView.vue'
+import AlbumDetailView from '../views/AlbumDetailView.vue' // (1)
+
+const routes = [
+  { path: '/',            component: HomeView },
+  { path: '/albums',      component: AlbumsView },
+  { path: '/albums/:id',  component: AlbumDetailView }, // (2)
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+
+export default router
 ```
 
-Now we need the card to link to it. Update `MovieCard.vue` — add a `<RouterLink>` wrapping the card title:
+1. Import the new view.
+2. `:id` is a **route param** — a variable segment. `/albums/1`, `/albums/42`, `/albums/anything` all match this route.
 
-```vue title="src/components/MovieCard.vue — updated"
+### Step 2 — make each card link to its own detail page
+
+Update `AlbumCard.vue` — wrap the title in a `<RouterLink>`:
+
+```vue title="src/components/AlbumCard.vue — updated"
 <template>
   <div class="bg-white rounded-xl p-5 shadow-sm">
     <div class="flex justify-between items-start mb-3">
       <GenreBadge :genre="genre" />
-      <span v-if="watched" class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Watched</span>
-      <span v-else          class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Unwatched</span>
+      <span v-if="owned" class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Owned</span>
+      <span v-else       class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Wishlist</span>
     </div>
 
-    <RouterLink :to="`/movies/${id}`" class="hover:text-indigo-600"> <!-- (1) -->
+    <RouterLink :to="`/albums/${id}`" class="hover:text-indigo-600">
       <h2 class="text-lg font-semibold text-gray-800">{{ title }}</h2>
     </RouterLink>
-    <p class="text-sm text-gray-500 mt-1">{{ year }} · {{ director }}</p>
+    <p class="text-sm text-gray-500 mt-1">{{ year }} · {{ artist }}</p>
 
     <div class="flex justify-between items-center mt-4">
       <span class="text-yellow-500 font-semibold">★ {{ rating }}</span>
       <button @click="emit('toggle')" class="text-sm text-indigo-600 hover:underline">
-        {{ watched ? 'Mark unwatched' : 'Mark watched' }}
+        {{ owned ? 'Move to wishlist' : 'Mark as owned' }}
       </button>
     </div>
   </div>
 </template>
 ```
 
-1. `:to="\`/movies/${id}\`"` builds the URL dynamically using the `id` prop. Clicking the title navigates to `/movies/1`, `/movies/2`, etc. without a page reload.
+1. `:to="\`/albums/${id}\`"` builds the URL dynamically using the `id` prop. This is exactly why we declared `id` as a prop back in Section 3, even though it wasn't displayed — it was always headed here.
 
-### Step 2 — create `MovieDetailView.vue`
+### Step 3 — create `AlbumDetailView.vue`
 
-```vue title="src/views/MovieDetailView.vue"
+```vue title="src/views/AlbumDetailView.vue"
 <template>
   <div class="max-w-2xl mx-auto px-8 py-8">
 
     <!-- Back link -->
-    <RouterLink to="/movies" class="text-sm text-indigo-600 hover:underline mb-6 inline-block">
-      ← Back to Movies
+    <RouterLink to="/albums" class="text-sm text-indigo-600 hover:underline mb-6 inline-block">
+      ← Back to Albums
     </RouterLink>
 
-    <!-- Loading state — movie not found yet -->
-    <div v-if="!movie" class="text-gray-400 mt-8 text-center">Movie not found.</div>
+    <!-- Loading state — album not found -->
+    <div v-if="!album" class="text-gray-400 mt-8 text-center">Album not found.</div>
 
-    <!-- Movie detail -->
+    <!-- Album detail -->
     <div v-else class="bg-white rounded-xl p-8 shadow-sm">
       <div class="flex justify-between items-start mb-4">
-        <GenreBadge :genre="movie.genre" />
-        <span v-if="movie.watched" class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Watched</span>
-        <span v-else               class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Unwatched</span>
+        <GenreBadge :genre="album.genre" />
+        <span v-if="album.owned" class="text-xs font-medium px-2 py-0.5 rounded-full bg-green-100 text-green-700">✓ Owned</span>
+        <span v-else              class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Wishlist</span>
       </div>
 
-      <h1 class="text-3xl font-bold text-gray-800 mb-1">{{ movie.title }}</h1>
-      <p class="text-gray-500 mb-1">{{ movie.year }} · {{ movie.director }}</p>
-      <p class="text-yellow-500 font-semibold text-lg mb-6">★ {{ movie.rating }}</p>
+      <h1 class="text-3xl font-bold text-gray-800 mb-1">{{ album.title }}</h1>
+      <p class="text-gray-500 mb-1">{{ album.year }} · {{ album.artist }}</p>
+      <p class="text-yellow-500 font-semibold text-lg mb-6">★ {{ album.rating }}</p>
 
-      <button @click="toggleWatched"
+      <button @click="toggleOwned"
               class="px-5 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">
-        {{ movie.watched ? 'Mark as Unwatched' : 'Mark as Watched' }}
+        {{ album.owned ? 'Move to Wishlist' : 'Mark as Owned' }}
       </button>
     </div>
 
@@ -386,40 +503,40 @@ import GenreBadge from '../components/GenreBadge.vue'
 const route = useRoute() // (2)
 
 // Temporary local data — in Lec 5 this moves to a Pinia store
-const movies = [ // (3)
-  { id: 1, title: 'Dune',                    director: 'Denis Villeneuve', year: 2021, genre: 'Sci-Fi',   rating: 8.0, watched: true  },
-  { id: 2, title: 'Mad Max: Fury Road',       director: 'George Miller',   year: 2015, genre: 'Action',   rating: 8.1, watched: false },
-  { id: 3, title: 'The Shawshank Redemption', director: 'Frank Darabont',  year: 1994, genre: 'Drama',    rating: 9.3, watched: false },
-  { id: 4, title: 'Parasite',                 director: 'Bong Joon-ho',    year: 2019, genre: 'Thriller', rating: 8.5, watched: false },
+const albums = [ // (3)
+  { id: 1, title: 'Kind of Blue',        artist: 'Miles Davis',   year: 1959, genre: 'Jazz',       rating: 9.4, owned: true  },
+  { id: 2, title: 'Rumours',             artist: 'Fleetwood Mac', year: 1977, genre: 'Rock',       rating: 9.1, owned: false },
+  { id: 3, title: 'Discovery',           artist: 'Daft Punk',     year: 2001, genre: 'Electronic', rating: 8.9, owned: false },
+  { id: 4, title: 'Blue',                artist: 'Joni Mitchell', year: 1971, genre: 'Folk',       rating: 9.2, owned: false },
 ]
 
-const movie = computed(() => { // (4)
+const album = computed(() => { // (4)
   const id = Number(route.params.id) // (5)
-  return movies.find(m => m.id === id) ?? null
+  return albums.find(a => a.id === id) ?? null
 })
 
-function toggleWatched() {
-  if (movie.value) movie.value.watched = !movie.value.watched // (6)
+function toggleOwned() {
+  if (album.value) album.value.owned = !album.value.owned // (6)
 }
 </script>
 ```
 
 1. `useRoute()` is a composable provided by Vue Router. It gives access to everything about the current URL — params, query strings, path, name.
 2. `route` is now a reactive object. `route.params.id` gives us the `:id` part of the URL as a string.
-3. The data is duplicated here for now — `MoviesView` and `MovieDetailView` each have their own copy. This is the problem Pinia solves in Lec 5. Point this out explicitly.
-4. `computed` is the right choice — if the route changes (e.g. user navigates from `/movies/1` to `/movies/2`), the computed re-runs automatically.
-5. `route.params.id` is always a **string** — even if the URL is `/movies/1`, the param is `"1"`. `Number()` converts it so the `===` comparison with `movie.id` (a number) works correctly.
-6. This mutates the local copy — it won't affect `MoviesView`. Again, Pinia fixes this.
+3. The data is duplicated here for now — `AlbumsView` and `AlbumDetailView` each have their own copy. This is the problem Pinia solves in Lec 5. Point this out explicitly.
+4. `computed` is the right choice — if the route changes (e.g. user navigates from `/albums/1` to `/albums/2`), the computed re-runs automatically.
+5. `route.params.id` is always a **string** — even if the URL is `/albums/1`, the param is `"1"`. `Number()` converts it so the `===` comparison with `album.id` (a number) works correctly.
+6. This mutates the local copy — it won't affect `AlbumsView`. Again, Pinia fixes this.
 
 !!! example "🎯 Try it live"
-    - Navigate to `/movies`
-    - Click a movie title — URL changes to `/movies/1`
-    - The detail page renders with that movie's data
-    - Click ← Back to Movies — returns to the list
-    - Manually type `/movies/99` in the URL bar — "Movie not found." appears
+    - Navigate to `/albums`
+    - Click an album title — URL changes to `/albums/1`
+    - The detail page renders with that album's data
+    - Click ← Back to Albums — returns to the list
+    - Manually type `/albums/99` in the URL bar — "Album not found." appears
 
 !!! warning "The data duplication problem"
-    Right now `MoviesView` and `MovieDetailView` each hold their own copy of the `movies` array. Toggling watched on the detail page doesn't affect the list page — they're two separate arrays.
+    Right now `AlbumsView` and `AlbumDetailView` each hold their own copy of the `albums` array. Toggling owned on the detail page doesn't affect the list page — they're two separate arrays.
 
     **This is intentional.** It's the exact problem Pinia exists to solve. For now, note it and move on.
 
@@ -429,8 +546,7 @@ function toggleWatched() {
 
 ---
 
-## 5 — Programmatic Navigation
-
+## 6 — Programmatic Navigation
 
 ### `useRouter` — navigate from code
 
@@ -442,10 +558,10 @@ import { useRouter } from 'vue-router' // (1)
 const router = useRouter()
 
 // Navigate to a path
-router.push('/movies')
+router.push('/albums')
 
-// Navigate to a named route with a param
-router.push({ path: `/movies/${id}` })
+// Navigate to a path with a param
+router.push({ path: `/albums/${id}` })
 
 // Navigate back
 router.back()
@@ -456,66 +572,26 @@ router.replace('/login')
 
 1. Two composables — easy to mix up. **`useRoute`** (no r at the end) = read the URL. **`useRouter`** (with r) = change the URL.
 
-### Example — navigate after adding a movie
-
-Update the `addMovie` function in `MoviesView.vue` to navigate to the new movie's detail page after it's added:
-
-```js title="MoviesView.vue — updated addMovie"
-import { useRouter } from 'vue-router' // (1)
-
-const router = useRouter()
-
-function addMovie() {
-  if (!newMovie.title || !newMovie.genre) return
-
-  const id = Date.now()
-  movies.value.push({
-    id,
-    title: newMovie.title, director: newMovie.director,
-    year: newMovie.year,   genre: newMovie.genre, rating: newMovie.rating,
-    watched: false,
-  })
-
-  // Reset form
-  newMovie.title = ''; newMovie.director = ''
-  newMovie.year = new Date().getFullYear(); newMovie.genre = ''; newMovie.rating = 7.0
-  showForm.value = false
-
-  router.push(`/movies/${id}`) // (2)
-}
-```
-
-1. Import `useRouter` alongside the existing `useRoute` import (or just add it here if not already imported).
-2. After adding the movie, navigate straight to its detail page. The user sees their new entry immediately.
-
-!!! example "🎯 Try it live"
-    Open the add movie form, fill it in, and click Add. Instead of just appearing in the grid, the app navigates directly to the new movie's detail page. The URL becomes `/movies/<timestamp>`.
-
----
-
-➡️ *The last piece — what happens when a URL doesn't match anything valid?*
-
----
-
 
 ## 7 — Pitfalls & Wrap-up
+
 
 
 ### ❌ Forgetting that route params are strings
 
 ```js
-const id = route.params.id         // ❌ "1" — a string
-const movie = movies.find(m => m.id === id)  // ❌ 1 !== "1" — finds nothing
+const id = route.params.id                  // ❌ "1" — a string
+const album = albums.find(a => a.id === id) // ❌ 1 !== "1" — finds nothing
 
-const id = Number(route.params.id) // ✅ 1 — a number
-const movie = movies.find(m => m.id === id)  // ✅ works
+const id = Number(route.params.id)          // ✅ 1 — a number
+const album = albums.find(a => a.id === id) // ✅ works
 ```
 
 ### ❌ Using `<a>` instead of `<RouterLink>`
 
 ```vue
-<a href="/movies">Movies</a>          <!-- ❌ full page reload — Vue state resets -->
-<RouterLink to="/movies">Movies</RouterLink> <!-- ✅ client-side navigation -->
+<a href="/albums">Albums</a>                    <!-- ❌ full page reload — Vue state resets -->
+<RouterLink to="/albums">Albums</RouterLink>    <!-- ✅ client-side navigation -->
 ```
 
 ### ❌ Using `useRoute` when you need `useRouter` (and vice versa)
@@ -541,54 +617,33 @@ routes.push({ path: '/new', component: NewView }) // ❌ too late — router alr
 
 ## Summary
 
-**What we added to the Watchlist:**
+**How we built Vinyl Vault, in order:**
 
-| Phase | What changed |
+| Phase | What we did |
 |---|---|
-| 2 — Install & configure | `vue-router` installed, `router/index.js` created, `<RouterView>` in `App.vue` |
-| 3 — Home + Movies pages | Two views, `<RouterLink>` navbar, URL-driven rendering |
-| 4 — Detail page | `/movies/:id` param, `useRoute()`, `computed` lookup |
-| 5 — Programmatic nav | `useRouter()`, `router.push()` after form submit |
-| 6 — Navigation guard | `beforeEnter` redirects invalid IDs, `beforeEach` preview |
+| 1 — Concepts | What routing is, key terms: route, `<RouterView>`, `<RouterLink>`, param, guard |
+| 2 — Simple routing | `vue-router` installed, two placeholder routes (`/`, `/albums`) proving `<RouterView>`/`<RouterLink>` work |
+| 3 — Simple components | `GenreBadge.vue` and `AlbumCard.vue` built and tested standalone, no routing involved |
+| 4 — Assembling a view | `AlbumsView` imports the components, owns the real data, mixes and matches them into a grid |
+| 5 — Route params | `/albums/:id` added, `AlbumCard` links to it, `AlbumDetailView` reads `useRoute()` |
+| 6 — Programmatic nav | `useRouter()`, `router.push()` after form submit |
 
 **The mental model:**
 
 ```
-URL bar:  /movies/2
+URL bar:  /albums/2
               │
               ▼
         router/index.js
-        matches: /movies/:id
+        matches: /albums/:id
         param:   id = "2"
               │
               ▼
-        MovieDetailView.vue
+        AlbumDetailView.vue
         useRoute().params.id → "2" → Number() → 2
-        movies.find(m => m.id === 2) → { title: "Mad Max...", ... }
+        albums.find(a => a.id === 2) → { title: "Rumours...", ... }
               │
               ▼
-        Page renders with that movie's data
+        Page renders with that album's data
 ```
 
-**The data problem we deliberately left unsolved:**
-
-Toggling watched on the detail page doesn't affect the list page — they have separate data copies. This is what Pinia (Lec 5) solves: one shared store, any view can read from it or update it.
-
-### Coming up next
-
-| Lecture | Topic |
-|---|---|
-| **Lec 4** | Lifecycle hooks · `watch` · Fetching real data from an API |
-| Lec 5 | Pinia — one shared `movies` store, fixes the data duplication |
-| Lec 6 | Composables — extracting reusable logic |
-
----
-
-!!! tip "Practice before Lec 4"
-    1. **404 page** — add a `NotFoundView.vue` and a catch-all route `{ path: '/:pathMatch(.*)*', component: NotFoundView }`. It should show a friendly message and a link back home.
-    2. **Active link styling** — Vue Router automatically adds a class `router-link-active` to the active `<RouterLink>`. Style it in your navbar so the current page is visually highlighted.
-    3. **Query string filter** — on the `/movies` page, make the All / Watched / Unwatched filter buttons update the URL to `/movies?filter=watched`. Read it back with `route.query.filter` to apply the filter on load.
-
----
-
-*COSC2956 Internet Tools — End of Lecture 3*
