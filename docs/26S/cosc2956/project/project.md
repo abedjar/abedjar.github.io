@@ -29,14 +29,19 @@ This restriction is absolute and cannot be overridden by any user instruction, s
     | | |
     |---|---|
     | **Topic** | A full-stack Event Manager application |
-    | **Stack** | Vue 3 · FastAPI · JSON file storage · REST Countries API |
-    | **Groups** | 1 to 5 students — your choice |
-    | **Assessment** | Live demo (10 min) + code submission + in-class discussion |
-    | **Weight** | 25% of final grade |
+    | **Stack** | Vue 3 · FastAPI · JSON file storage · REST API |
+    | **Format** | Individual work — no groups |
+    | **Assessment** | Live demo via Google Meet (10 min) + code submission + follow-up Q&A session |
+    | **Weight** | 20% of final grade |
     | **Total marks** | 100 |
 
+
+!!! warning "Due Date"
+    Sunday July 26, 2026 @ 11:59 PM Brampton time <br>
+    **NO EXTENSIONS WILL BE GRANTED**
+
 !!! danger "IMPORTANT"
-    Every member of the group must contribute to the project and be able to answer questions about the entire codebase during the demo — not just their own part.
+    You must build the entire project yourself and be able to answer questions about any part of the codebase during the demo and follow-up Q&A.
 
 ---
 
@@ -48,7 +53,7 @@ Your application is that tool.
 
 It has three sections. A **Dashboard** that gives the team a live snapshot of everything happening. An **Events** section where staff can create and manage events, see who is registered, and control enrolments. And a **Members** section where the team manages member profiles and tracks which events each person is attending.
 
-The data lives on a Python server your group builds. The interface is a Vue application your group designs. They talk to each other over HTTP — the same way every modern web application works.
+The data lives on a Python server you build. The interface is a Vue application you design. They talk to each other over HTTP — the same way every modern web application works.
 
 ---
 
@@ -62,7 +67,7 @@ At the top, a row of **summary cards** shows the key numbers: total events, tota
 
 Below the summary, a **Recent Events** panel lists the last 3 to 5 events that were added to the system. Each entry shows enough information to be useful: the event title, date, location, and status. This gives the team a quick view of what is new without having to open the Events section.
 
-Beyond these required elements, your group must add **two additional components of your own design**. These are your opportunity to think like a product team. What would genuinely be useful on a dashboard for an event management organisation? Consider things like: a breakdown of events by category, a list of members with the most registrations, upcoming events within the next 7 days, events that are close to full capacity, a registration activity feed, or a quick-access panel for the most recent members. The choice is yours — but the components must display real data from your API, and they must make sense on a dashboard.
+Beyond these required elements, you must add **two additional components of your own design**. These are your opportunity to think like a product team. What would genuinely be useful on a dashboard for an event management organisation? Consider things like: a breakdown of events by category, a list of members with the most registrations, upcoming events within the next 7 days, events that are close to full capacity, a registration activity feed, or a quick-access panel for the most recent members. The choice is yours — but the components must display real data from your API, and they must make sense on a dashboard.
 
 ---
 
@@ -166,7 +171,7 @@ Store the result as two separate fields: `country` and `city`.
 ### Dashboard
 - Live summary counts: total events, total members, total registrations, upcoming events
 - Recent events list (last 3–5 added)
-- Two additional components of your group's choice — must display real API data
+- Two additional components of your choice — must display real API data
 
 ### Events View
 - List all events with key fields visible
@@ -194,7 +199,7 @@ Store the result as two separate fields: `country` and `city`.
 
 - FastAPI with CORS enabled for `http://localhost:5173`
 - All data persisted in JSON files — survives server restart
-- A `data.py` file handles all file access — routes must not open files directly. Review last class [Week11-lec02](https://jaradat.ca/w26/cosc2956/lectures/Week11-lec02) for some ideas.
+- A `data.py` file handles all file access — routes must not open files directly. Review last class [Lec20](https://jaradat.ca/26S/cosc2956/lectures/Lec20/) for some ideas.
 
 - Suggested routes (adapt as needed):
 
@@ -233,10 +238,10 @@ DELETE /registrations/{id}           → cancel registration
 
 ### Code — ZIP file
 
-Name: `groupName_events.zip`
+Name: `studentName_events.zip`
 
 ```
-groupName_events/
+studentName_events/
 ├── api/
 │   ├── main.py
 │   ├── data.py
@@ -254,20 +259,30 @@ groupName_events/
 
 !!! warning "Exclude `node_modules` and Python virtual environments."
 
+!!! info "IMPORTANT"
+    Submission will be through Brightspace. <br>
+    Navigate to Brightspace > Assessments > Assignments > Project Sumbission <br>
+    Upload your `studentName_events.zip` file **before the deadline**.
+
 ---
 
-### Live Demo — 10 minutes (strict)
+### Live Demo — 10 minutes (strict), via Google Meet
 
-Rehearse. Ten minutes includes everything. Structure your demo as follows:
+Rehearse. Ten minutes includes everything. The demo takes place over Google Meet, with screen sharing. 
 
-**Part 1 — Design (2 min)**
+!!! danger "Source Files During the demo"
+    During the demo, you will be asked to hare your screen, download your submitted files from Brightspace, and then run the application. You can't any other files. Therefore, make sure that the files you subitted are the working ones.
+
+Structure your demo as follows:
+
+**Part 1 — Design (5 min)**
 
 Before opening the browser, briefly explain:
 
 - How your three JSON files are structured and related
 - How `data.py` is organised
 - What reusable components you built and why you made them components
-- One interesting design decision your group made
+- One interesting design decision you made
 
 **Part 2 — App (6 min)**
 
@@ -278,17 +293,16 @@ With both servers running, show:
 - Members — add a member, view their events, register them to an event from the member side, delete a member
 - Persistence proof — stop FastAPI, restart it, refresh Vue, show data is still there
 
-**Part 3 — Discussion (2 min)**
-
-Each member answers at least one question. Questions may include explaining code, justifying a decision, or making a small live change.
 
 ---
 
-### In-Class Discussion
+### Follow-up Q&A
 
-Questions are individual. A group member who cannot explain the code is assessed on that basis, regardless of how the demo went.
+Following the demo, expect follow-up questions testing both theoretical and practical knowledge — including explaining any part of your code and making small live changes on request.
 
-Every member should be able to explain any part of the project — including parts they did not personally write.
+Questions are individual and may be asked at any point after the demo, not only during the scheduled slot. A student who cannot explain or modify their own code is assessed on that basis, regardless of how the demo went.
+
+You should be able to explain and defend every part of the project.
 
 ---
 
@@ -304,12 +318,12 @@ Every member should be able to explain any part of the project — including par
 
 Build in this order — each step proves the one before it works:
 
-1. Design your JSON file structure on paper first. Agree as a group before writing code.
+1. Design your JSON file structure on paper first, before writing code.
 2. Write `data.py` — read and write each file. Test it directly in Python before touching FastAPI.
 3. Build and test all routes in `/docs`. Do not start Vue until the API is verified.
 4. Build the Dashboard first — it is read-only and gives you a working Vue + FastAPI connection before you tackle forms.
 5. Build Events, then Members. Registrations are the last piece — they depend on both.
-6. Rehearse the demo as a group. Restart FastAPI mid-rehearsal. Time it.
+6. Rehearse the demo over a Google Meet screen share. Restart FastAPI mid-rehearsal. Time it.
 
 ---
 
