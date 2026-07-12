@@ -112,6 +112,28 @@ def write_notes(notes: list):       # (2)
 
 ---
 
+### `notes.json` — the data file
+
+This file stores all notes persistantly. Even when the server is restarted, the data is still there.
+
+Add a couple of notes to this file:
+
+
+```javascript title="api/notes.json"
+[
+  {
+    "id": 1,
+    "text": "First note"
+  },
+  {
+    "id": 2,
+    "text": "Second note"
+  }
+]
+```
+
+---
+
 ### `main.py` — the routes
 
 ```python title="api/main.py"
