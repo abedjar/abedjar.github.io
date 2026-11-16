@@ -15,7 +15,7 @@ search:
     | **Stack** | Vue 3 · FastAPI · JSON file storage · TheMealDB API |
     | **Groups** | 1 to 5 students — your choice |
     | **Assessment** | Live demo (10 min) + code submission + in-class discussion |
-    | **Weight** | 25% of final grade |
+    | **Weight** | 20% of final grade |
     | **Total marks** | 100 |
 
 !!! danger "IMPORTANT"
@@ -42,10 +42,10 @@ This project is built around one relationship:
 - A **recipe** can appear in **many plans**.
 - A **plan** contains **many recipes**.
 
-Neither side owns the other, so the link between them lives in its own file: **plan entries**. This is the same pattern you used for registrations in the Event Manager, with one important difference.
+Neither side owns the other, so the link between them lives in its own file: **plan entries**. 
 
 !!! warning "Entries are not just links"
-    A registration simply says "this member is registered for this event", and a member registers for an event once. A plan entry says **which recipe, in which plan, on which day, for which meal, for how many servings**. The same recipe can appear in the same plan several times — Monday lunch *and* Thursday dinner. Because each entry carries its own data, it can also be **edited** (moved to another day or slot), not only added and removed.
+     A plan entry says **which recipe, in which plan, on which day, for which meal, for how many servings**. The same recipe can appear in the same plan several times — Monday lunch *and* Thursday dinner. Because each entry carries its own data, it can also be **edited** (moved to another day or slot), not only added and removed.
 
     Be ready to explain this difference during the discussion.
 
@@ -71,7 +71,7 @@ The Recipes view is where the library is built and maintained.
 
 The view opens with the **full list of recipes**. Each recipe shows its key details — title, category, area, preparation time, calories, and how many plans use it. The list should be easy to scan.
 
-From this view, a user can **add a new recipe** using a form. The form collects all recipe fields, including a list of ingredients (name and measure) that the user can add to and remove from. Category is not a free-text field — the user picks it from a **dropdown populated from TheMealDB**. The form also offers an **Import from TheMealDB** helper: the user picks a category, a second dropdown loads the meals in that category, and selecting a meal **pre-fills the form** with its details. The user can review and change anything before saving. This is the expected workflow: select category → meal list loads → select meal → form pre-fills.
+From this view, a user can **add a new recipe** using a form. The form collects all recipe fields, including a list of ingredients (name and measure) that the user can add to and remove from. Category is not a free-text field — the user picks it from a **dropdown populated from** [TheMealDB](https://www.themealdb.com/api.php). The form also offers an **Import from TheMealDB** helper: the user picks a category, a second dropdown loads the meals in that category, and selecting a meal **pre-fills the form** with its details. The user can review and change anything before saving. This is the expected workflow: select category → meal list loads → select meal → form pre-fills.
 
 Each recipe can be **edited** — the user can update any of its fields and save the changes. Each recipe can also be **deleted** — when a recipe is deleted, every plan entry that uses it is removed with it.
 
@@ -151,6 +151,9 @@ One plan has many entries. One recipe can appear in many entries. A recipe may a
 ## External API — Recipe Import
 
 Recipe import uses three chained calls to [TheMealDB](https://www.themealdb.com/api.php). It is free, and the examples below use the public test key `1` in the URL.
+
+!!! danger "IMPORTANT"
+    Public APIs might change at anytime. Please refer to the public API documentation for recent API calls.
 
 **Step 1 — Category**
 ```
@@ -293,7 +296,7 @@ groupName_mealplanner/
 
 Rehearse. Ten minutes includes everything. Structure your demo as follows:
 
-**Part 1 — Design (2 min)**
+**Part 1 — Design (4 min)**
 
 Before opening the browser, briefly explain:
 
@@ -312,9 +315,9 @@ With both servers running, show:
 - Plans — create a plan, fill part of the weekly grid, edit an entry (move it to another day or slot), try to add a duplicate (show it is rejected), delete a plan
 - Persistence proof — stop FastAPI, restart it, refresh Vue, show data is still there
 
-**Part 3 — Discussion (2 min)**
+**Part 3 — Discussion (open)**
 
-Each member answers at least one question. Questions may include explaining code, justifying a decision, or making a small live change.
+Each member answers at least one question. Questions may include explaining code, justifying a decision, or making a **live change**.
 
 ---
 
@@ -361,11 +364,3 @@ Build in this order — each step proves the one before it works:
 6. Build Recipes, then Plans. Entries are the last piece — they depend on both.
 7. Rehearse the demo as a group. Restart FastAPI mid-rehearsal. Time it.
 
-!!! tip "Going further (optional, not required for full marks)"
-    - A **shopping list** for a plan: every ingredient from its entries, grouped by name
-    - **Calorie totals** per day and per plan on the weekly grid
-    - A **search and filter** bar on the recipes list
-
----
-
-*COSC2956 Internet Tools — Final Project*
