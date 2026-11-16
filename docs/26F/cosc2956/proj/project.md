@@ -15,7 +15,7 @@ search:
     | **Stack** | Vue 3 · FastAPI · JSON file storage · TheMealDB API |
     | **Groups** | 1 to 5 students — your choice |
     | **Assessment** | Live demo (10 min) + code submission + in-class discussion |
-    | **Weight** | 20% of final grade |
+    | **Weight** | 25% of final grade |
     | **Total marks** | 100 |
 
 !!! danger "IMPORTANT"
