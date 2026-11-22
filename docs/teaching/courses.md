@@ -8,18 +8,45 @@ Over the course of my academic career, I have taught and supported undergraduate
 ## Algoma University
  **Assistant Professor of Computer Science**
 
-### Current Courses — Winter 2026
-#### Undergraduate Computer Science courses  
+#### Undergraduate Computer Science Courses
 
 **COSC 2006 — Data Structures I**
 
-An introduction to fundamental data structures and their associated algorithms. Topics include pointers and dynamic memory management, stacks, queues, and linked lists. The course also covers searching and sorting algorithms, along with analysis of time and space complexity.
+An introduction to fundamental data structures and their associated algorithms. Topics include pointers and dynamic memory management, stacks, queues, and linked lists. The course also covers searching and sorting algorithms, along with the analysis of time and space complexity.
 
+**Teaching Terms:** Winter 2026, Fall 2026
 
+---
 
-**COSC 2956 — Internet Tools**   
+**COSC 2007 — Data Structures II**
+
+An introduction to advanced data structures and algorithmic techniques. Topics include trees, heaps, hash tables, balanced search trees, and graph data structures. The course explores fundamental operations, implementation strategies, and algorithm analysis, emphasizing the selection and application of appropriate data structures to solve computational problems.
+
+**Teaching Terms:** Fall 2026
+
+---
+
+**COSC 2956 — Internet Tools**
+
 An introduction to modern internet tools and services used in software development. Topics include advanced editors, Java, JavaScript, web browsers, FTP, and the creation and maintenance of web pages and websites. The course emphasizes the integration of these tools within a programming environment.
- 
+
+**Teaching Terms:** Winter 2026, Summer 2026, Fall 2026, Winter 2027
+
+---
+
+**COSC 3506 — Software Engineering**
+
+An introduction to the principles, methods, and practices of software engineering. Topics include software development life cycles, requirements analysis, software design, implementation, testing, and maintenance. The course emphasizes software development methodologies, project management, collaboration, and the application of engineering practices to the development of reliable and maintainable software systems.
+
+**Teaching Terms:** Winter 2027
+
+---
+
+**COSC 4436 — Computer Networks**
+
+An introduction to the fundamental concepts and technologies underlying computer networks and network communication. Topics include network architectures, communication protocols, the TCP/IP model, data transmission, routing, congestion control, and network applications. The course explores how computer networks operate and the principles governing reliable and efficient communication between networked systems.
+
+**Teaching Terms:** Winter 2027
 ---
 
 ## Western University  
